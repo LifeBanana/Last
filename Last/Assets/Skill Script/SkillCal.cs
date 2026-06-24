@@ -19,23 +19,19 @@ public static class SkillCal
                         break;
 
                     case SkillEffect.ReloadSpeed:
-                        weapon.reloadTime *=
-                            1f - (mod.amount / 100f);
+                        weapon.reloadTime *=    1f - (mod.amount / 100f);
                         break;
 
                     case SkillEffect.FireRate:
-                        weapon.fireRate *=
-                            1f + (mod.amount / 100f);
+                        weapon.fireRate *=    1f + (mod.amount / 100f);
                         break;
 
                     case SkillEffect.Recoil:
-                        weapon.recoil *=
-                            1f - (mod.amount / 100f);
+                        weapon.recoil *=   1f - (mod.amount / 100f);
                         break;
 
                     case SkillEffect.SprintSpeed:
-                        player.sprintSpeed *=
-                            1f + (mod.amount / 100f);
+                        player.sprintSpeed *= 1f + (mod.amount / 100f);
                         break;
                 }
             }

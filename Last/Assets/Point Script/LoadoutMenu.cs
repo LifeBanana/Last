@@ -57,26 +57,19 @@ public class LoadoutMenu : MonoBehaviour
 
     void Refresh()
     {
-        int cost =
-            Calculator.CalculateCost(loadout.stats);
+        int cost =  Calculator.CalculateCost(loadout.stats);
 
-        int remaining =
-            PlayerLoadout.MAX_POINTS - cost;
+        int remaining =  PlayerLoadout.MAX_POINTS - cost;
 
-        pointsText.text =
-            $"Points Remaining: {remaining}";
+        pointsText.text =   $"Points Remaining: {remaining}";
 
-        string generatedClass =
-            ClassGenerator.GetClass(loadout.stats);
+        string generatedClass =   ClassGenerator.GetClass(loadout.stats);
 
-        classText.text =
-            $"Class: {generatedClass}";
+        classText.text =  $"Class: {generatedClass}";
 
-        weaponText.text =
-            $"Weapon: {DetermineWeapon()}";
+        weaponText.text =  $"Weapon: {DetermineWeapon()}";
 
-        confirmButton.interactable =
-            remaining >= 0;
+        confirmButton.interactable = remaining >= 0;
 
         SummaryText.text = GenerateSummary();
     }
