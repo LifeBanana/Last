@@ -7,6 +7,13 @@ public class PlayerTree : MonoBehaviour
 
     public List<SkillData> unlockedSkills = new List<SkillData>();
 
+    public SkillData[] allSkills;
+
+    void Start()
+    {
+        LoadSkills();
+    }
+
     public bool UnlockSkill(SkillData skill)
     {
         if (unlockedSkills.Contains(skill))
@@ -24,7 +31,45 @@ public class PlayerTree : MonoBehaviour
         availablePoints -= skill.pointCost;
 
         unlockedSkills.Add(skill);
+        SaveSkills();
 
         return true;
+    }
+
+    public void SaveSkills()
+    {
+        SaveData save = SaveManager.Instance.Data;
+
+        save.skillPoints = availablePoints;
+
+        save.unlockedSkills.Clear();
+
+        foreach (var skill in unlockedSkills)
+        {
+            save.unlockedSkills.Add(skill.skillID);
+        }
+
+        SaveManager.Instance.SaveGame();
+    }
+
+    public void LoadSkills()
+    {
+        SaveData save = SaveManager.Instance.Data;
+
+        availablePoints = save.skillPoints;
+
+        unlockedSkills.Clear();
+
+        foreach (string id in save.unlockedSkills)
+        {
+            foreach (var skill in allSkills)
+            {
+                if (skill.skillID == id)
+                {
+                    unlockedSkills.Add(skill);
+                    break;
+                }
+            }
+        }
     }
 }

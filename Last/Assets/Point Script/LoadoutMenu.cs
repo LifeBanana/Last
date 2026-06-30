@@ -77,6 +77,7 @@ public class LoadoutMenu : MonoBehaviour
     void ConfirmBuild()
     {
         loadout.BuildLoadout();
+        loadout.SaveLoadout();
     }
 
     string DetermineWeapon()

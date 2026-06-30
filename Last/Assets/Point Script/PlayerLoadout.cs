@@ -20,6 +20,7 @@ public class PlayerLoadout : MonoBehaviour
     private void Start()
     {
         BuildLoadout();
+        LoadLoadout();
     }
 
     public bool IsValidBuild()
@@ -45,5 +46,47 @@ public class PlayerLoadout : MonoBehaviour
         className = ClassGenerator.GetClass(stats);
 
         Debug.Log("Generated Class: " + className);
+    }
+
+    public void SaveLoadout()
+    {
+        var save = SaveManager.Instance.Data;
+
+        save.damage = stats.damage;
+        save.recoil = stats.recoil;
+        save.reload = stats.reloadTime;
+        save.damageFalloff = stats.damageFalloff;
+        save.fireRate = stats.rateOfFire;
+        save.spread = stats.spread;
+        save.ads = stats.adsTime;
+        save.sprintFire = stats.sprintToFire;
+
+        save.health = stats.health;
+        save.shields = stats.shields;
+        save.walkSpeed = stats.walkSpeed;
+        save.sprintSpeed = stats.sprintSpeed;
+
+        SaveManager.Instance.SaveGame();
+    }
+
+    public void LoadLoadout()
+    {
+        var save = SaveManager.Instance.Data;
+
+        stats.damage = save.damage;
+        stats.recoil = save.recoil;
+        stats.reloadTime = save.reload;
+        stats.damageFalloff = save.damageFalloff;
+        stats.rateOfFire = save.fireRate;
+        stats.spread = save.spread;
+        stats.adsTime = save.ads;
+        stats.sprintToFire = save.sprintFire;
+
+        stats.health = save.health;
+        stats.shields = save.shields;
+        stats.walkSpeed = save.walkSpeed;
+        stats.sprintSpeed = save.sprintSpeed;
+
+        BuildLoadout();
     }
 }
