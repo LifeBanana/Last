@@ -44,6 +44,7 @@ public class PlayerLoadout : MonoBehaviour
         movement.ApplyProfile(character);
 
         className = ClassGenerator.GetClass(stats);
+        Previewmanager.Instance.ShowWeapon(className);
 
         Debug.Log("Generated Class: " + className);
     }

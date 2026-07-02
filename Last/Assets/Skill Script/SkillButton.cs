@@ -22,7 +22,7 @@ public class SkillButton : MonoBehaviour
         button.onClick.AddListener(BuySkill);
     }
 
-    void BuySkill()
+    public void BuySkill()
     {
         tree.UnlockSkill(skill);
     }
