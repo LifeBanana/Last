@@ -4,4 +4,10 @@ using UnityEngine;
 public class Attachment : ScriptableObject
 {
     public string attachmentName;
+
+    public AttachmentType attachmentType;
+
+    public GameObject prefab;
+
+    public StatModifier[] modifiers;
 }

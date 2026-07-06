@@ -35,6 +35,15 @@ public class Previewmanager : MonoBehaviour
             }
         }
 
+        Attachmentmanager manager = currentWeapon.GetComponent<Attachmentmanager>();
+
+        foreach (string id in SaveManager.Instance.Data.equippedAttachments)
+        {
+            Attachment attachment = DataBase.Instance.GetAttachment(id);
+
+            manager.EquipAttachment(attachment);
+        }
+
         Debug.LogWarning("No preview weapon found for class: " + className);
     }
 }

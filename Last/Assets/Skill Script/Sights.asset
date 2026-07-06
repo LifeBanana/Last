@@ -13,3 +13,8 @@ MonoBehaviour:
   m_Name: Sights
   m_EditorClassIdentifier: 
   attachmentName: Sights
+  attachmentType: 0
+  prefab: {fileID: 4841195822896017725, guid: fb5d5bd1c15e3ea4db22a966bd4faed5, type: 3}
+  modifiers:
+  - effectType: 7
+    amount: -1
