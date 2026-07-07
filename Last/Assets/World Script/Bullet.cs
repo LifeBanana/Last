@@ -14,15 +14,53 @@ public class Bullet : MonoBehaviour
     void Update()
     {
         transform.position +=   transform.forward *  speed *   Time.deltaTime;
+
+        Debug.DrawRay(transform.position, transform.forward * 2f, Color.red);
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("Hit: " + collision.gameObject.name);
+
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            EnemyHealth enemy = collision.gameObject.GetComponent<EnemyHealth>();
+
+            if (enemy != null)
+            {
+                enemy.TakeDamage(damage);
+            }
+        }
+
+        if (collision.gameObject.CompareTag("Dummy"))
+        {
+            Dummy dummy = collision.gameObject.GetComponent<Dummy>();
+
+            if (dummy != null)
+            {
+                dummy.TakeDamage(damage);
+            }
+        }
+
+        Destroy(gameObject);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Health health = other.GetComponent<Health>();
+        Debug.Log("Hit: " + other.gameObject.name);
 
-        if (health != null)
+        EnemyHealth enemy = other.GetComponent<EnemyHealth>();
+
+        if (enemy != null)
         {
-            health.TakeDamage(damage);
+            enemy.TakeDamage(damage);
+        }
+
+        Dummy dummy = other.GetComponent<Dummy>();
+
+        if (dummy != null)
+        {
+            dummy.TakeDamage(damage);
         }
 
         Destroy(gameObject);
