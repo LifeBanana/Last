@@ -244,7 +244,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8398281351956063182, guid: b37adb9b2ad657c4396fc5cee64a20c2, type: 3}
       propertyPath: statName
-      value: Damage Fall Off
+      value: DamageFalloff
       objectReference: {fileID: 0}
     - target: {fileID: 8398281351956063182, guid: b37adb9b2ad657c4396fc5cee64a20c2, type: 3}
       propertyPath: valueText
@@ -919,7 +919,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8398281351956063182, guid: b37adb9b2ad657c4396fc5cee64a20c2, type: 3}
       propertyPath: statName
-      value: Walk Speed
+      value: WalkSpeed
       objectReference: {fileID: 0}
     - target: {fileID: 8398281351956063182, guid: b37adb9b2ad657c4396fc5cee64a20c2, type: 3}
       propertyPath: valueText
@@ -1362,7 +1362,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8398281351956063182, guid: b37adb9b2ad657c4396fc5cee64a20c2, type: 3}
       propertyPath: statName
-      value: Shield
+      value: Shields
       objectReference: {fileID: 0}
     - target: {fileID: 8398281351956063182, guid: b37adb9b2ad657c4396fc5cee64a20c2, type: 3}
       propertyPath: valueText
@@ -2347,7 +2347,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8398281351956063182, guid: b37adb9b2ad657c4396fc5cee64a20c2, type: 3}
       propertyPath: statName
-      value: Rate Of Fire
+      value: RateOfFire
       objectReference: {fileID: 0}
     - target: {fileID: 8398281351956063182, guid: b37adb9b2ad657c4396fc5cee64a20c2, type: 3}
       propertyPath: valueText
@@ -2797,7 +2797,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8398281351956063182, guid: b37adb9b2ad657c4396fc5cee64a20c2, type: 3}
       propertyPath: statName
-      value: Aim Down Sights
+      value: ADS
       objectReference: {fileID: 0}
     - target: {fileID: 8398281351956063182, guid: b37adb9b2ad657c4396fc5cee64a20c2, type: 3}
       propertyPath: valueText
@@ -2983,7 +2983,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8398281351956063182, guid: b37adb9b2ad657c4396fc5cee64a20c2, type: 3}
       propertyPath: statName
-      value: Sprint Fire
+      value: SprintFire
       objectReference: {fileID: 0}
     - target: {fileID: 8398281351956063182, guid: b37adb9b2ad657c4396fc5cee64a20c2, type: 3}
       propertyPath: valueText
@@ -3737,7 +3737,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8398281351956063182, guid: b37adb9b2ad657c4396fc5cee64a20c2, type: 3}
       propertyPath: statName
-      value: Sprint Speed
+      value: SprintSpeed
       objectReference: {fileID: 0}
     - target: {fileID: 8398281351956063182, guid: b37adb9b2ad657c4396fc5cee64a20c2, type: 3}
       propertyPath: valueText

@@ -4,29 +4,22 @@ public static class ClassGenerator
 {
     public static string GetClass(Stats stats)
     {
-        float assaultScore =   stats.damage +  stats.rateOfFire +  stats.recoil;
+        float assault = stats.damage * 2f + stats.rateOfFire * 2f + stats.recoil + stats.reloadTime + stats.adsTime;
 
-        float heavyScore =  stats.health +    stats.shields;
+        float heavy = stats.health * 2f + stats.shields * 2f + stats.damageFalloff + stats.recoil;
 
-        float reconScore =  stats.adsTime +    stats.spread +   stats.sprintSpeed;
+        float recon = stats.damageFalloff * 2f +  stats.adsTime * 2f + stats.spread + stats.walkSpeed + stats.sprintSpeed;
 
-        float supportScore =   stats.reloadTime +   stats.walkSpeed;
+        float support = stats.reloadTime * 2f +stats.rateOfFire + stats.walkSpeed + stats.health + stats.shields;
 
-        float engineerScore =    stats.walkSpeed +   stats.sprintSpeed +  stats.recoil;
+        float engineer = stats.walkSpeed * 2f + stats.sprintSpeed * 2f + stats.reloadTime + stats.recoil + stats.sprintToFire;
 
-        float highest =  Mathf.Max(    assaultScore,   heavyScore,  reconScore,  supportScore,    engineerScore);
+        float highest = Mathf.Max( assault, heavy, recon, support,  engineer);
 
-        if (highest == heavyScore)
-            return "Heavy";
-
-        if (highest == reconScore)
-            return "Recon";
-
-        if (highest == supportScore)
-            return "Support";
-
-        if (highest == engineerScore)
-            return "Engineer";
+        if (highest == heavy) return "Heavy";
+        if (highest == recon) return "Recon";
+        if (highest == support) return "Support";
+        if (highest == engineer) return "Engineer";
 
         return "Assault";
     }

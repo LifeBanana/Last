@@ -11,5 +11,6 @@ public class Gun : MonoBehaviour
         damage = profile.damage;
         fireRate = profile.fireRate;
         spread = profile.spread;
+
     }
 }

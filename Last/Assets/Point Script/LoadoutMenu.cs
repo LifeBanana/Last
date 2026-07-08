@@ -39,12 +39,40 @@ public class LoadoutMenu : MonoBehaviour
                 loadout.stats.recoil = value;
                 break;
 
-            case "Health":
-                loadout.stats.health = value;
+            case "Reload":
+                loadout.stats.reloadTime = value;
+                break;
+
+            case "DamageFalloff":
+                loadout.stats.damageFalloff = value;
                 break;
 
             case "RateOfFire":
                 loadout.stats.rateOfFire = value;
+                break;
+
+            case "Spread":
+                loadout.stats.spread = value;
+                break;
+
+            case "ADS":
+                loadout.stats.adsTime = value;
+                break;
+
+            case "SprintFire":
+                loadout.stats.sprintToFire = value;
+                break;
+
+            case "Health":
+                loadout.stats.health = value;
+                break;
+
+            case "Shields":
+                loadout.stats.shields = value;
+                break;
+
+            case "WalkSpeed":
+                loadout.stats.walkSpeed = value;
                 break;
 
             case "SprintSpeed":
@@ -82,19 +110,25 @@ public class LoadoutMenu : MonoBehaviour
 
     string DetermineWeapon()
     {
-        var s = loadout.stats;
+        Stats s = loadout.stats;
 
-        if (s.damage > 7 && s.rateOfFire < 0)
+        if (s.damage >= 7 && s.damageFalloff >= 5)
             return "Battle Rifle";
 
-        if (s.rateOfFire > 7 && s.damage < 0)
+        if (s.rateOfFire >= 7 && s.walkSpeed >= 4)
             return "SMG";
 
-        if (s.health > 7)
+        if (s.health >= 6 && s.shields >= 6)
             return "LMG";
 
-        if (s.spread > 7)
+        if (s.spread >= 7 && s.reloadTime >= 5)
             return "Shotgun";
+
+        if (s.damageFalloff >= 8 &&  s.adsTime >= 6)
+            return "DMR";
+
+        if (s.damageFalloff >= 9 && s.adsTime >= 8)
+            return "Sniper Rifle";
 
         return "Assault Rifle";
     }
@@ -128,6 +162,39 @@ public class LoadoutMenu : MonoBehaviour
 
         if (s.recoil < 0)
             summary += "Harder to control weapon.\n";
+
+        if (s.reloadTime > 5)
+            summary += "Fast reload speed.\n";
+
+        if (s.spread > 5)
+            summary += "Excellent hip-fire accuracy.\n";
+
+        if (s.shields > 5)
+            summary += "High shield capacity.\n";
+
+        if (s.walkSpeed > 5)
+            summary += "Fast tactical movement.\n";
+
+        if (s.sprintToFire > 5)
+            summary += "Very quick sprint-out time.\n";
+
+        if (s.reloadTime < 0)
+            summary += "Slow reload speed.\n";
+
+        if (s.damageFalloff < 0)
+            summary += "Reduced effective range.\n";
+
+        if (s.adsTime < 0)
+            summary += "Slower aiming speed.\n";
+
+        if (s.shields < 0)
+            summary += "Lower shield capacity.\n";
+
+        if (s.walkSpeed < 0)
+            summary += "Reduced movement speed.\n";
+
+        if (s.sprintToFire < 0)
+            summary += "Slower sprint-to-fire transition.\n";
 
         return summary;
     }
