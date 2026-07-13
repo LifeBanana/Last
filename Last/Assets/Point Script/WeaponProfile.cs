@@ -12,3 +12,9 @@ public class WeaponProfile
     public float adsTime;
     public float sprintToFire;
 }
+
+public enum WeaponSlot
+{
+    Primary,
+    Secondary
+}

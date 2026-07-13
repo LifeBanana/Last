@@ -7,9 +7,13 @@ public class Previewmanager : MonoBehaviour
     [Header("Weapon Database")]
     public WeaponPreview[] weapons;
 
-    public Transform spawnPoint;
+    public Transform primarySpawn;
 
-    private GameObject currentWeapon;
+    public Transform secondarySpawn;
+
+    private GameObject currentPrimary;
+
+    private GameObject currentSecondary;
 
     void Awake()
     {
@@ -18,33 +22,55 @@ public class Previewmanager : MonoBehaviour
 
     public void ShowWeapon(string className)
     {
-        if (currentWeapon != null)
-            Destroy(currentWeapon);
+        if (currentPrimary != null)
+            Destroy(currentPrimary);
 
+        if (currentSecondary != null)
+            Destroy(currentSecondary);
 
-        foreach (WeaponPreview weapon in weapons)
+        foreach (var weapon in weapons)
         {
-            if (weapon.weaponID == className)
-            {
-                currentWeapon = Instantiate(weapon.prefab, spawnPoint);
+            if (weapon.weaponID != className)
+                continue;
 
-                currentWeapon.transform.localPosition = Vector3.zero;
-                currentWeapon.transform.localRotation = Quaternion.identity;
+            currentPrimary =
+                Instantiate(
+                    weapon.primaryWeaponPrefab,
+                    primarySpawn);
 
-                return;
-            }
+            currentPrimary.transform.localPosition = Vector3.zero;
+            currentPrimary.transform.localRotation = Quaternion.identity;
+
+            currentSecondary = Instantiate(weapon.secondaryWeaponPrefab, secondarySpawn);
+
+            currentSecondary.transform.localPosition = Vector3.zero;
+            currentSecondary.transform.localRotation = Quaternion.identity;
+
+            ApplyAttachments(currentPrimary, true);
+
+            ApplyAttachments(currentSecondary, false);
+
+            return;
         }
 
-        Attachmentmanager manager = currentWeapon.GetComponent<Attachmentmanager>();
+        Debug.LogWarning("No preview found for " + className);
+    }
 
-        foreach (string id in SaveManager.Instance.Data.equippedAttachments)
+    void ApplyAttachments(GameObject weapon, bool primary)
+    {
+        Attachmentmanager manager = weapon.GetComponent<Attachmentmanager>();
+
+        if (manager == null)
+            return;
+
+        var attachments = primary ? SaveManager.Instance.Data.equippedAttachments : SaveManager.Instance.Data.secondAttachments;
+
+        foreach (string id in attachments)
         {
             Attachment attachment = DataBase.Instance.GetAttachment(id);
 
             manager.EquipAttachment(attachment);
         }
-
-        Debug.LogWarning("No preview weapon found for class: " + className);
     }
 }
 

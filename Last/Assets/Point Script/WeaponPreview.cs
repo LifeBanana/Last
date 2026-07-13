@@ -5,6 +5,12 @@ public class WeaponPreview
 {
     public string weaponID;
 
-    public GameObject prefab;
+    public WeaponSlot slot;
+
+    [Header("Primary")]
+    public GameObject primaryWeaponPrefab;
+
+    [Header("Secondary")]
+    public GameObject secondaryWeaponPrefab;
 }
 

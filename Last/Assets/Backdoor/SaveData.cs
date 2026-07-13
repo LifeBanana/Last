@@ -25,6 +25,7 @@ public class SaveData
     public List<string> unlockedSkills = new List<string>();
 
     public List<string> equippedAttachments = new List<string>();
+    public List<string> secondAttachments = new List<string>();
 
     public int playerLevel;
 
