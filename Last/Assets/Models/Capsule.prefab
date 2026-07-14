@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 3144982607470722772}
   - component: {fileID: 8224146568537740204}
   - component: {fileID: 873670287423135094}
+  - component: {fileID: 3262118157546920154}
+  - component: {fileID: -4971493902865398746}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -110,3 +112,31 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3262118157546920154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4841195822896017725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0449b56f8a04ee449af1739670e8430b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 30
+  rotationSpeed: 200
+--- !u!114 &-4971493902865398746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4841195822896017725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a10e8c2869174d4db7eb6ed24ab5dfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bobHeight: 0.03
+  bobSpeed: 2
