@@ -2,14 +2,12 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    [Header("References")]
     public Camera playerCamera;
 
     public Transform firePoint;
 
     public GameObject bulletPrefab;
 
-    [Header("Ammo")]
     public int magSize = 30;
     public int ammo;
 
@@ -17,24 +15,22 @@ public class Weapon : MonoBehaviour
 
     bool reloading;
 
-    [Header("Fire")]
     public float fireRate = 10f;
     public float sprintToFireDelay = 0.2f;
 
     float nextFireTime;
 
-    [Header("Spread")]
     public float spread = 1f;
 
-    [Header("Recoil")]
     public float recoilAmount = 2f;
 
-    [Header("ADS")]
     public float normalFOV = 75f;
     public float adsFOV = 55f;
     public float adsSpeed = 10f;
 
     bool aiming;
+
+    public bool isPrimary;
 
     void Start()
     {

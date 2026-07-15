@@ -35,4 +35,8 @@ public class SaveData
     public string className;
 
     public string weaponName;
+
+    public string primaryWeaponID;
+
+    public string secondaryWeaponID;
 }
