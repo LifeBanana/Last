@@ -19,10 +19,18 @@ public class Hotkeys : MonoBehaviour
             inputManager.EnableGameplay(false);
         }
 
+
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            Scenemanager.Instance.OpenOverlay("Combine");
+            inputManager.EnableGameplay(false);
+        }
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Scenemanager.Instance.CloseOverlay("Point");
             Scenemanager.Instance.CloseOverlay("Skill");
+            Scenemanager.Instance.CloseOverlay("Combine");
 
             inputManager.EnableGameplay(true);
         }
