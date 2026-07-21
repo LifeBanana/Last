@@ -20,6 +20,16 @@ public class Previewmanager : MonoBehaviour
         Instance = this;
     }
 
+    void Start()
+    {
+        CurrentWeapons();
+    }
+
+    public void CurrentWeapons()
+    {
+        SpawnPrimary(SaveManager.Instance.Data.primaryWeaponID);
+    }
+
     public void ShowWeapon(string className)
     {
         if (currentPrimary != null)
@@ -28,15 +38,22 @@ public class Previewmanager : MonoBehaviour
         if (currentSecondary != null)
             Destroy(currentSecondary);
 
+        if (string.IsNullOrWhiteSpace(className))
+        {
+            className = "Assault";
+            Debug.Log("No class selected. Defaulting to Assault.");
+        }
+
         foreach (var weapon in weapons)
         {
+            Debug.Log("Checking " + weapon.weaponID);
+
             if (weapon.weaponID != className)
                 continue;
 
-            currentPrimary =
-                Instantiate(
-                    weapon.primaryWeaponPrefab,
-                    primarySpawn);
+            Debug.Log("Found!");
+
+            currentPrimary = Instantiate(  weapon.primaryWeaponPrefab,  primarySpawn);
 
             currentPrimary.transform.localPosition = Vector3.zero;
             currentPrimary.transform.localRotation = Quaternion.identity;
@@ -50,10 +67,17 @@ public class Previewmanager : MonoBehaviour
 
             ApplyAttachments(currentSecondary, false);
 
+            Inventory.Instance.BuildInventory();
+
             return;
         }
 
         Debug.LogWarning("No preview found for " + className);
+
+        if (className != "Assault")
+        {
+            ShowWeapon("Assault");
+        }
     }
 
     void ApplyAttachments(GameObject weapon, bool primary)
@@ -69,8 +93,49 @@ public class Previewmanager : MonoBehaviour
         {
             Attachment attachment = DataBase.Instance.GetAttachment(id);
 
+            if (attachment == null)
+            {
+                Debug.LogWarning("Attachment not found: " + id);
+                continue;
+            }
+
             manager.EquipAttachment(attachment);
         }
+    }
+
+    public GameObject CurrentPrimary
+    {
+        get { return currentPrimary; }
+    }
+
+    public GameObject CurrentSecondary
+    {
+        get { return currentSecondary; }
+    }
+
+    public void SpawnPrimary(string weaponID)
+    {
+        if (currentPrimary != null)
+            Destroy(currentPrimary);
+
+        Inventory.Instance.BuildInventory();
+
+        foreach (WeaponPreview weapon in weapons)
+        {
+            if (weapon.weaponID != weaponID)
+                continue;
+
+            currentPrimary = Instantiate( weapon.primaryWeaponPrefab, primarySpawn);
+
+            currentPrimary.transform.localPosition = Vector3.zero;
+            currentPrimary.transform.localRotation = Quaternion.identity;
+
+            ApplyAttachments(currentPrimary, true);
+
+            return;
+        }
+
+        Debug.LogWarning("Primary weapon not found: " + weaponID);
     }
 }
 
