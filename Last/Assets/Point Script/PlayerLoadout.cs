@@ -68,6 +68,12 @@ public class PlayerLoadout : MonoBehaviour
         save.walkSpeed = stats.walkSpeed;
         save.sprintSpeed = stats.sprintSpeed;
 
+        save.className = className;
+
+        save.primaryWeaponID = className;
+
+        save.secondaryWeaponID = secondweapon.GetSecondary(className);
+
         SaveManager.Instance.SaveGame();
     }
 

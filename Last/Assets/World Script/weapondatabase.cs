@@ -13,8 +13,12 @@ public class WeaponDatabase : MonoBehaviour
 
     public GameObject GetWeapon(string id)
     {
+        Debug.Log("Looking for weapon: " + id);
+
         foreach (var weapon in weapons)
         {
+            Debug.Log("Database contains: " + weapon.weaponID);
+
             if (weapon.weaponID == id)
                 return weapon.prefab;
         }
@@ -29,4 +33,12 @@ public class WeaponData
     public string weaponID;
 
     public GameObject prefab;
+}
+
+[System.Serializable]
+public class PrimaryWeapon
+{
+    public string className;
+
+    public GameObject weaponPrefab;
 }
