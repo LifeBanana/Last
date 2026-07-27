@@ -359,11 +359,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapons:
   - weaponID: Heavy
+    primaryWeaponPrefab: {fileID: 2372698303374390058, guid: 617ab6048acf11e4980c5fe6df5fc1c6, type: 3}
+    secondaryWeaponPrefab: {fileID: 4452417837191946077, guid: 54de743531502d443aa93c88b21fead8, type: 3}
+  - weaponID: Assault
     primaryWeaponPrefab: {fileID: 2372698303374390058, guid: c8ea58bb0a903f740a016d2330bdb2c0, type: 3}
     secondaryWeaponPrefab: {fileID: 4452417837191946077, guid: 6bdbd9137c4bf664cb6016c2bb36270d, type: 3}
-  - weaponID: Assault
-    primaryWeaponPrefab: {fileID: 4452417837191946077, guid: 6bdbd9137c4bf664cb6016c2bb36270d, type: 3}
-    secondaryWeaponPrefab: {fileID: 2372698303374390058, guid: c8ea58bb0a903f740a016d2330bdb2c0, type: 3}
+  - weaponID: Recon
+    primaryWeaponPrefab: {fileID: 2372698303374390058, guid: ca4f8a032512cbf4c85d7fb59e877a54, type: 3}
+    secondaryWeaponPrefab: {fileID: 4452417837191946077, guid: ca23836060caf3b45be89678bce38ee0, type: 3}
+  - weaponID: Support
+    primaryWeaponPrefab: {fileID: 2372698303374390058, guid: 60feaff7a9307d54794e2fa48abea26f, type: 3}
+    secondaryWeaponPrefab: {fileID: 4452417837191946077, guid: 772a98d7a31cfd74a87d24bf71de6a18, type: 3}
+  - weaponID: Engineer
+    primaryWeaponPrefab: {fileID: 2372698303374390058, guid: 7a72e577b5e97d743a021b97fd896bbd, type: 3}
+    secondaryWeaponPrefab: {fileID: 4452417837191946077, guid: 122ce4d289ae5ec449dd96773134e503, type: 3}
   primarySpawn: {fileID: 1705688907}
   secondarySpawn: {fileID: 145812300}
 --- !u!114 &67855986
@@ -2835,7 +2844,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0.38888884, b: 1, a: 0}
+  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0

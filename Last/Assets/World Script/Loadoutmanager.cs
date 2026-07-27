@@ -34,7 +34,7 @@ public class Loadoutmanager : MonoBehaviour
             save.className = "Assault";
 
         if (string.IsNullOrWhiteSpace(save.primaryWeaponID))
-            save.primaryWeaponID = "Rifle";
+            save.primaryWeaponID = "Assault Rifle";
 
         if (string.IsNullOrWhiteSpace(save.secondaryWeaponID))
             save.secondaryWeaponID = "Glock";

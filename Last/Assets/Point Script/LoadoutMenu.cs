@@ -113,7 +113,7 @@ public class LoadoutMenu : MonoBehaviour
         Stats s = loadout.stats;
 
         if (s.damage >= 7 && s.damageFalloff >= 5)
-            return "Battle Rifle";
+            return "Assault Rifle";
 
         if (s.rateOfFire >= 7 && s.walkSpeed >= 4)
             return "SMG";

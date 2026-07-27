@@ -1080,8 +1080,10 @@ MonoBehaviour:
   playerCamera: {fileID: 888828725}
   firePoint: {fileID: 1248623294}
   bulletPrefab: {fileID: 979861440692769887, guid: 43f6fc89469d1714abe80b49dc78c55f, type: 3}
-  magSize: 30
-  ammo: 0
+  magSize: 60
+  isPrimary: 0
+  reserveAmmo: 60
+  currentAmmo: 0
   reloadTime: 2
   fireRate: 10
   sprintToFireDelay: 0.2
@@ -1090,7 +1092,6 @@ MonoBehaviour:
   normalFOV: 75
   adsFOV: 55
   adsSpeed: 10
-  isPrimary: 0
 --- !u!65 &1248623296
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1160,8 +1161,10 @@ MonoBehaviour:
   playerCamera: {fileID: 888828725}
   firePoint: {fileID: 1289801517}
   bulletPrefab: {fileID: 979861440692769887, guid: 43f6fc89469d1714abe80b49dc78c55f, type: 3}
-  magSize: 30
-  ammo: 0
+  magSize: 120
+  isPrimary: 1
+  reserveAmmo: 120
+  currentAmmo: 0
   reloadTime: 2
   fireRate: 10
   sprintToFireDelay: 0.2
@@ -1170,7 +1173,6 @@ MonoBehaviour:
   normalFOV: 75
   adsFOV: 55
   adsSpeed: 10
-  isPrimary: 0
 --- !u!65 &1289801519
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1419,6 +1421,142 @@ MonoBehaviour:
   weaponSocket: {fileID: 1289801517}
   currentPrimary: {fileID: 1289801518}
   currentSecondary: {fileID: 1248623295}
+--- !u!1 &1748556804
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1748556805}
+  - component: {fileID: 1748556807}
+  - component: {fileID: 1748556806}
+  m_Layer: 5
+  m_Name: Ammo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1748556805
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1748556804}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1904817593}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -149.95999, y: -25.100006}
+  m_SizeDelta: {x: 299.5287, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1748556806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1748556804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 0, g: 1, b: 0.011714458, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 24
+  m_fontSizeBase: 24
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 5
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1748556807
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1748556804}
+  m_CullTransparentMesh: 1
 --- !u!1 &1904817589
 GameObject:
   m_ObjectHideFlags: 0
@@ -1516,6 +1654,7 @@ RectTransform:
   - {fileID: 442198759}
   - {fileID: 169284150}
   - {fileID: 823328758}
+  - {fileID: 1748556805}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1606,6 +1745,7 @@ GameObject:
   - component: {fileID: 2077208162}
   - component: {fileID: 2077208161}
   - component: {fileID: 2077208163}
+  - component: {fileID: 2077208164}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -1669,10 +1809,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapons:
-  - weaponID: Assault
+  - weaponID: Assault Rifle
     prefab: {fileID: 2372698303374390058, guid: c8ea58bb0a903f740a016d2330bdb2c0, type: 3}
   - weaponID: Glock
     prefab: {fileID: 4452417837191946077, guid: 6bdbd9137c4bf664cb6016c2bb36270d, type: 3}
+  - weaponID: LMG
+    prefab: {fileID: 2372698303374390058, guid: 617ab6048acf11e4980c5fe6df5fc1c6, type: 3}
+  - weaponID: Revolver
+    prefab: {fileID: 4452417837191946077, guid: 54de743531502d443aa93c88b21fead8, type: 3}
+  - weaponID: Sniper Rifle
+    prefab: {fileID: 2372698303374390058, guid: ca4f8a032512cbf4c85d7fb59e877a54, type: 3}
+  - weaponID: USP45
+    prefab: {fileID: 4452417837191946077, guid: ca23836060caf3b45be89678bce38ee0, type: 3}
+  - weaponID: SMG
+    prefab: {fileID: 4452417837191946077, guid: ca23836060caf3b45be89678bce38ee0, type: 3}
+  - weaponID: P226
+    prefab: {fileID: 4452417837191946077, guid: 772a98d7a31cfd74a87d24bf71de6a18, type: 3}
+  - weaponID: DMR
+    prefab: {fileID: 2372698303374390058, guid: 7a72e577b5e97d743a021b97fd896bbd, type: 3}
+  - weaponID: MachinePistol
+    prefab: {fileID: 4452417837191946077, guid: 122ce4d289ae5ec449dd96773134e503, type: 3}
 --- !u!114 &2077208162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1707,9 +1863,29 @@ MonoBehaviour:
   - weaponID: Assault
     primaryWeaponPrefab: {fileID: 2372698303374390058, guid: c8ea58bb0a903f740a016d2330bdb2c0, type: 3}
     secondaryWeaponPrefab: {fileID: 4452417837191946077, guid: 6bdbd9137c4bf664cb6016c2bb36270d, type: 3}
+  - weaponID: Heavy
+    primaryWeaponPrefab: {fileID: 2372698303374390058, guid: 617ab6048acf11e4980c5fe6df5fc1c6, type: 3}
+    secondaryWeaponPrefab: {fileID: 4452417837191946077, guid: 54de743531502d443aa93c88b21fead8, type: 3}
+  - weaponID: Recon
+    primaryWeaponPrefab: {fileID: 2372698303374390058, guid: ca4f8a032512cbf4c85d7fb59e877a54, type: 3}
+    secondaryWeaponPrefab: {fileID: 4452417837191946077, guid: ca23836060caf3b45be89678bce38ee0, type: 3}
+  - weaponID: Support
+    primaryWeaponPrefab: {fileID: 2372698303374390058, guid: 60feaff7a9307d54794e2fa48abea26f, type: 3}
+    secondaryWeaponPrefab: {fileID: 4452417837191946077, guid: 772a98d7a31cfd74a87d24bf71de6a18, type: 3}
+  - weaponID: Engineer
+    primaryWeaponPrefab: {fileID: 2372698303374390058, guid: 7a72e577b5e97d743a021b97fd896bbd, type: 3}
+    secondaryWeaponPrefab: {fileID: 4452417837191946077, guid: 122ce4d289ae5ec449dd96773134e503, type: 3}
   primaryWeapons:
   - className: Assault
     weaponPrefab: {fileID: 2372698303374390058, guid: c8ea58bb0a903f740a016d2330bdb2c0, type: 3}
+  - className: Heavy
+    weaponPrefab: {fileID: 2372698303374390058, guid: 617ab6048acf11e4980c5fe6df5fc1c6, type: 3}
+  - className: Recon
+    weaponPrefab: {fileID: 2372698303374390058, guid: ca4f8a032512cbf4c85d7fb59e877a54, type: 3}
+  - className: Support
+    weaponPrefab: {fileID: 2372698303374390058, guid: 60feaff7a9307d54794e2fa48abea26f, type: 3}
+  - className: Engineer
+    weaponPrefab: {fileID: 2372698303374390058, guid: 7a72e577b5e97d743a021b97fd896bbd, type: 3}
   primaryWeaponSpawn: {fileID: 1289801517}
   secondaryWeaponSpawn: {fileID: 1248623294}
   classText: {fileID: 442198760}
@@ -1719,6 +1895,20 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 223f5c49cf3c266449b44a49cfe2748c, type: 2}
   - {fileID: 11400000, guid: a8c8c747b3e6c934382b7a29f36a5a8b, type: 2}
   - {fileID: 11400000, guid: ccbb326475a28ce42aa91ff993e0d6d0, type: 2}
+--- !u!114 &2077208164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077208157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fbf3ed995c6eca44a8f67881d03ee07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponManager: {fileID: 2077208162}
+  ammoText: {fileID: 1748556806}
 --- !u!1001 &7635438818803092683
 PrefabInstance:
   m_ObjectHideFlags: 0

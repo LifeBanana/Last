@@ -1,4 +1,7 @@
 using UnityEngine;
+using System;
+using System.Collections;
+using System.Collections.Generic;
 
 public class Weapon : MonoBehaviour
 {
@@ -9,7 +12,9 @@ public class Weapon : MonoBehaviour
     public GameObject bulletPrefab;
 
     public int magSize = 30;
-    public int ammo;
+    public bool isPrimary;
+    public int reserveAmmo = 120;
+    public int currentAmmo;
 
     public float reloadTime = 2f;
 
@@ -30,11 +35,20 @@ public class Weapon : MonoBehaviour
 
     bool aiming;
 
-    public bool isPrimary;
-
     void Start()
     {
-        ammo = magSize;
+        if (isPrimary)
+        {
+            magSize = 30;
+            reserveAmmo = 120;
+        }
+        else
+        {
+            magSize = 15;
+            reserveAmmo = 60;
+        }
+
+        currentAmmo = magSize;
     }
 
     void Update()
@@ -68,21 +82,32 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    System.Collections.IEnumerator Reload()
+    IEnumerator Reload()
     {
+        if (currentAmmo >= magSize)
+            yield break;
+
+        if (reserveAmmo <= 0)
+            yield break;
+
         reloading = true;
 
-        yield return
-            new WaitForSeconds(reloadTime);
+        yield return new WaitForSeconds(reloadTime);
 
-        ammo = magSize;
+        int needed = magSize - currentAmmo;
+
+        int amount = Mathf.Min(needed, reserveAmmo);
+
+        currentAmmo += amount;
+
+        reserveAmmo -= amount;
 
         reloading = false;
     }
 
     void Shoot()
     {
-        if (ammo <= 0)
+        if (currentAmmo <= 0)
             return;
 
         if (Time.time < nextFireTime)
@@ -90,13 +115,13 @@ public class Weapon : MonoBehaviour
 
         nextFireTime =   Time.time +   1f / fireRate;
 
-        ammo--;
+        currentAmmo--;
 
         Vector3 direction =   playerCamera.transform.forward;
 
-        direction +=  playerCamera.transform.right *   Random.Range(-spread, spread) *   0.01f;
+        direction +=  playerCamera.transform.right *   UnityEngine.Random.Range(-spread, spread) *   0.01f;
 
-        direction +=   playerCamera.transform.up *  Random.Range(-spread, spread) *  0.01f;
+        direction +=   playerCamera.transform.up *  UnityEngine.Random.Range(-spread, spread) *  0.01f;
 
         GameObject bullet =  Instantiate(   bulletPrefab,    firePoint.position,   Quaternion.LookRotation(direction));
 
@@ -105,6 +130,6 @@ public class Weapon : MonoBehaviour
 
     void ApplyRecoil()
     {
-        playerCamera.transform.localRotation *=    Quaternion.Euler(   -recoilAmount,    Random.Range(-0.5f, 0.5f),      0);
+        playerCamera.transform.localRotation *=    Quaternion.Euler(   -recoilAmount,    UnityEngine.Random.Range(-0.5f, 0.5f),      0);
     }
 }
