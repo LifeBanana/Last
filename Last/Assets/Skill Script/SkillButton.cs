@@ -26,5 +26,4 @@ public class SkillButton : MonoBehaviour
     {
         tree.UnlockSkill(skill);
     }
-
 }

@@ -11,29 +11,31 @@ public class Weapon : MonoBehaviour
 
     public GameObject bulletPrefab;
 
-    public int magSize = 30;
     public bool isPrimary;
-    public int reserveAmmo = 120;
     public int currentAmmo;
-
-    public float reloadTime = 2f;
 
     bool reloading;
 
-    public float fireRate = 10f;
-    public float sprintToFireDelay = 0.2f;
-
     float nextFireTime;
 
-    public float spread = 1f;
-
-    public float recoilAmount = 2f;
-
-    public float normalFOV = 75f;
-    public float adsFOV = 55f;
-    public float adsSpeed = 10f;
-
     bool aiming;
+
+    public int reserveAmmo = 120;
+    public int sideAmmo = 60;
+    public int magSize = 30;
+
+    Profile profile;
+
+    public float damage;
+    public float recoil;
+    public float reloadTime;
+    public float fireRate;
+    public float spread;
+    public float adsTime;
+    public float sprintToFire;
+    public float adsFOV;
+    public float normalFOV;
+    public float adsSpeed;
 
     void Start()
     {
@@ -49,10 +51,25 @@ public class Weapon : MonoBehaviour
         }
 
         currentAmmo = magSize;
+
+        Profile p = Statsmanager.Instance.Profile;
+
+        damage = p.damage;
+        fireRate = p.fireRate;
+        spread = p.spread;
+        reloadTime = p.reloadTime;
+        recoil = p.recoil;
+
+        adsFOV = p.adsFOV;
+        normalFOV = p.normalFOV;
+        adsSpeed = p.adsSpeed;
     }
 
     void Update()
     {
+        if (!gameObject.activeInHierarchy)
+            return;
+
         HandleADS();
         HandleReload();
 
@@ -125,11 +142,13 @@ public class Weapon : MonoBehaviour
 
         GameObject bullet =  Instantiate(   bulletPrefab,    firePoint.position,   Quaternion.LookRotation(direction));
 
+        bullet.GetComponent<Bullet>().SetDamage(damage);
+
         ApplyRecoil();
     }
 
     void ApplyRecoil()
     {
-        playerCamera.transform.localRotation *=    Quaternion.Euler(   -recoilAmount,    UnityEngine.Random.Range(-0.5f, 0.5f),      0);
+        playerCamera.transform.localRotation *=    Quaternion.Euler(   -recoil,    UnityEngine.Random.Range(-0.5f, 0.5f),      0);
     }
 }

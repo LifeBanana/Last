@@ -98,7 +98,7 @@ public class Loadoutmanager : MonoBehaviour
         if (manager == null)
             return;
 
-        var list = primary ?  SaveManager.Instance.Data.equippedAttachments :  SaveManager.Instance.Data.secondAttachments;
+        var list = SaveManager.Instance.Data.equippedAttachments;
 
         foreach (string id in list)
         {

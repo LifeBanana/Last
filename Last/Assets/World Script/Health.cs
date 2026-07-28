@@ -2,17 +2,23 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public float maxHealth = 100;
-    public float maxShield = 50;
-
     float health;
     float shield;
 
     Respawn respawn;
 
+    public float maxHealth;
+    public float maxShield;
+
     void Start()
     {
+        Profile p = Statsmanager.Instance.Profile;
+
+        maxHealth = p.health;
+        maxShield = p.shields;
+
         health = maxHealth;
+
         shield = maxShield;
 
         respawn = GetComponent<Respawn>();

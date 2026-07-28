@@ -6,7 +6,7 @@ public class Gun : MonoBehaviour
     public float fireRate;
     public float spread;
 
-    public void ApplyProfile(WeaponProfile profile)
+    public void ApplyProfile(Profile profile)
     {
         damage = profile.damage;
         fireRate = profile.fireRate;

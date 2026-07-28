@@ -2,7 +2,7 @@ using UnityEngine;
 
 public static class SkillCal
 {
-    public static void ApplySkills(  PlayerTree tree,  WeaponProfile weapon, Profile player)
+    public static void ApplySkills(  PlayerTree tree, Profile player)
     {
         foreach (var skill in tree.unlockedSkills)
         {
@@ -19,15 +19,15 @@ public static class SkillCal
                         break;
 
                     case SkillEffect.ReloadSpeed:
-                        weapon.reloadTime *=    1f - (mod.amount / 100f);
+                        player.reloadTime *=    1f - (mod.amount / 100f);
                         break;
 
                     case SkillEffect.FireRate:
-                        weapon.fireRate *=    1f + (mod.amount / 100f);
+                        player.fireRate *=    1f + (mod.amount / 100f);
                         break;
 
                     case SkillEffect.Recoil:
-                        weapon.recoil *=   1f - (mod.amount / 100f);
+                        player.recoil *=   1f - (mod.amount / 100f);
                         break;
 
                     case SkillEffect.SprintSpeed:

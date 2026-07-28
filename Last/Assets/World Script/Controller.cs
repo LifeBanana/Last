@@ -3,22 +3,9 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class Controller : MonoBehaviour
 {
-    [Header("Movement")]
-    public float walkSpeed = 5f;
-    public float sprintSpeed = 8f;
-    public float crouchSpeed = 2.5f;
-
-    [Header("Jump")]
-    public float jumpHeight = 1.5f;
-    public float gravity = -20f;
-
     [Header("Crouch")]
     public float standingHeight = 2f;
     public float crouchHeight = 1f;
-
-    [Header("Health")]
-    public float maxHealth = 100f;
-    public float maxShield = 50f;
 
     public float currentHealth;
     public float currentShield;
@@ -35,9 +22,31 @@ public class Controller : MonoBehaviour
     bool grounded;
     bool crouching;
 
+    Profile profile;
+
+    public float maxHealth;
+    public float maxShield;
+    public float walkSpeed;
+    public float sprintSpeed;
+    public float crouchSpeed;
+    public float jumpHeight;
+    public float gravity;
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
+
+        Profile p = Statsmanager.Instance.Profile;
+
+        walkSpeed = p.walkSpeed;
+        sprintSpeed = p.sprintSpeed;
+        crouchSpeed = p.crouchSpeed;
+
+        jumpHeight = p.jumpHeight;
+        gravity = p.gravity;
+
+        maxHealth = p.health;
+        maxShield = p.shields;
 
         currentHealth = maxHealth;
         currentShield = maxShield;

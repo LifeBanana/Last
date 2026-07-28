@@ -106,6 +106,8 @@ public class LoadoutMenu : MonoBehaviour
     {
         loadout.BuildLoadout();
         loadout.SaveLoadout();
+
+        Statsmanager.Instance.BuildProfile(loadout.stats);
     }
 
     string DetermineWeapon()

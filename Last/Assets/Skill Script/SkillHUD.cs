@@ -5,10 +5,10 @@ public class SkillHUD : MonoBehaviour
 {
     public PlayerTree tree;
 
+    public SkillCombo[] combos;
+
     public TMP_Text pointsText;
-
     public TMP_Text comboText;
-
     public TMP_Text unlockedSkillsText;
 
     void Update()
@@ -16,6 +16,8 @@ public class SkillHUD : MonoBehaviour
         pointsText.text = "Skill Points : " + tree.availablePoints;
 
         RefreshUnlockedSkills();
+
+        RefreshCombos();
     }
 
     void RefreshUnlockedSkills()
@@ -24,20 +26,33 @@ public class SkillHUD : MonoBehaviour
 
         foreach (SkillData skill in tree.unlockedSkills)
         {
-            unlockedSkillsText.text +=   "• " + skill.skillName + "\n";
+            unlockedSkillsText.text += "# " + skill.skillName + "\n";
         }
+
+        if (tree.unlockedSkills.Count == 0)
+            unlockedSkillsText.text = "None";
     }
 
-    public void UpdateCombo(SkillCombo combo, PlayerTree tree)
+    void RefreshCombos()
     {
-        int unlocked = 0;
+        comboText.text = "";
 
-        foreach (SkillData skill in combo.requiredSkills)
+        foreach (SkillCombo combo in combos)
         {
-            if (tree.unlockedSkills.Contains(skill))
-                unlocked++;
-        }
+            int unlocked = 0;
 
-        comboText.text = unlocked + "/" +   combo.requiredSkills.Count +  " Complete";
+            foreach (SkillData skill in combo.requiredSkills)
+            {
+                if (tree.unlockedSkills.Contains(skill))
+                    unlocked++;
+            }
+
+            comboText.text += combo.name +   " : " +  unlocked +   "/" +   combo.requiredSkills.Count;
+
+            if (Unlock.HasCombo(tree, combo))
+                comboText.text += " X";
+
+            comboText.text += "\n";
+        }
     }
 }

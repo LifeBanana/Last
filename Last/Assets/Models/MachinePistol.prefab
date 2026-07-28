@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3699373913667949182}
   - component: {fileID: 8204992383128152828}
   - component: {fileID: 8561420954773374770}
+  - component: {fileID: -7573640528019664819}
   m_Layer: 0
   m_Name: MachinePistol
   m_TagString: Untagged
@@ -123,3 +124,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bobHeight: 0.03
   bobSpeed: 2
+--- !u!114 &-7573640528019664819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4452417837191946077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17d32a8fe820291498ce49ab836dc5dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  muzzleSocket: {fileID: 1600745188854018165}
+  sightSocket: {fileID: 1600745188854018165}
+  magazineSocket: {fileID: 1600745188854018165}
+  underbarrelSocket: {fileID: 1600745188854018165}
+  stockSocket: {fileID: 1600745188854018165}
+  sideRailSocket: {fileID: 1600745188854018165}
+  sockets: []

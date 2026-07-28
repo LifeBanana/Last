@@ -5,7 +5,14 @@ public class Ammo : MonoBehaviour
 {
     public weaponmanager weaponManager;
 
+     Profile profile;
+
     public TMP_Text ammoText;
+
+    private void Awake()
+    {
+        profile = Statsmanager.Instance.Profile;
+    }
 
     void Update()
     {

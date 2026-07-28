@@ -371,6 +371,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5845709755558450582, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
+      propertyPath: skill
+      value: 
+      objectReference: {fileID: 11400000, guid: ccbb326475a28ce42aa91ff993e0d6d0, type: 2}
     - target: {fileID: 6440007528671877682, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_Name
       value: Button3
@@ -390,6 +394,62 @@ PrefabInstance:
     - target: {fileID: 7880977895348193845, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -0.000015259
+      objectReference: {fileID: 0}
+    - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 36908990}
+    - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1559454553}
+    - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BuySkill
+      objectReference: {fileID: 0}
+    - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Show
+      objectReference: {fileID: 0}
+    - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SkillButton, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: InfoPanel, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 11400000, guid: ccbb326475a28ce42aa91ff993e0d6d0, type: 2}
+    - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: SkillData, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8337469532321526145, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: tree
@@ -422,6 +482,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &36908990 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8337469532321526145, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
+  m_PrefabInstance: {fileID: 36908987}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac3bf857ad8caa64c8b41c3ce91b4232, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &169823534
@@ -1134,6 +1205,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5845709755558450582, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
+      propertyPath: skill
+      value: 
+      objectReference: {fileID: 11400000, guid: a8c8c747b3e6c934382b7a29f36a5a8b, type: 2}
     - target: {fileID: 6440007528671877682, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_Name
       value: Button2
@@ -1156,18 +1231,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 820987832}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1559454553}
+    - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
@@ -1175,12 +1262,28 @@ PrefabInstance:
       value: BuySkill
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Show
+      objectReference: {fileID: 0}
+    - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: SkillButton, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: InfoPanel, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 11400000, guid: a8c8c747b3e6c934382b7a29f36a5a8b, type: 2}
+    - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: SkillData, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8337469532321526145, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: tree
@@ -2089,6 +2192,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tree: {fileID: 1559454550}
+  combos:
+  - {fileID: 11400000, guid: 7fff85417ef1b2145b4a76e7b46c1f4d, type: 2}
   pointsText: {fileID: 2078038392}
   comboText: {fileID: 1113825686}
   unlockedSkillsText: {fileID: 169823536}
@@ -3039,6 +3144,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5845709755558450582, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
+      propertyPath: skill
+      value: 
+      objectReference: {fileID: 11400000, guid: 223f5c49cf3c266449b44a49cfe2748c, type: 2}
     - target: {fileID: 6440007528671877682, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_Name
       value: Button
@@ -3061,18 +3170,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1029073377767523402}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1559454553}
+    - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
@@ -3080,12 +3201,28 @@ PrefabInstance:
       value: BuySkill
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Show
+      objectReference: {fileID: 0}
+    - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: SkillButton, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: InfoPanel, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 11400000, guid: 223f5c49cf3c266449b44a49cfe2748c, type: 2}
+    - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: SkillData, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8337469532321526145, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: tree

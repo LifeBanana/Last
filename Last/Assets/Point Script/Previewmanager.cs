@@ -27,6 +27,20 @@ public class Previewmanager : MonoBehaviour
 
     public void CurrentWeapons()
     {
+        if (SaveManager.Instance == null)
+        {
+            Debug.LogError("SaveManager Instance is NULL");
+            return;
+        }
+
+        if (SaveManager.Instance.Data == null)
+        {
+            Debug.LogError("SaveData is NULL");
+            return;
+        }
+
+        Debug.Log("Primary Weapon ID = " + SaveManager.Instance.Data.primaryWeaponID);
+
         SpawnPrimary(SaveManager.Instance.Data.primaryWeaponID);
     }
 
@@ -65,9 +79,14 @@ public class Previewmanager : MonoBehaviour
 
             ApplyAttachments(currentPrimary, true);
 
-            ApplyAttachments(currentSecondary, false);
-
-            Inventory.Instance.BuildInventory();
+            //if (Inventory.Instance != null)
+            //{
+            //    Inventory.Instance.BuildInventory();
+            //}
+            //else
+            //{
+            //    Debug.LogError("Inventory.Instance is NULL");
+            //}
 
             return;
         }
@@ -85,12 +104,28 @@ public class Previewmanager : MonoBehaviour
         Attachmentmanager manager = weapon.GetComponent<Attachmentmanager>();
 
         if (manager == null)
+        {
+            Debug.LogError(
+                weapon.name + " has no Attachmentmanager component!");
             return;
+        }
 
-        var attachments = primary ? SaveManager.Instance.Data.equippedAttachments : SaveManager.Instance.Data.secondAttachments;
+        var attachments = SaveManager.Instance.Data.equippedAttachments;
+
+        if (attachments == null)
+        {
+            Debug.LogError("Attachment list is NULL");
+            return;
+        }
 
         foreach (string id in attachments)
         {
+            if (DataBase.Instance == null)
+            {
+                Debug.LogError("Database Instance is NULL");
+                return;
+            }
+
             Attachment attachment = DataBase.Instance.GetAttachment(id);
 
             if (attachment == null)
@@ -118,7 +153,7 @@ public class Previewmanager : MonoBehaviour
         if (currentPrimary != null)
             Destroy(currentPrimary);
 
-        Inventory.Instance.BuildInventory();
+        //Inventory.Instance.BuildInventory();
 
         foreach (WeaponPreview weapon in weapons)
         {

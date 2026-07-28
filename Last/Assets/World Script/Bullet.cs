@@ -3,7 +3,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float speed = 100f;
-    public float damage = 25f;
+    private float damage;
     public float lifeTime = 5f;
 
     void Start()
@@ -16,6 +16,11 @@ public class Bullet : MonoBehaviour
         transform.position +=   transform.forward *  speed *   Time.deltaTime;
 
         Debug.DrawRay(transform.position, transform.forward * 2f, Color.red);
+    }
+
+    public void SetDamage(float value)
+    {
+        damage = value;
     }
 
     void OnCollisionEnter(Collision collision)

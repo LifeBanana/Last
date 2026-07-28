@@ -6,7 +6,6 @@ public class PlayerLoadout : MonoBehaviour
 
     public Stats stats = new Stats();
 
-    public WeaponProfile weapon;
     public Profile character;
 
     public string className;
@@ -37,10 +36,10 @@ public class PlayerLoadout : MonoBehaviour
             return;
         }
 
-        weapon = WeaponBuild.Build(stats);
-        equippedGun.ApplyProfile(weapon);
+        Statsmanager.Instance.BuildProfile(stats);
 
-        character = Build.build(stats);
+        character = Statsmanager.Instance.Profile;
+        equippedGun.ApplyProfile(character);
         movement.ApplyProfile(character);
 
         className = ClassGenerator.GetClass(stats);
@@ -73,6 +72,8 @@ public class PlayerLoadout : MonoBehaviour
         save.primaryWeaponID = className;
 
         save.secondaryWeaponID = secondweapon.GetSecondary(className);
+
+
 
         SaveManager.Instance.SaveGame();
     }
