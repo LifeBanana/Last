@@ -1,5 +1,8 @@
 using TMPro;
 using UnityEngine;
+using System;
+using System.Collections;
+using System.Collections.Generic;
 
 public class Loadoutmanager : MonoBehaviour
 {
@@ -18,12 +21,22 @@ public class Loadoutmanager : MonoBehaviour
     GameObject currentPrimary;
     GameObject currentSecondary;
 
-    void Start()
+    IEnumerator Start()
+    {
+        while (string.IsNullOrEmpty(SaveManager.Instance.Data.className))
+            yield return null;
+
+        Initialize();
+    }
+
+    public void Initialize()
     {
         SetDefaults();
         SpawnWeapons();
         DisplaySkills();
         DisplayLoadoutInfo();
+
+
     }
 
     void SetDefaults()
@@ -65,6 +78,14 @@ public class Loadoutmanager : MonoBehaviour
 
             ApplyAttachments(currentPrimary, true);
 
+            Weapon gun = primaryWeaponSpawn.GetComponent<Weapon>();
+
+            if (gun != null)
+            {
+                gun.isPrimary = true;
+                gun.Initialize();
+            }
+
             Debug.Log("Spawned primary weapon for class: " + className);
 
             return;
@@ -75,6 +96,9 @@ public class Loadoutmanager : MonoBehaviour
 
     void SpawnSecondary()
     {
+        if (currentSecondary != null)
+            Destroy(currentSecondary);
+
         GameObject prefab = WeaponDatabase.Instance.GetWeapon(  SaveManager.Instance.Data.secondaryWeaponID);
 
         if (prefab == null)
@@ -88,7 +112,12 @@ public class Loadoutmanager : MonoBehaviour
         currentSecondary.transform.localPosition = Vector3.zero;
         currentSecondary.transform.localRotation = Quaternion.identity;
 
-        ApplyAttachments(currentSecondary, false);
+        SideArm gun = secondaryWeaponSpawn.GetComponent<SideArm>();
+
+        if (gun != null)
+        {
+            gun.Initialize();
+        }
     }
 
     void ApplyAttachments(GameObject weapon, bool primary)
@@ -136,6 +165,6 @@ public class Loadoutmanager : MonoBehaviour
     {
         classText.text = "Class : " +  SaveManager.Instance.Data.className;
 
-        weaponText.text =  "Primary : " +   SaveManager.Instance.Data.primaryWeaponID +  "\nSecondary : " +  SaveManager.Instance.Data.secondaryWeaponID;
+        weaponText.text =  "Primary : " +  Primary.GetPrimary(SaveManager.Instance.Data.className)  +  "\nSecondary : " +  SaveManager.Instance.Data.secondaryWeaponID;
     }
 }

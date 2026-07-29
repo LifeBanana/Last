@@ -6,7 +6,7 @@ public class holder : MonoBehaviour
 
     public Weapon currentPrimary;
 
-    public Weapon currentSecondary;
+    public SideArm currentSecondary;
 
     public Weapon SpawnPrimary(GameObject prefab)
     {
@@ -18,12 +18,12 @@ public class holder : MonoBehaviour
         return currentPrimary;
     }
 
-    public Weapon SpawnSecondary(GameObject prefab)
+    public SideArm SpawnSecondary(GameObject prefab)
     {
         if (currentSecondary != null)
             Destroy(currentSecondary.gameObject);
 
-        currentSecondary = Instantiate(prefab, weaponSocket).GetComponent<Weapon>();
+        currentSecondary = Instantiate(prefab, weaponSocket).GetComponent<SideArm>();
 
         currentSecondary.gameObject.SetActive(false);
 

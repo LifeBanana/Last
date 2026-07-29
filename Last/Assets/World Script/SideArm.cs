@@ -1,9 +1,7 @@
 using UnityEngine;
-using System;
 using System.Collections;
-using System.Collections.Generic;
 
-public class Weapon : MonoBehaviour
+public class SideArm : MonoBehaviour
 {
     public Camera playerCamera;
 
@@ -11,28 +9,20 @@ public class Weapon : MonoBehaviour
 
     public GameObject bulletPrefab;
 
-    public bool isPrimary;
     public int currentAmmo;
+    public int reserveAmmo;
+    public int magSize;
 
     bool reloading;
-
-    float nextFireTime;
-
     bool aiming;
 
-    public int reserveAmmo = 120;
-    public int sideAmmo = 60;
-    public int magSize = 30;
-
-    Profile profile;
+    float nextFireTime;
 
     public float damage;
     public float recoil;
     public float reloadTime;
     public float fireRate;
     public float spread;
-    public float adsTime;
-    public float sprintToFire;
     public float adsFOV;
     public float normalFOV;
     public float adsSpeed;
@@ -47,29 +37,27 @@ public class Weapon : MonoBehaviour
 
     public void Initialize()
     {
-        if (isPrimary)
-        {
-            SetupPrimaryAmmo();
-        }
-        else
-        {
-            magSize = 15;
-            reserveAmmo = 60;
-        }
+        SetupSideArmAmmo();
 
         currentAmmo = magSize;
 
         Profile p = Statsmanager.Instance.Profile;
 
-        damage = p.damage;
-        fireRate = p.fireRate;
-        spread = p.spread;
-        reloadTime = p.reloadTime;
-        recoil = p.recoil;
+        damage = p.damage * 0.60f;
+
+        recoil = p.recoil * 0.75f;
+
+        reloadTime = p.reloadTime * 0.85f;
+
+        fireRate = p.fireRate * 0.80f;
+
+        spread = p.spread * 1.30f;
 
         adsFOV = p.adsFOV;
+
         normalFOV = p.normalFOV;
-        adsSpeed = p.adsSpeed;
+
+        adsSpeed = p.adsSpeed * 1.10f;
     }
 
     void Update()
@@ -84,32 +72,26 @@ public class Weapon : MonoBehaviour
             return;
 
         if (Input.GetButton("Fire1"))
-        {
             Shoot();
-        }
     }
 
-    void SetupPrimaryAmmo()
+    void SetupSideArmAmmo()
     {
-        string className = SaveManager.Instance.Data.className;
-
-        Debug.Log("Current Class = " + className);
-
-        switch (className)
+        switch (SaveManager.Instance.Data.className)
         {
             case "Assault":
-                magSize = 30;
-                reserveAmmo = 120;
+                magSize = 19;
+                reserveAmmo = 76;
                 break;
 
             case "Heavy":
-                magSize = 100;
-                reserveAmmo = 400;
+                magSize = 8;
+                reserveAmmo = 36;
                 break;
 
             case "Recon":
-                magSize = 10;
-                reserveAmmo = 40;
+                magSize = 12;
+                reserveAmmo = 48;
                 break;
 
             case "Engineer":
@@ -118,34 +100,32 @@ public class Weapon : MonoBehaviour
                 break;
 
             case "Support":
-                magSize = 30;
-                reserveAmmo = 120;
+                magSize = 17;
+                reserveAmmo = 64;
                 break;
 
             default:
-                magSize = 30;
-                reserveAmmo = 120;
+                magSize = 19;
+                reserveAmmo = 76;
                 break;
         }
 
-        Debug.Log("Mag = " + magSize + " Reserve = " + reserveAmmo);
+        Debug.Log($"Sidearm: {SaveManager.Instance.Data.className} | Mag: {magSize} | Reserve: {reserveAmmo}");
     }
 
     void HandleADS()
     {
-        aiming =   Input.GetMouseButton(1);
+        aiming = Input.GetMouseButton(1);
 
-        float targetFOV =  aiming  ? adsFOV   : normalFOV;
+        float targetFOV = aiming ? adsFOV : normalFOV;
 
-        playerCamera.fieldOfView =  Mathf.Lerp(  playerCamera.fieldOfView,  targetFOV,   adsSpeed *   Time.deltaTime);
+        playerCamera.fieldOfView =  Mathf.Lerp(playerCamera.fieldOfView,  targetFOV,  adsSpeed * Time.deltaTime);
     }
 
     void HandleReload()
     {
         if (Input.GetKeyDown(KeyCode.R))
-        {
             StartCoroutine(Reload());
-        }
     }
 
     IEnumerator Reload()
@@ -165,7 +145,6 @@ public class Weapon : MonoBehaviour
         int amount = Mathf.Min(needed, reserveAmmo);
 
         currentAmmo += amount;
-
         reserveAmmo -= amount;
 
         reloading = false;
@@ -179,17 +158,17 @@ public class Weapon : MonoBehaviour
         if (Time.time < nextFireTime)
             return;
 
-        nextFireTime =   Time.time +   1f / fireRate;
+        nextFireTime = Time.time + (1f / fireRate);
 
         currentAmmo--;
 
-        Vector3 direction =   playerCamera.transform.forward;
+        Vector3 direction = playerCamera.transform.forward;
 
-        direction +=  playerCamera.transform.right *   UnityEngine.Random.Range(-spread, spread) *   0.01f;
+        direction += playerCamera.transform.right *  Random.Range(-spread, spread) * 0.01f;
 
-        direction +=   playerCamera.transform.up *  UnityEngine.Random.Range(-spread, spread) *  0.01f;
+        direction += playerCamera.transform.up *    Random.Range(-spread, spread) * 0.01f;
 
-        GameObject bullet =  Instantiate(   bulletPrefab,    firePoint.position,   Quaternion.LookRotation(direction));
+        GameObject bullet =  Instantiate( bulletPrefab, firePoint.position, Quaternion.LookRotation(direction));
 
         bullet.GetComponent<Bullet>().SetDamage(damage);
 
@@ -198,6 +177,6 @@ public class Weapon : MonoBehaviour
 
     void ApplyRecoil()
     {
-        playerCamera.transform.localRotation *=    Quaternion.Euler(   -recoil,    UnityEngine.Random.Range(-0.5f, 0.5f),      0);
+        playerCamera.transform.localRotation *=  Quaternion.Euler( -recoil,  Random.Range(-0.25f, 0.25f),  0);
     }
 }

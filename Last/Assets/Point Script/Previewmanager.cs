@@ -23,6 +23,7 @@ public class Previewmanager : MonoBehaviour
     void Start()
     {
         CurrentWeapons();
+        //ShowWeapon(SaveManager.Instance.Data.className);
     }
 
     public void CurrentWeapons()
@@ -171,6 +172,14 @@ public class Previewmanager : MonoBehaviour
         }
 
         Debug.LogWarning("Primary weapon not found: " + weaponID);
+    }
+
+    public void RefreshPreview()
+    {
+        if (SaveManager.Instance == null)
+            return;
+
+        ShowWeapon(SaveManager.Instance.Data.className);
     }
 }
 

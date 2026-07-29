@@ -5,22 +5,24 @@ public class Ammo : MonoBehaviour
 {
     public weaponmanager weaponManager;
 
-     Profile profile;
-
     public TMP_Text ammoText;
-
-    private void Awake()
-    {
-        profile = Statsmanager.Instance.Profile;
-    }
 
     void Update()
     {
-        Weapon weapon = weaponManager.GetCurrentWeapon();
-
-        if (weapon == null)
+        if (weaponManager == null)
             return;
 
-        ammoText.text = weapon.currentAmmo + " / " +  weapon.reserveAmmo;
+        if (weaponManager.primaryWeapon != null && weaponManager.primaryWeapon.gameObject.activeSelf)
+        {
+            ammoText.text =  weaponManager.primaryWeapon.currentAmmo + " / " +  weaponManager.primaryWeapon.reserveAmmo;
+        }
+        else if (weaponManager.secondaryWeapon != null &&   weaponManager.secondaryWeapon.gameObject.activeSelf)
+        {
+            ammoText.text = weaponManager.secondaryWeapon.currentAmmo + " / " +  weaponManager.secondaryWeapon.reserveAmmo;
+        }
+        else
+        {
+            ammoText.text = "";
+        }
     }
 }

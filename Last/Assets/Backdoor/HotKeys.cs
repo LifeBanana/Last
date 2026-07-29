@@ -33,6 +33,18 @@ public class Hotkeys : MonoBehaviour
             Scenemanager.Instance.CloseOverlay("Combine");
 
             inputManager.EnableGameplay(true);
+
+            Previewmanager.Instance.CurrentWeapons();
+
+            if (Previewmanager.Instance != null)
+            {
+                Previewmanager.Instance.RefreshPreview();
+            }
+
+            Loadoutmanager manager = FindFirstObjectByType<Loadoutmanager>();
+
+            if (manager != null)
+                manager.Initialize();
         }
     }
 }

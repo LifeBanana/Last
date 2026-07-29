@@ -5,7 +5,7 @@ public class weaponmanager : MonoBehaviour
 {
     public Weapon primaryWeapon;
 
-    public Weapon secondaryWeapon;
+    public SideArm secondaryWeapon;
 
     public KeyCode primaryKey = KeyCode.Alpha1;
 
@@ -14,6 +14,7 @@ public class weaponmanager : MonoBehaviour
     public KeyCode quickSwapKey = KeyCode.Q;
 
     Weapon currentWeapon;
+    SideArm currentSideArm;
 
     bool usingPrimary = true;
 
@@ -80,7 +81,7 @@ public class weaponmanager : MonoBehaviour
 
         secondaryWeapon.gameObject.SetActive(true);
 
-        currentWeapon = secondaryWeapon;
+        currentSideArm = secondaryWeapon;
     }
 
     public void ToggleWeapon()
@@ -118,5 +119,30 @@ public class weaponmanager : MonoBehaviour
             EquipSecondary();
 
         switching = false;
+    }
+
+    public void RefreshWeapons()
+    {
+        primaryWeapon = FindFirstObjectByType<Weapon>();
+        secondaryWeapon = FindFirstObjectByType<SideArm>();
+
+        if (primaryWeapon != null)
+            primaryWeapon.gameObject.SetActive(true);
+
+        if (secondaryWeapon != null)
+            secondaryWeapon.gameObject.SetActive(false);
+
+        currentWeapon = primaryWeapon;
+        currentSideArm = secondaryWeapon;
+        usingPrimary = true;
+    }
+
+    public void SetWeapons(Weapon primary, SideArm secondary)
+    {
+        primaryWeapon = primary;
+        secondaryWeapon = secondary;
+
+        currentWeapon = primaryWeapon;
+        currentSideArm = secondaryWeapon;
     }
 }

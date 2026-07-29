@@ -1,4 +1,8 @@
 using UnityEngine;
+using TMPro;
+using System;
+using System.Collections;
+using System.Collections.Generic;
 
 public class Health : MonoBehaviour
 {
@@ -10,18 +14,66 @@ public class Health : MonoBehaviour
     public float maxHealth;
     public float maxShield;
 
-    void Start()
-    {
-        Profile p = Statsmanager.Instance.Profile;
+    public TMP_Text healthtext;
 
-        maxHealth = p.health;
-        maxShield = p.shields;
+    void InitializeHealth()
+    {
+        string className = SaveManager.Instance.Data.className;
+
+        switch (className)
+        {
+            case "Assault":
+                maxHealth = 100;
+                maxShield = 50;
+                break;
+
+            case "Heavy":
+                maxHealth = 200;
+                maxShield = 100;
+                break;
+
+            case "Recon":
+                maxHealth = 75;
+                maxShield = 25;
+                break;
+
+            case "Engineer":
+                maxHealth = 125;
+                maxShield = 50;
+                break;
+
+            case "Support":
+                maxHealth = 125;
+                maxShield = 75;
+                break;
+
+            default:
+                maxHealth = 100;
+                maxShield = 50;
+                break;
+        }
 
         health = maxHealth;
-
         shield = maxShield;
 
+        Debug.Log($"Class: {className} | Health: {maxHealth} | Shield: {maxShield}");
+    }
+
+    IEnumerator Start()
+    {
+        while (string.IsNullOrEmpty(SaveManager.Instance.Data.className))
+            yield return null;
+
+        InitializeHealth();
+
         respawn = GetComponent<Respawn>();
+
+        RefreshHealth();
+    }
+
+    private void Update()
+    {
+        healthtext.text = "Health: " + health + " / " + maxHealth + "\n" + "Shields: " + shield + " / " + maxShield;
     }
 
     public void TakeDamage(float damage)
@@ -43,5 +95,13 @@ public class Health : MonoBehaviour
     void Die()
     {
         respawn.respawn();
+    }
+
+    public void RefreshHealth()
+    {
+        InitializeHealth();
+
+        health = maxHealth;
+        shield = maxShield;
     }
 }

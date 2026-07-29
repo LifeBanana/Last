@@ -18,7 +18,6 @@ public class PlayerLoadout : MonoBehaviour
 
     private void Start()
     {
-        BuildLoadout();
         LoadLoadout();
     }
 
@@ -44,6 +43,10 @@ public class PlayerLoadout : MonoBehaviour
 
         className = ClassGenerator.GetClass(stats);
         string secondary = secondweapon.GetSecondary(className);
+
+        SaveManager.Instance.Data.className = className;
+        SaveManager.Instance.Data.primaryWeaponID = className;
+        SaveManager.Instance.Data.secondaryWeaponID = secondweapon.GetSecondary(className);
         Previewmanager.Instance.ShowWeapon(className);
 
         Debug.Log("Generated Class: " + className);
@@ -73,9 +76,26 @@ public class PlayerLoadout : MonoBehaviour
 
         save.secondaryWeaponID = secondweapon.GetSecondary(className);
 
-
-
         SaveManager.Instance.SaveGame();
+
+        Statsmanager.Instance.BuildProfile(stats);
+
+        Loadoutmanager manager = FindFirstObjectByType<Loadoutmanager>();
+
+        if (manager != null)
+            manager.Initialize();
+
+        if (Previewmanager.Instance != null)
+        {
+            Previewmanager.Instance.RefreshPreview();
+        }
+
+        Health health = FindFirstObjectByType<Health>();
+
+        if (health != null)
+        {
+            health.RefreshHealth();
+        }
     }
 
     public void LoadLoadout()

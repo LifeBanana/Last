@@ -42,3 +42,30 @@ public class PrimaryWeapon
 
     public GameObject weaponPrefab;
 }
+
+public static class Primary
+{
+    public static string GetPrimary(string className)
+    {
+        switch (className)
+        {
+            case "Assault":
+                return "Assault Rifle";
+
+            case "Heavy":
+                return "LMG";
+
+            case "Recon":
+                return "Sniper Rifle";
+
+            case "Engineer":
+                return "DMR";
+
+            case "Support":
+                return "SMG";
+
+            default:
+                return "Assault Rifle";
+        }
+    }
+}

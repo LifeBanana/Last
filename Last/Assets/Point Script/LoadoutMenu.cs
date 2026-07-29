@@ -17,6 +17,8 @@ public class LoadoutMenu : MonoBehaviour
 
     private void Start()
     {
+        loadout.LoadLoadout();
+
         foreach (var row in statRows)
         {
             row.OnValueChanged += UpdateStat;
@@ -32,51 +34,135 @@ public class LoadoutMenu : MonoBehaviour
         switch (stat)
         {
             case "Damage":
+                int previous = loadout.stats.damage;
+
                 loadout.stats.damage = value;
+
+                if (Calculator.CalculateCost(loadout.stats) > PlayerLoadout.MAX_POINTS)
+                {
+                    loadout.stats.damage = previous;
+                }
                 break;
 
             case "Recoil":
+                int p = loadout.stats.recoil;
+
                 loadout.stats.recoil = value;
+
+                if (Calculator.CalculateCost(loadout.stats) > PlayerLoadout.MAX_POINTS)
+                {
+                    loadout.stats.recoil = p;
+                }
                 break;
 
             case "Reload":
+                int pr = loadout.stats.reloadTime;
+
                 loadout.stats.reloadTime = value;
+
+                if (Calculator.CalculateCost(loadout.stats) > PlayerLoadout.MAX_POINTS)
+                {
+                    loadout.stats.reloadTime = pr;
+                }
                 break;
 
             case "DamageFalloff":
+                int pre = loadout.stats.damageFalloff;
+
                 loadout.stats.damageFalloff = value;
+
+                if (Calculator.CalculateCost(loadout.stats) > PlayerLoadout.MAX_POINTS)
+                {
+                    loadout.stats.damageFalloff = pre;
+                }
                 break;
 
             case "RateOfFire":
+                int prev = loadout.stats.rateOfFire;
+
                 loadout.stats.rateOfFire = value;
+
+                if (Calculator.CalculateCost(loadout.stats) >  PlayerLoadout.MAX_POINTS)
+                {
+                    loadout.stats.damage = prev;
+                }
                 break;
 
             case "Spread":
+                int previ = loadout.stats.spread;
+
                 loadout.stats.spread = value;
+
+                if (Calculator.CalculateCost(loadout.stats) > PlayerLoadout.MAX_POINTS)
+                {
+                    loadout.stats.spread = previ;
+                }
                 break;
 
             case "ADS":
+                int previo = loadout.stats.adsTime;
+
                 loadout.stats.adsTime = value;
+
+                if (Calculator.CalculateCost(loadout.stats) > PlayerLoadout.MAX_POINTS)
+                {
+                    loadout.stats.adsTime = previo;
+                }
                 break;
 
             case "SprintFire":
+                int previou = loadout.stats.sprintToFire;
+
                 loadout.stats.sprintToFire = value;
+
+                if (Calculator.CalculateCost(loadout.stats) > PlayerLoadout.MAX_POINTS)
+                {
+                    loadout.stats.sprintToFire = previou;
+                }
                 break;
 
             case "Health":
+                int revious = loadout.stats.health;
+
                 loadout.stats.health = value;
+
+                if (Calculator.CalculateCost(loadout.stats) > PlayerLoadout.MAX_POINTS)
+                {
+                    loadout.stats.health = revious;
+                }
                 break;
 
             case "Shields":
+                int evious = loadout.stats.shields;
+
                 loadout.stats.shields = value;
+
+                if (Calculator.CalculateCost(loadout.stats) > PlayerLoadout.MAX_POINTS)
+                {
+                    loadout.stats.shields = evious;
+                }
                 break;
 
             case "WalkSpeed":
+                int vious = loadout.stats.walkSpeed;
+
                 loadout.stats.walkSpeed = value;
+
+                if (Calculator.CalculateCost(loadout.stats) > PlayerLoadout.MAX_POINTS)
+                {
+                    loadout.stats.walkSpeed = vious;
+                }
                 break;
 
             case "SprintSpeed":
+                int ious = loadout.stats.sprintSpeed;
+
                 loadout.stats.sprintSpeed = value;
+
+                if (Calculator.CalculateCost(loadout.stats) > PlayerLoadout.MAX_POINTS)
+                {
+                    loadout.stats.sprintSpeed = ious;
+                }
                 break;
         }
 
@@ -91,9 +177,7 @@ public class LoadoutMenu : MonoBehaviour
 
         pointsText.text =   $"Points Remaining: {remaining}";
 
-        string generatedClass =   ClassGenerator.GetClass(loadout.stats);
-
-        classText.text =  $"Class: {generatedClass}";
+        classText.text = "Class: " + loadout.className;
 
         weaponText.text =  $"Weapon: {DetermineWeapon()}";
 
@@ -107,6 +191,8 @@ public class LoadoutMenu : MonoBehaviour
         loadout.BuildLoadout();
         loadout.SaveLoadout();
 
+        Refresh();
+
         Statsmanager.Instance.BuildProfile(loadout.stats);
     }
 
@@ -114,25 +200,25 @@ public class LoadoutMenu : MonoBehaviour
     {
         Stats s = loadout.stats;
 
-        if (s.damage >= 7 && s.damageFalloff >= 5)
-            return "Assault Rifle";
+        if (loadout.className == "Assault")
+            return "1) Assault Rifle \n 2) Glock";
 
-        if (s.rateOfFire >= 7 && s.walkSpeed >= 4)
-            return "SMG";
+        if (loadout.className == "Support")
+            return "1) SMG \n 2) P226";
 
-        if (s.health >= 6 && s.shields >= 6)
-            return "LMG";
+        if (loadout.className == "Heavy")
+            return "1) LMG \n 2) Revolver";
 
-        if (s.spread >= 7 && s.reloadTime >= 5)
-            return "Shotgun";
+        if (loadout.className == "Scout")
+            return "1) Shotgun \n 2) Magnum";
 
-        if (s.damageFalloff >= 8 &&  s.adsTime >= 6)
-            return "DMR";
+        if (loadout.className == "Engineer")
+            return "1) DMR \n 2) Machine Pistol";
 
-        if (s.damageFalloff >= 9 && s.adsTime >= 8)
-            return "Sniper Rifle";
+        if (loadout.className == "Recon")
+            return "1) Sniper Rifle \n 2) USP45";
 
-        return "Assault Rifle";
+        return "1) Assault Rifle \n 2) Glock";
     }
 
     string GenerateSummary()
