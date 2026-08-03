@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class WeaponIdle : MonoBehaviour
+public class Idle : MonoBehaviour
 {
     public float bobHeight = 0.03f;
 

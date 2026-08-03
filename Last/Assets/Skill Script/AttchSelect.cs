@@ -10,6 +10,6 @@ public class AttchSelect : MonoBehaviour
     {
         Attchcamera.Instance.FocusSocket(socket);
 
-        AttchUI.instance.Open(weapon);
+        Attachmentmenu.Instance.Open(weapon, socket.socketType);
     }
 }

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Attachmentmanager : MonoBehaviour
@@ -16,44 +17,47 @@ public class Attachmentmanager : MonoBehaviour
 
     public Socket[] sockets;
 
+    Dictionary<AttachmentType, Transform> Socket;
+
+    //void Awake()
+    //{
+    //    Socket = new Dictionary<AttachmentType, Transform>()
+    //{
+    //    {AttachmentType.Muzzle,muzzleSocket},
+    //    {AttachmentType.Sights,sightSocket},
+    //    {AttachmentType.Magazine,magazineSocket},
+    //    {AttachmentType.Underbarrel,underbarrelSocket},
+    //    {AttachmentType.Stock,stockSocket},
+    //    {AttachmentType.SideRail,sideRailSocket}
+    //};
+    //}
+
     public void EquipAttachment(Attachment attachment)
     {
-        Transform socket = null;
+        Transform socket = GetSocketTransform(attachment.attachmentType);
 
-        switch (attachment.attachmentType)
-        {
-            case AttachmentType.Muzzle:
-                socket = muzzleSocket;
-                break;
-
-            case AttachmentType.Sights:
-                socket = sightSocket;
-                break;
-
-            case AttachmentType.Magazine:
-                socket = magazineSocket;
-                break;
-
-            case AttachmentType.Underbarrel:
-                socket = underbarrelSocket;
-                break;
-
-            case AttachmentType.Stock:
-                socket = stockSocket;
-                break;
-
-            case AttachmentType.SideRail:
-                socket = sideRailSocket;
-                break;
-        }
+        Debug.Log(socket);
 
         if (socket == null)
+        {
+            Debug.LogError("Socket missing for " + attachment.attachmentType);
+
             return;
+        }
 
         foreach (Transform child in socket)
             Destroy(child.gameObject);
 
-        Instantiate( attachment.prefab, socket, false);
+        GameObject obj = Instantiate   (   attachment.prefab,socket  );
+
+        GameObject test = Instantiate ( attachment.prefab );
+
+        Debug.Log(test.name);
+
+        obj.transform.localPosition = Vector3.zero;
+        obj.transform.localRotation = Quaternion.identity;
+
+        Debug.Log("Spawned " + attachment.attachmentName);
     }
 
 
@@ -63,6 +67,40 @@ public class Attachmentmanager : MonoBehaviour
         {
             if (socket.socketType == type)
                 return socket;
+        }
+
+        return null;
+    }
+
+    public void RemoveAttachment(AttachmentType type)
+    {
+        Transform socket = GetSocket(type).transform;
+
+        foreach (Transform child in socket)
+            Destroy(child.gameObject);
+    }
+
+    public Transform GetSocketTransform(AttachmentType type)
+    {
+        switch (type)
+        {
+            case AttachmentType.Muzzle:
+                return muzzleSocket;
+
+            case AttachmentType.Sights:
+                return sightSocket;
+
+            case AttachmentType.Magazine:
+                return magazineSocket;
+
+            case AttachmentType.Underbarrel:
+                return underbarrelSocket;
+
+            case AttachmentType.Stock:
+                return stockSocket;
+
+            case AttachmentType.SideRail:
+                return sideRailSocket;
         }
 
         return null;
