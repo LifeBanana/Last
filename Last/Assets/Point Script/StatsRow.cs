@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,7 +17,9 @@ public class StatsRow : MonoBehaviour
     public int minValue = -10;
     public int maxValue = 10;
 
-    public System.Action<string, int> OnValueChanged;
+    public System.Action<StatsRow> OnValueChanged;
+
+    public Func<StatsRow, bool> CanIncrease;
 
     private void Start()
     {
@@ -29,6 +32,9 @@ public class StatsRow : MonoBehaviour
     void Increase()
     {
         if (value >= maxValue)
+            return;
+
+        if (CanIncrease != null && !CanIncrease(this))
             return;
 
         value++;
@@ -50,6 +56,12 @@ public class StatsRow : MonoBehaviour
     {
         valueText.text = value.ToString();
 
-        OnValueChanged?.Invoke(statName, value);
+        OnValueChanged?.Invoke(this);
+    }
+
+    public void SetValue(int newValue)
+    {
+        value = Mathf.Clamp(newValue, minValue, maxValue);
+        Refresh();
     }
 }

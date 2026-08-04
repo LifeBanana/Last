@@ -19,24 +19,27 @@ public class LoadoutMenu : MonoBehaviour
     {
         loadout.LoadLoadout();
 
-        foreach (var row in statRows)
+        foreach (StatsRow row in statRows)
         {
             row.OnValueChanged += UpdateStat;
+            row.CanIncrease = CanIncreaseStat;
         }
+
+        SyncRows();
 
         confirmButton.onClick.AddListener(ConfirmBuild);
 
         Refresh();
     }
 
-    void UpdateStat(string stat, int value)
+    void UpdateStat(StatsRow row)
     {
-        switch (stat)
+        switch (row.statName)
         {
             case "Damage":
                 int previous = loadout.stats.damage;
 
-                loadout.stats.damage = value;
+                loadout.stats.damage = row.value;
 
                 if (Calculator.CalculateCost(loadout.stats) > PlayerLoadout.MAX_POINTS)
                 {
@@ -47,7 +50,7 @@ public class LoadoutMenu : MonoBehaviour
             case "Recoil":
                 int p = loadout.stats.recoil;
 
-                loadout.stats.recoil = value;
+                loadout.stats.recoil = row.value;
 
                 if (Calculator.CalculateCost(loadout.stats) > PlayerLoadout.MAX_POINTS)
                 {
@@ -58,7 +61,7 @@ public class LoadoutMenu : MonoBehaviour
             case "Reload":
                 int pr = loadout.stats.reloadTime;
 
-                loadout.stats.reloadTime = value;
+                loadout.stats.reloadTime = row.value;
 
                 if (Calculator.CalculateCost(loadout.stats) > PlayerLoadout.MAX_POINTS)
                 {
@@ -69,7 +72,7 @@ public class LoadoutMenu : MonoBehaviour
             case "DamageFalloff":
                 int pre = loadout.stats.damageFalloff;
 
-                loadout.stats.damageFalloff = value;
+                loadout.stats.damageFalloff = row.value;
 
                 if (Calculator.CalculateCost(loadout.stats) > PlayerLoadout.MAX_POINTS)
                 {
@@ -80,18 +83,18 @@ public class LoadoutMenu : MonoBehaviour
             case "RateOfFire":
                 int prev = loadout.stats.rateOfFire;
 
-                loadout.stats.rateOfFire = value;
+                loadout.stats.rateOfFire = row.value;
 
                 if (Calculator.CalculateCost(loadout.stats) >  PlayerLoadout.MAX_POINTS)
                 {
-                    loadout.stats.damage = prev;
+                    loadout.stats.rateOfFire = prev;
                 }
                 break;
 
             case "Spread":
                 int previ = loadout.stats.spread;
 
-                loadout.stats.spread = value;
+                loadout.stats.spread = row.value;
 
                 if (Calculator.CalculateCost(loadout.stats) > PlayerLoadout.MAX_POINTS)
                 {
@@ -102,7 +105,7 @@ public class LoadoutMenu : MonoBehaviour
             case "ADS":
                 int previo = loadout.stats.adsTime;
 
-                loadout.stats.adsTime = value;
+                loadout.stats.adsTime = row.value;
 
                 if (Calculator.CalculateCost(loadout.stats) > PlayerLoadout.MAX_POINTS)
                 {
@@ -113,7 +116,7 @@ public class LoadoutMenu : MonoBehaviour
             case "SprintFire":
                 int previou = loadout.stats.sprintToFire;
 
-                loadout.stats.sprintToFire = value;
+                loadout.stats.sprintToFire = row.value;
 
                 if (Calculator.CalculateCost(loadout.stats) > PlayerLoadout.MAX_POINTS)
                 {
@@ -124,7 +127,7 @@ public class LoadoutMenu : MonoBehaviour
             case "Health":
                 int revious = loadout.stats.health;
 
-                loadout.stats.health = value;
+                loadout.stats.health = row.value;
 
                 if (Calculator.CalculateCost(loadout.stats) > PlayerLoadout.MAX_POINTS)
                 {
@@ -135,7 +138,7 @@ public class LoadoutMenu : MonoBehaviour
             case "Shields":
                 int evious = loadout.stats.shields;
 
-                loadout.stats.shields = value;
+                loadout.stats.shields = row.value;
 
                 if (Calculator.CalculateCost(loadout.stats) > PlayerLoadout.MAX_POINTS)
                 {
@@ -146,7 +149,7 @@ public class LoadoutMenu : MonoBehaviour
             case "WalkSpeed":
                 int vious = loadout.stats.walkSpeed;
 
-                loadout.stats.walkSpeed = value;
+                loadout.stats.walkSpeed = row.value;
 
                 if (Calculator.CalculateCost(loadout.stats) > PlayerLoadout.MAX_POINTS)
                 {
@@ -157,7 +160,7 @@ public class LoadoutMenu : MonoBehaviour
             case "SprintSpeed":
                 int ious = loadout.stats.sprintSpeed;
 
-                loadout.stats.sprintSpeed = value;
+                loadout.stats.sprintSpeed = row.value;
 
                 if (Calculator.CalculateCost(loadout.stats) > PlayerLoadout.MAX_POINTS)
                 {
@@ -177,11 +180,13 @@ public class LoadoutMenu : MonoBehaviour
 
         pointsText.text =   $"Points Remaining: {remaining}";
 
-        classText.text = "Class: " + loadout.className;
+        classText.text = "Class: " + ClassGenerator.GetClass(loadout.stats);
 
         weaponText.text =  $"Weapon: {DetermineWeapon()}";
 
-        confirmButton.interactable = remaining >= 0;
+        confirmButton.interactable = loadout.IsValidBuild();
+
+        //confirmButton.interactable = Calculator.CalculateCost(loadout.stats) <= PlayerLoadout.MAX_POINTS;
 
         SummaryText.text = GenerateSummary();
     }
@@ -285,5 +290,98 @@ public class LoadoutMenu : MonoBehaviour
             summary += "Slower sprint-to-fire transition.\n";
 
         return summary;
+    }
+
+    bool CanIncreaseStat(StatsRow row)
+    {
+        Stats copy = new Stats();
+
+        copy.damage = loadout.stats.damage;
+        copy.recoil = loadout.stats.recoil;
+        copy.reloadTime = loadout.stats.reloadTime;
+        copy.damageFalloff = loadout.stats.damageFalloff;
+        copy.rateOfFire = loadout.stats.rateOfFire;
+        copy.spread = loadout.stats.spread;
+        copy.adsTime = loadout.stats.adsTime;
+        copy.sprintToFire = loadout.stats.sprintToFire;
+        copy.health = loadout.stats.health;
+        copy.shields = loadout.stats.shields;
+        copy.walkSpeed = loadout.stats.walkSpeed;
+        copy.sprintSpeed = loadout.stats.sprintSpeed;
+
+        switch (row.statName)
+        {
+            case "Damage": copy.damage++; break;
+            case "Recoil": copy.recoil++; break;
+            case "Reload": copy.reloadTime++; break;
+            case "DamageFalloff": copy.damageFalloff++; break;
+            case "RateOfFire": copy.rateOfFire++; break;
+            case "Spread": copy.spread++; break;
+            case "ADS": copy.adsTime++; break;
+            case "SprintFire": copy.sprintToFire++; break;
+            case "Health": copy.health++; break;
+            case "Shields": copy.shields++; break;
+            case "WalkSpeed": copy.walkSpeed++; break;
+            case "SprintSpeed": copy.sprintSpeed++; break;
+        }
+
+        return Calculator.CalculateCost(copy) <= PlayerLoadout.MAX_POINTS;
+    }
+
+    void SyncRows()
+    {
+        foreach (StatsRow row in statRows)
+        {
+            switch (row.statName)
+            {
+                case "Damage":
+                    row.SetValue(loadout.stats.damage);
+                    break;
+
+                case "Recoil":
+                    row.SetValue(loadout.stats.recoil);
+                    break;
+
+                case "Reload":
+                    row.SetValue(loadout.stats.reloadTime);
+                    break;
+
+                case "DamageFalloff":
+                    row.SetValue(loadout.stats.damageFalloff);
+                    break;
+
+                case "RateOfFire":
+                    row.SetValue(loadout.stats.rateOfFire);
+                    break;
+
+                case "Spread":
+                    row.SetValue(loadout.stats.spread);
+                    break;
+
+                case "ADS":
+                    row.SetValue(loadout.stats.adsTime);
+                    break;
+
+                case "SprintFire":
+                    row.SetValue(loadout.stats.sprintToFire);
+                    break;
+
+                case "Health":
+                    row.SetValue(loadout.stats.health);
+                    break;
+
+                case "Shields":
+                    row.SetValue(loadout.stats.shields);
+                    break;
+
+                case "WalkSpeed":
+                    row.SetValue(loadout.stats.walkSpeed);
+                    break;
+
+                case "SprintSpeed":
+                    row.SetValue(loadout.stats.sprintSpeed);
+                    break;
+            }
+        }
     }
 }

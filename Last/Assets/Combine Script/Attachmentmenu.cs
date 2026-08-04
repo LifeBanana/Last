@@ -28,15 +28,15 @@ public class Attachmentmenu : MonoBehaviour
 
     void Start()
     {
-        if (SaveManager.Instance.Data.unlockedAttachments.Count == 0)
+        foreach (Attachment attachment in DataBase.Instance.attachments)
         {
-            foreach (Attachment attachment in DataBase.Instance.attachments)
+            if (!SaveManager.Instance.Data.unlockedAttachments.Contains(attachment.attachmentName))
             {
                 SaveManager.Instance.Data.unlockedAttachments.Add(attachment.attachmentName);
             }
-
-            SaveManager.Instance.SaveGame();
         }
+
+        SaveManager.Instance.SaveGame();
     }
 
     public void Open(Attachmentmanager weapon, AttachmentType type)
@@ -71,6 +71,10 @@ public class Attachmentmenu : MonoBehaviour
         foreach (Transform child in content)
             Destroy(child.gameObject);
 
+        Debug.Log("Unlocked Count = " + SaveManager.Instance.Data.unlockedAttachments.Count);
+
+        Debug.Log("Populate Type = " + currentType);
+
         foreach (string id in SaveManager.Instance.Data.unlockedAttachments)
         {
 
@@ -79,14 +83,16 @@ public class Attachmentmenu : MonoBehaviour
             Attachment attachment = DataBase.Instance.GetAttachment(id);
 
             if (attachment == null)
-                continue;
-
-            if (attachment.attachmentType != currentType)
-                continue;
-
-            if (attachment == null)
             {
                 Debug.Log("Database couldn't find " + id);
+                continue;
+            }
+
+            Debug.Log("Found " + attachment.attachmentName +  " Type = " + attachment.attachmentType);
+
+            if (attachment.attachmentType != currentType)
+            {
+                Debug.Log("Skipped");
                 continue;
             }
 
