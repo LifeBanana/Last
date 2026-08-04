@@ -129,14 +129,12 @@ public class Loadoutmanager : MonoBehaviour
 
         var list = SaveManager.Instance.Data.equippedAttachments;
 
-        foreach (EquippedAttachment equipped in list)
+        foreach (string id in list)
         {
-            Attachment attachment = DataBase.Instance.GetAttachment(equipped.attachmentID);
+            Attachment attachment =  DataBase.Instance.GetAttachment(id);
 
             if (attachment != null)
-            {
                 manager.EquipAttachment(attachment);
-            }
         }
     }
 

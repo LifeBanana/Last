@@ -932,8 +932,6 @@ GameObject:
   m_Component:
   - component: {fileID: 568217192}
   - component: {fileID: 568217193}
-  - component: {fileID: 568217195}
-  - component: {fileID: 568217194}
   m_Layer: 6
   m_Name: Spawn
   m_TagString: Untagged
@@ -970,34 +968,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attachments:
   - {fileID: 11400000, guid: 1847b5da5da30fd49a175ab1256a79d5, type: 2}
---- !u!114 &568217194
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 568217191}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0449b56f8a04ee449af1739670e8430b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 30
-  rotationSpeed: 200
---- !u!114 &568217195
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 568217191}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a10e8c2869174d4db7eb6ed24ab5dfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bobHeight: 0.03
-  bobSpeed: 2
 --- !u!1 &727129120
 GameObject:
   m_ObjectHideFlags: 0

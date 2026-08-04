@@ -414,7 +414,6 @@ GameObject:
   m_Component:
   - component: {fileID: 290316546}
   - component: {fileID: 290316547}
-  - component: {fileID: 290316548}
   m_Layer: 6
   m_Name: Spawn
   m_TagString: Untagged
@@ -451,20 +450,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 30
   rotationSpeed: 200
---- !u!114 &290316548
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 290316545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a10e8c2869174d4db7eb6ed24ab5dfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bobHeight: 0.03
-  bobSpeed: 2
 --- !u!1 &363527304
 GameObject:
   m_ObjectHideFlags: 0
@@ -1630,12 +1615,6 @@ MonoBehaviour:
     shields: 0
     walkSpeed: 0
     sprintSpeed: 0
-    crouchSpeed: 0
-    jumpHeight: 0
-    gravity: 0
-    adsFOV: 0
-    normalFOV: 0
-    adsSpeed: 0
   className: 
   equippedGun: {fileID: 1257142566}
   movement: {fileID: 1257142567}
@@ -1869,7 +1848,6 @@ GameObject:
   m_Component:
   - component: {fileID: 966287119}
   - component: {fileID: 966287120}
-  - component: {fileID: 966287121}
   m_Layer: 6
   m_Name: Spawn
   m_TagString: Untagged
@@ -1906,20 +1884,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 30
   rotationSpeed: 200
---- !u!114 &966287121
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 966287118}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a10e8c2869174d4db7eb6ed24ab5dfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bobHeight: 0.03
-  bobSpeed: 2
 --- !u!1 &1003503587
 GameObject:
   m_ObjectHideFlags: 0

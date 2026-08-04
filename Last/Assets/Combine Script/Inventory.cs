@@ -13,22 +13,22 @@ public class Inventory : MonoBehaviour
         Instance = this;
     }
 
-    //public void BuildInventory()
-    //{
-    //    Debug.Log("Building Inventory");
-    //    foreach (Transform child in gridParent)
-    //        Destroy(child.gameObject);
+    public void BuildInventory()
+    {
+        Debug.Log("Building Inventory");
+        foreach (Transform child in gridParent)
+            Destroy(child.gameObject);
 
-    //    foreach (string id in SaveManager.Instance.Data.unlockedAttachments)
-    //    {
-    //        Attachment attachment = DataBase.Instance.GetAttachment(id);
+        foreach (string id in SaveManager.Instance.Data.unlockedAttachments)
+        {
+            Attachment attachment = DataBase.Instance.GetAttachment(id);
 
-    //        if (attachment == null)
-    //            continue;
+            if (attachment == null)
+                continue;
 
-    //        GameObject slot = Instantiate(slotPrefab, gridParent);
+            GameObject slot = Instantiate(slotPrefab, gridParent);
  
-    //        slot.GetComponent<AttachSlot>().Setup(attachment);
-    //    }
-    //}
+            slot.GetComponent<AttachSlot>().Setup(attachment);
+        }
+    }
 }

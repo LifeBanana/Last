@@ -80,6 +80,15 @@ public class Previewmanager : MonoBehaviour
 
             ApplyAttachments(currentPrimary, true);
 
+            //if (Inventory.Instance != null)
+            //{
+            //    Inventory.Instance.BuildInventory();
+            //}
+            //else
+            //{
+            //    Debug.LogError("Inventory.Instance is NULL");
+            //}
+
             return;
         }
 
@@ -94,16 +103,6 @@ public class Previewmanager : MonoBehaviour
     void ApplyAttachments(GameObject weapon, bool primary)
     {
         Attachmentmanager manager = weapon.GetComponent<Attachmentmanager>();
-
-        foreach (AttchSelect socket in currentPrimary.GetComponentsInChildren<AttchSelect>())
-        {
-            socket.weapon = manager;
-        }
-
-        foreach (AttchSelect socket in currentPrimary.GetComponents<AttchSelect>())
-        {
-            socket.weapon = manager;
-        }
 
         if (manager == null)
         {
@@ -120,12 +119,21 @@ public class Previewmanager : MonoBehaviour
             return;
         }
 
-        foreach (EquippedAttachment equipped in SaveManager.Instance.Data.equippedAttachments)
+        foreach (string id in attachments)
         {
-            Attachment attachment = DataBase.Instance.GetAttachment(equipped.attachmentID);
+            if (DataBase.Instance == null)
+            {
+                Debug.LogError("Database Instance is NULL");
+                return;
+            }
+
+            Attachment attachment = DataBase.Instance.GetAttachment(id);
 
             if (attachment == null)
+            {
+                Debug.LogWarning("Attachment not found: " + id);
                 continue;
+            }
 
             manager.EquipAttachment(attachment);
         }
@@ -145,6 +153,8 @@ public class Previewmanager : MonoBehaviour
     {
         if (currentPrimary != null)
             Destroy(currentPrimary);
+
+        //Inventory.Instance.BuildInventory();
 
         foreach (WeaponPreview weapon in weapons)
         {
@@ -170,18 +180,6 @@ public class Previewmanager : MonoBehaviour
             return;
 
         ShowWeapon(SaveManager.Instance.Data.className);
-    }
-
-    public Attachmentmanager CurrentAttachmentManager
-    {
-        get
-        {
-
-            if (currentPrimary == null)
-                return null;
-
-            return currentPrimary.GetComponent<Attachmentmanager>();
-        }
     }
 }
 

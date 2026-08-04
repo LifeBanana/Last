@@ -24,7 +24,7 @@ public class SaveData
 
     public List<string> unlockedSkills = new List<string>();
 
-    public List<EquippedAttachment> equippedAttachments = new List<EquippedAttachment>();
+    public List<string> equippedAttachments = new List<string>();
     public List<string> unlockedAttachments = new List<string>();
 
     public int playerLevel;
@@ -39,11 +39,4 @@ public class SaveData
     public string primaryWeaponID;
 
     public string secondaryWeaponID;
-}
-
-[System.Serializable]
-public class EquippedAttachment
-{
-    public AttachmentType socketType;
-    public string attachmentID;
 }
