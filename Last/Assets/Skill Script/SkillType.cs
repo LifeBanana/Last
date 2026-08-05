@@ -18,7 +18,11 @@ public enum SkillEffect
     Damage,
     Recoil,
     Spread,
-    ADS
+    ADS,
+    Range,
+    SprintToFire,
+    CrouchSpeed,
+    JumpHeight
 }
 
 [System.Serializable]

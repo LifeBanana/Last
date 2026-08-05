@@ -79,6 +79,7 @@ public class PlayerLoadout : MonoBehaviour
         SaveManager.Instance.SaveGame();
 
         Statsmanager.Instance.BuildProfile(stats);
+        ProfileBuild.Build();
 
         Loadoutmanager manager = FindFirstObjectByType<Loadoutmanager>();
 
@@ -96,6 +97,8 @@ public class PlayerLoadout : MonoBehaviour
         {
             health.RefreshHealth();
         }
+
+        Statsmanager.Instance.RefreshProfile();
     }
 
     public void LoadLoadout()

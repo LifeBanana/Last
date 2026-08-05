@@ -43,6 +43,7 @@ public class Weapon : MonoBehaviour
             yield return null;
 
         Initialize();
+        RefreshProfile();
     }
 
     public void Initialize()
@@ -199,5 +200,21 @@ public class Weapon : MonoBehaviour
     void ApplyRecoil()
     {
         playerCamera.transform.localRotation *=    Quaternion.Euler(   -recoil,    UnityEngine.Random.Range(-0.5f, 0.5f),      0);
+    }
+
+    public void RefreshProfile()
+    {
+        Profile p = Statsmanager.Instance.Profile;
+
+        damage = p.damage;
+        recoil = p.recoil;
+        reloadTime = p.reloadTime;
+        fireRate = p.fireRate;
+        spread = p.spread;
+        adsTime = p.adsTime;
+        sprintToFire = p.sprintToFire;
+        adsFOV = p.adsFOV;
+        normalFOV = p.normalFOV;
+        adsSpeed = p.adsSpeed;
     }
 }

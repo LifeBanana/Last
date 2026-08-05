@@ -1,4 +1,7 @@
 using UnityEngine;
+using System;
+using System.Collections;
+using System.Collections.Generic;
 
 [RequireComponent(typeof(CharacterController))]
 public class Controller : MonoBehaviour
@@ -36,6 +39,12 @@ public class Controller : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
 
+        Initialize();
+        RefreshProfile();
+    }
+
+    public void Initialize()
+    {
         Profile p = Statsmanager.Instance.Profile;
 
         walkSpeed = p.walkSpeed;
@@ -110,5 +119,26 @@ public class Controller : MonoBehaviour
 
             controller.height =   crouching    ? crouchHeight    : standingHeight;
         }
+    }
+
+    public void RefreshProfile()
+    {
+        Profile p = Statsmanager.Instance.Profile;
+
+        walkSpeed = p.walkSpeed;
+        sprintSpeed = p.sprintSpeed;
+        crouchSpeed = p.crouchSpeed;
+
+        jumpHeight = p.jumpHeight;
+        gravity = p.gravity;
+
+        maxHealth = p.health;
+        maxShield = p.shields;
+
+        if (currentHealth > maxHealth)
+            currentHealth = maxHealth;
+
+        if (currentShield > maxShield)
+            currentShield = maxShield;
     }
 }

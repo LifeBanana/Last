@@ -166,6 +166,8 @@ public class Attachmentmenu : MonoBehaviour
 
         SaveAttachment(attachment);
 
+        Statsmanager.Instance.RefreshProfile();
+
         Close();
     }
 }

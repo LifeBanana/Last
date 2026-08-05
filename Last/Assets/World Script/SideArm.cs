@@ -33,6 +33,7 @@ public class SideArm : MonoBehaviour
             yield return null;
 
         Initialize();
+        RefreshProfile();
     }
 
     public void Initialize()
@@ -178,5 +179,20 @@ public class SideArm : MonoBehaviour
     void ApplyRecoil()
     {
         playerCamera.transform.localRotation *=  Quaternion.Euler( -recoil,  Random.Range(-0.25f, 0.25f),  0);
+    }
+
+    public void RefreshProfile()
+    {
+        Profile p = Statsmanager.Instance.Profile;
+
+        damage = p.damage * 0.6f;
+        recoil = p.recoil * 0.75f;
+        reloadTime = p.reloadTime * 0.85f;
+        fireRate = p.fireRate * 0.8f;
+        spread = p.spread * 1.3f;
+
+        adsFOV = p.adsFOV;
+        normalFOV = p.normalFOV;
+        adsSpeed = p.adsSpeed * 1.1f;
     }
 }

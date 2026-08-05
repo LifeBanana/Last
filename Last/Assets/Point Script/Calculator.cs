@@ -23,11 +23,6 @@ public static class Calculator
         return cost;
     }
 
-    //private static int Cost(int value, int multiplier)
-    //{
-    //    return Mathf.Abs(value) * multiplier;
-    //}
-
     private static int Cost(int value, int multiplier)
     {
         return value * multiplier;

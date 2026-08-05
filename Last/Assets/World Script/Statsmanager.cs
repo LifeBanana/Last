@@ -43,12 +43,44 @@ public class Statsmanager : MonoBehaviour
         stats.spread = save.spread;
         stats.adsTime = save.ads;
         stats.sprintToFire = save.sprintFire;
-
+        stats.damageFalloff = save.damageFalloff;
         stats.health = save.health;
         stats.shields = save.shields;
         stats.walkSpeed = save.walkSpeed;
         stats.sprintSpeed = save.sprintSpeed;
-
         Profile = WeaponBuild.Build(stats);
+        Profile = ProfileBuild.Build();
+    }
+
+    public void RefreshProfile()
+    {
+        BuildProfileFromSave();
+
+        PlayerTree tree = FindFirstObjectByType<PlayerTree>();
+
+        if (tree != null)
+            SkillCal.ApplySkills(Profile);
+
+        ProfileBuild.ApplyAttachments(Profile);
+
+        Weapon weapon = FindFirstObjectByType<Weapon>();
+
+        if (weapon != null)
+            weapon.Initialize();
+
+        SideArm sidearm = FindFirstObjectByType<SideArm>();
+
+        if (sidearm != null)
+            sidearm.Initialize();
+
+        Controller controller = FindFirstObjectByType<Controller>();
+
+        if (controller != null)
+            controller.Initialize();
+
+        Health health = FindFirstObjectByType<Health>();
+
+        if (health != null)
+            health.RefreshHealth();
     }
 }

@@ -32,7 +32,7 @@ public class PlayerTree : MonoBehaviour
 
         unlockedSkills.Add(skill);
         SaveSkills();
-
+        Statsmanager.Instance.RefreshProfile();
         return true;
     }
 
