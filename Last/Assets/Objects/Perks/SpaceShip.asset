@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bb830268e58c5148bd3eb961140ee3d, type: 3}
+  m_Name: SpaceShip
+  m_EditorClassIdentifier: 
+  skillID: 32
+  skillName: SpaceShip
+  description: Faster than Light Evasion
+  buildHint: Necessary for Driver
+  skillType: 1
+  pointCost: 6
+  prerequisites: []
+  modifiers:
+  - effectType: 13
+    amount: 2
+  - effectType: 12
+    amount: 5
+  - effectType: 1
+    amount: 8
+  - effectType: 3
+    amount: 9
+  - effectType: 6
+    amount: 10
+  - effectType: 2
+    amount: 7

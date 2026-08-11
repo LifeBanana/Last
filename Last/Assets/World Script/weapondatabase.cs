@@ -64,6 +64,15 @@ public static class Primary
             case "Support":
                 return "SMG";
 
+            case "Demolitionist":
+                return "Grenade Launcher";
+
+            case "Scout":
+                return "Shotgun";
+
+            case "Driver":
+                return "Carbine";
+
             default:
                 return "Assault Rifle";
         }

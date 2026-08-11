@@ -1713,6 +1713,15 @@ MonoBehaviour:
   - weaponID: Engineer
     primaryWeaponPrefab: {fileID: 2372698303374390058, guid: 7a72e577b5e97d743a021b97fd896bbd, type: 3}
     secondaryWeaponPrefab: {fileID: 4452417837191946077, guid: 122ce4d289ae5ec449dd96773134e503, type: 3}
+  - weaponID: Demolitionist
+    primaryWeaponPrefab: {fileID: 2372698303374390058, guid: b89523422bfc49c4c9fe13c3a768a21f, type: 3}
+    secondaryWeaponPrefab: {fileID: 4452417837191946077, guid: e97313ea419f04040b185b6712a46651, type: 3}
+  - weaponID: Scout
+    primaryWeaponPrefab: {fileID: 2372698303374390058, guid: e471fb54e5bf41443925d4a8ef2277a2, type: 3}
+    secondaryWeaponPrefab: {fileID: 4452417837191946077, guid: 8309c84ee7e3bf64faefffe7173c76b8, type: 3}
+  - weaponID: Driver
+    primaryWeaponPrefab: {fileID: 2372698303374390058, guid: affe5fd28aa4db94f84201ec6d34b964, type: 3}
+    secondaryWeaponPrefab: {fileID: 4452417837191946077, guid: 5ec117fc4108b3d43a04060cb0576a8d, type: 3}
   primarySpawn: {fileID: 290316546}
   secondarySpawn: {fileID: 966287119}
 --- !u!1 &931923551
@@ -2100,6 +2109,11 @@ MonoBehaviour:
   damage: 0
   fireRate: 0
   spread: 0
+  recoil: 0
+  adstime: 0
+  range: 0
+  sprinttofire: 0
+  reload: 0
 --- !u!114 &1257142567
 MonoBehaviour:
   m_ObjectHideFlags: 0

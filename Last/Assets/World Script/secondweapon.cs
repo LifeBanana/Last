@@ -20,6 +20,15 @@ public static class secondweapon
 
             case "Engineer":
                 return "MachinePistol";
+
+            case "Demolitionist":
+                return "Hand Cannon";
+
+            case "Scout":
+                return "Magnum";
+
+            case "Driver":
+                return "Pocket Rifle";
         }
 
         return "Glock";

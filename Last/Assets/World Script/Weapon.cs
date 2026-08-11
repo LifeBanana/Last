@@ -123,6 +123,21 @@ public class Weapon : MonoBehaviour
                 reserveAmmo = 120;
                 break;
 
+            case "Demolitionist":
+                magSize = 48;
+                reserveAmmo = 192;
+                break;
+
+            case "Scout":
+                magSize = 58;
+                reserveAmmo = 232;
+                break;
+
+            case "Driver":
+                magSize = 54;
+                reserveAmmo = 212;
+                break;
+
             default:
                 magSize = 30;
                 reserveAmmo = 120;

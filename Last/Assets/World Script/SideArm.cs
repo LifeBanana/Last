@@ -87,7 +87,7 @@ public class SideArm : MonoBehaviour
 
             case "Heavy":
                 magSize = 8;
-                reserveAmmo = 36;
+                reserveAmmo = 32;
                 break;
 
             case "Recon":
@@ -103,6 +103,21 @@ public class SideArm : MonoBehaviour
             case "Support":
                 magSize = 17;
                 reserveAmmo = 64;
+                break;
+
+            case "Demolitionist":
+                magSize = 9;
+                reserveAmmo = 36;
+                break;
+
+            case "Scout":
+                magSize = 17;
+                reserveAmmo = 64;
+                break;
+
+            case "Driver":
+                magSize = 10;
+                reserveAmmo = 40;
                 break;
 
             default:

@@ -47,6 +47,21 @@ public class Health : MonoBehaviour
                 maxShield = 75;
                 break;
 
+            case "Scout":
+                maxHealth = 50;
+                maxShield = 50;
+                break;
+
+            case "Driver":
+                maxHealth = 225;
+                maxShield = 175;
+                break;
+
+            case "Demolitionist":
+                maxHealth = 175;
+                maxShield = 125;
+                break;
+
             default:
                 maxHealth = 100;
                 maxShield = 50;

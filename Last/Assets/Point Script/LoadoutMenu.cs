@@ -206,24 +206,33 @@ public class LoadoutMenu : MonoBehaviour
         Stats s = loadout.stats;
 
         if (loadout.className == "Assault")
-            return "1) Assault Rifle \n 2) Glock";
+            return "1) Assault Rifle  2) Glock";
 
         if (loadout.className == "Support")
-            return "1) SMG \n 2) P226";
+            return "\n 1) SMG  2) P226";
 
         if (loadout.className == "Heavy")
-            return "1) LMG \n 2) Revolver";
+            return "\n 1) LMG  2) Revolver";
 
         if (loadout.className == "Scout")
-            return "1) Shotgun \n 2) Magnum";
+            return "\n 1) Shotgun  2) Magnum";
 
         if (loadout.className == "Engineer")
-            return "1) DMR \n 2) Machine Pistol";
+            return "\n 1) DMR  2) Machine Pistol";
 
         if (loadout.className == "Recon")
-            return "1) Sniper Rifle \n 2) USP45";
+            return "\n 1) Sniper Rifle  2) USP45";
 
-        return "1) Assault Rifle \n 2) Glock";
+        if (loadout.className == "Demolitionist")
+            return "\n 1) Grenade Launcher \n 2) Hand Cannon";
+
+        if (loadout.className == "Scout")
+            return "\n 1) Shotgun \n 2) Magnum";
+
+        if (loadout.className == "Driver")
+            return "\n 1) Carbine \n 2) Pocket Rifle";
+
+        return "\n 1) Assault Rifle  2) Glock";
     }
 
     string GenerateSummary()

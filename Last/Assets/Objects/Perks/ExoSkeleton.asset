@@ -10,17 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5bb830268e58c5148bd3eb961140ee3d, type: 3}
-  m_Name: Augment
+  m_Name: ExoSkeleton
   m_EditorClassIdentifier: 
-  skillID: 2
-  skillName: Augment
-  description: Faster Better Stronger
-  buildHint: Works well with Heavy
+  skillID: 4
+  skillName: ExoSkeleton
+  description: Dodge Better
+  buildHint: Works well with Scout
   skillType: 0
-  pointCost: 2
+  pointCost: 4
   prerequisites: []
   modifiers:
   - effectType: 2
-    amount: 2
+    amount: 4
   - effectType: 3
+    amount: 8
+  - effectType: 12
     amount: 2
+  - effectType: 11
+    amount: 10

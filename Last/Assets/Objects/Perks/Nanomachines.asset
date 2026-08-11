@@ -10,19 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5bb830268e58c5148bd3eb961140ee3d, type: 3}
-  m_Name: Assassin
+  m_Name: Nanomachines
   m_EditorClassIdentifier: 
-  skillID: 3
-  skillName: Assassin
-  description: Faster on the Draw
-  buildHint: Works well with Recon
-  skillType: 0
-  pointCost: 3
+  skillID: 22
+  skillName: Nanomachines
+  description: Resources are plentiful
+  buildHint: Useful for Engineer
+  skillType: 2
+  pointCost: 6
   prerequisites: []
   modifiers:
-  - effectType: 4
-    amount: 3
-  - effectType: 5
-    amount: 3
+  - effectType: 12
+    amount: 2
+  - effectType: 13
+    amount: 1
+  - effectType: 11
+    amount: 7
   - effectType: 9
-    amount: 3
+    amount: 9
+  - effectType: 8
+    amount: 8
+  - effectType: 6
+    amount: 10

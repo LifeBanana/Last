@@ -2046,6 +2046,18 @@ MonoBehaviour:
     prefab: {fileID: 2372698303374390058, guid: 7a72e577b5e97d743a021b97fd896bbd, type: 3}
   - weaponID: MachinePistol
     prefab: {fileID: 4452417837191946077, guid: 122ce4d289ae5ec449dd96773134e503, type: 3}
+  - weaponID: Carbine
+    prefab: {fileID: 2372698303374390058, guid: affe5fd28aa4db94f84201ec6d34b964, type: 3}
+  - weaponID: Pocket Rifle
+    prefab: {fileID: 4452417837191946077, guid: 5ec117fc4108b3d43a04060cb0576a8d, type: 3}
+  - weaponID: Shotgun
+    prefab: {fileID: 2372698303374390058, guid: e471fb54e5bf41443925d4a8ef2277a2, type: 3}
+  - weaponID: Magnum
+    prefab: {fileID: 4452417837191946077, guid: 8309c84ee7e3bf64faefffe7173c76b8, type: 3}
+  - weaponID: Grenade Launcher
+    prefab: {fileID: 2372698303374390058, guid: b89523422bfc49c4c9fe13c3a768a21f, type: 3}
+  - weaponID: Hand Cannon
+    prefab: {fileID: 4452417837191946077, guid: e97313ea419f04040b185b6712a46651, type: 3}
 --- !u!114 &2077208162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2092,6 +2104,15 @@ MonoBehaviour:
   - weaponID: Engineer
     primaryWeaponPrefab: {fileID: 2372698303374390058, guid: 7a72e577b5e97d743a021b97fd896bbd, type: 3}
     secondaryWeaponPrefab: {fileID: 4452417837191946077, guid: 122ce4d289ae5ec449dd96773134e503, type: 3}
+  - weaponID: Demolitionist
+    primaryWeaponPrefab: {fileID: 2372698303374390058, guid: b89523422bfc49c4c9fe13c3a768a21f, type: 3}
+    secondaryWeaponPrefab: {fileID: 4452417837191946077, guid: e97313ea419f04040b185b6712a46651, type: 3}
+  - weaponID: Scout
+    primaryWeaponPrefab: {fileID: 2372698303374390058, guid: e471fb54e5bf41443925d4a8ef2277a2, type: 3}
+    secondaryWeaponPrefab: {fileID: 4452417837191946077, guid: 8309c84ee7e3bf64faefffe7173c76b8, type: 3}
+  - weaponID: Driver
+    primaryWeaponPrefab: {fileID: 2372698303374390058, guid: affe5fd28aa4db94f84201ec6d34b964, type: 3}
+    secondaryWeaponPrefab: {fileID: 4452417837191946077, guid: 5ec117fc4108b3d43a04060cb0576a8d, type: 3}
   primaryWeapons:
   - className: Assault
     weaponPrefab: {fileID: 2372698303374390058, guid: c8ea58bb0a903f740a016d2330bdb2c0, type: 3}
@@ -2103,6 +2124,12 @@ MonoBehaviour:
     weaponPrefab: {fileID: 2372698303374390058, guid: 60feaff7a9307d54794e2fa48abea26f, type: 3}
   - className: Engineer
     weaponPrefab: {fileID: 2372698303374390058, guid: 7a72e577b5e97d743a021b97fd896bbd, type: 3}
+  - className: Demolitionist
+    weaponPrefab: {fileID: 2372698303374390058, guid: b89523422bfc49c4c9fe13c3a768a21f, type: 3}
+  - className: Scout
+    weaponPrefab: {fileID: 2372698303374390058, guid: e471fb54e5bf41443925d4a8ef2277a2, type: 3}
+  - className: Driver
+    weaponPrefab: {fileID: 2372698303374390058, guid: affe5fd28aa4db94f84201ec6d34b964, type: 3}
   primaryWeaponSpawn: {fileID: 1289801517}
   secondaryWeaponSpawn: {fileID: 1248623294}
   classText: {fileID: 442198760}
