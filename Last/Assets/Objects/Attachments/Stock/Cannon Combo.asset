@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbaf0d497cd82342b2780e622cd2600, type: 3}
+  m_Name: Cannon Combo
+  m_EditorClassIdentifier: 
+  requiredSkills:
+  - {fileID: 11400000, guid: cbd6777b0199cf94296f6679ee1121bd, type: 2}
+  - {fileID: 11400000, guid: ad84d5fcf4e476241ab8c46c3ec5ab9e, type: 2}
+  - {fileID: 11400000, guid: edcf11751c7112348986f19040536093, type: 2}
+  - {fileID: 11400000, guid: 56a19ba3a8ad9c9418aeaaa0a880cdaf, type: 2}
+  - {fileID: 11400000, guid: d800a0bf6ea039744a070b4dd9d4de05, type: 2}
+  reward: {fileID: 11400000, guid: 0dcea9e6d65412843adfa16107b53bd2, type: 2}

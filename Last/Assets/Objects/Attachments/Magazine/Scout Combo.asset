@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbaf0d497cd82342b2780e622cd2600, type: 3}
+  m_Name: Scout Combo
+  m_EditorClassIdentifier: 
+  requiredSkills:
+  - {fileID: 11400000, guid: a46f20f6d885dd840bd2511fdeb6f4da, type: 2}
+  - {fileID: 11400000, guid: b8b2aa6bace090d4297e3c4393e27b02, type: 2}
+  reward: {fileID: 11400000, guid: 111ea5249a705c543bbd42737b2c0e54, type: 2}

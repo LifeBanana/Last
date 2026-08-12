@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbaf0d497cd82342b2780e622cd2600, type: 3}
+  m_Name: Carbine Combo
+  m_EditorClassIdentifier: 
+  requiredSkills:
+  - {fileID: 11400000, guid: 9575868d0160a3043826a1b403daf04a, type: 2}
+  - {fileID: 11400000, guid: d9c7d8c8d16ae61478fba87e8b6fb8e0, type: 2}
+  - {fileID: 11400000, guid: 54ea7a057f7adc149855ec7a2cd719d4, type: 2}
+  reward: {fileID: 11400000, guid: 2df30c29adb7a3646a1fa5a7d2d5617a, type: 2}

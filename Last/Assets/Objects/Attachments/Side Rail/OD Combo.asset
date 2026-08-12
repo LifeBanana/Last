@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbaf0d497cd82342b2780e622cd2600, type: 3}
+  m_Name: OD Combo
+  m_EditorClassIdentifier: 
+  requiredSkills:
+  - {fileID: 11400000, guid: 51b50296b519dd541ab7d5850f5ea0a1, type: 2}
+  - {fileID: 11400000, guid: 838ebc90106b68440bd58fac7702b63f, type: 2}
+  - {fileID: 11400000, guid: a9bd951e9639cfb4980a6371bd5870b1, type: 2}
+  - {fileID: 11400000, guid: cbd6777b0199cf94296f6679ee1121bd, type: 2}
+  reward: {fileID: 11400000, guid: fe7e69e5be76fba4eb9edc02f001122f, type: 2}
