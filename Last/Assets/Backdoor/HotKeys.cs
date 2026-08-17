@@ -10,14 +10,16 @@ public class Hotkeys : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.L))
         {
             GameRefresh.RefreshEverything();
-            Scenemanager.Instance.OpenOverlay("Point");
+            //Scenemanager.Instance.OpenOverlay("Point");
+            Overlaycontroller.OpenOverlayScene("Point");
             inputManager.EnableGameplay(false);
         }
 
         if (Input.GetKeyDown(KeyCode.K))
         {
             GameRefresh.RefreshEverything();
-            Scenemanager.Instance.OpenOverlay("Skill");
+            //Scenemanager.Instance.OpenOverlay("Skill");
+            Overlaycontroller.OpenOverlayScene("Skill");
             inputManager.EnableGameplay(false);
         }
 
@@ -25,7 +27,8 @@ public class Hotkeys : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.J))
         {
             GameRefresh.RefreshEverything();
-            Scenemanager.Instance.OpenOverlay("Combine");
+            //Scenemanager.Instance.OpenOverlay("Combine");
+            Overlaycontroller.OpenOverlayScene("Combine");
             inputManager.EnableGameplay(false);
         }
 
@@ -34,6 +37,8 @@ public class Hotkeys : MonoBehaviour
             Scenemanager.Instance.CloseOverlay("Point");
             Scenemanager.Instance.CloseOverlay("Skill");
             Scenemanager.Instance.CloseOverlay("Combine");
+
+            Overlaycontroller.ReturnToMatch();
 
             inputManager.EnableGameplay(true);
 

@@ -224,13 +224,13 @@ public class LoadoutMenu : MonoBehaviour
             return "\n 1) Sniper Rifle  2) USP45";
 
         if (loadout.className == "Demolitionist")
-            return "\n 1) Grenade Launcher \n 2) Hand Cannon";
+            return "\n 1) Grenade Launcher 2) Hand Cannon";
 
         if (loadout.className == "Scout")
-            return "\n 1) Shotgun \n 2) Magnum";
+            return "\n 1) Shotgun 2) Magnum";
 
         if (loadout.className == "Driver")
-            return "\n 1) Carbine \n 2) Pocket Rifle";
+            return "\n 1) Carbine 2) Pocket Rifle";
 
         return "\n 1) Assault Rifle  2) Glock";
     }

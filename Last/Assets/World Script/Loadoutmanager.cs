@@ -156,7 +156,7 @@ public class Loadoutmanager : MonoBehaviour
             {
                 if (skill.skillID == id)
                 {
-                    skillText.text += "• " + skill.skillName + "\n";
+                    skillText.text += "# " + skill.skillName + "\n";
                     break;
                 }
             }
@@ -165,8 +165,8 @@ public class Loadoutmanager : MonoBehaviour
 
     void DisplayLoadoutInfo()
     {
-        classText.text = "Class : " +  SaveManager.Instance.Data.className;
+        classText.text = "Class: " +  SaveManager.Instance.Data.className;
 
-        weaponText.text =  "Primary : " +  Primary.GetPrimary(SaveManager.Instance.Data.className)  +  "\nSecondary : " +  SaveManager.Instance.Data.secondaryWeaponID;
+        weaponText.text =  "Primary: " +  Primary.GetPrimary(SaveManager.Instance.Data.className)  +  "  Secondary: " +  SaveManager.Instance.Data.secondaryWeaponID;
     }
 }
