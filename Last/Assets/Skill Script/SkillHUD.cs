@@ -11,6 +11,11 @@ public class SkillHUD : MonoBehaviour
     public TMP_Text comboText;
     public TMP_Text unlockedSkillsText;
 
+    private void Start()
+    {
+        pointsText.text = "Skill Points : " + tree.availablePoints;
+    }
+
     void Update()
     {
         pointsText.text = "Skill Points : " + tree.availablePoints;

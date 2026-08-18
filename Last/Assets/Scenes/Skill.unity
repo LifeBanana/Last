@@ -176,7 +176,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Close
+  m_text: Buy Perk
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -445,7 +445,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BuySkill
+      value: SelectSkill
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -670,7 +670,7 @@ PrefabInstance:
     - target: {fileID: 5845709755558450582, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: skill
       value: 
-      objectReference: {fileID: 11400000, guid: 223f5c49cf3c266449b44a49cfe2748c, type: 2}
+      objectReference: {fileID: 11400000, guid: 8f7fed192c599564f9736059ceb096e8, type: 2}
     - target: {fileID: 6440007528671877682, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_Name
       value: Button9
@@ -721,7 +721,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BuySkill
+      value: SelectSkill
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -954,7 +954,7 @@ PrefabInstance:
     - target: {fileID: 5845709755558450582, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: skill
       value: 
-      objectReference: {fileID: 11400000, guid: ccbb326475a28ce42aa91ff993e0d6d0, type: 2}
+      objectReference: {fileID: 11400000, guid: edcf11751c7112348986f19040536093, type: 2}
     - target: {fileID: 6440007528671877682, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_Name
       value: Button16
@@ -1005,7 +1005,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BuySkill
+      value: SelectSkill
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -1230,7 +1230,7 @@ PrefabInstance:
     - target: {fileID: 5845709755558450582, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: skill
       value: 
-      objectReference: {fileID: 11400000, guid: ccbb326475a28ce42aa91ff993e0d6d0, type: 2}
+      objectReference: {fileID: 11400000, guid: d6af98480913c9844a845d6dfd32e1bd, type: 2}
     - target: {fileID: 6440007528671877682, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_Name
       value: Button27
@@ -1281,7 +1281,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BuySkill
+      value: SelectSkill
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -1634,7 +1634,7 @@ PrefabInstance:
     - target: {fileID: 5845709755558450582, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: skill
       value: 
-      objectReference: {fileID: 11400000, guid: ccbb326475a28ce42aa91ff993e0d6d0, type: 2}
+      objectReference: {fileID: 11400000, guid: 9575868d0160a3043826a1b403daf04a, type: 2}
     - target: {fileID: 6440007528671877682, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_Name
       value: Button8
@@ -1685,7 +1685,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BuySkill
+      value: SelectSkill
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -1910,7 +1910,7 @@ PrefabInstance:
     - target: {fileID: 5845709755558450582, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: skill
       value: 
-      objectReference: {fileID: 11400000, guid: ccbb326475a28ce42aa91ff993e0d6d0, type: 2}
+      objectReference: {fileID: 11400000, guid: ad84d5fcf4e476241ab8c46c3ec5ab9e, type: 2}
     - target: {fileID: 6440007528671877682, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_Name
       value: Button22
@@ -1961,7 +1961,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BuySkill
+      value: SelectSkill
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -2194,7 +2194,7 @@ PrefabInstance:
     - target: {fileID: 5845709755558450582, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: skill
       value: 
-      objectReference: {fileID: 11400000, guid: ccbb326475a28ce42aa91ff993e0d6d0, type: 2}
+      objectReference: {fileID: 11400000, guid: 45c3f2ec50d2add4da7b1292a97f4814, type: 2}
     - target: {fileID: 6440007528671877682, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_Name
       value: Button24
@@ -2245,7 +2245,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BuySkill
+      value: SelectSkill
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -2350,8 +2350,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 399.8, y: -135.97998}
-  m_SizeDelta: {x: -799.6, y: -271.9492}
+  m_AnchoredPosition: {x: 399.8, y: -89.0381}
+  m_SizeDelta: {x: -799.6, y: -178.0654}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &402723657
 MonoBehaviour:
@@ -2365,16 +2365,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Material: {fileID: 2100000, guid: 32c342e7c1540d244b7b65394fd9431d, type: 2}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 7482667652216324306, guid: 291d84c5df1a8d94a89d0a4c8ac3fdf5, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2609,7 +2609,7 @@ PrefabInstance:
     - target: {fileID: 5845709755558450582, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: skill
       value: 
-      objectReference: {fileID: 11400000, guid: ccbb326475a28ce42aa91ff993e0d6d0, type: 2}
+      objectReference: {fileID: 11400000, guid: 54ea7a057f7adc149855ec7a2cd719d4, type: 2}
     - target: {fileID: 6440007528671877682, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_Name
       value: Button20
@@ -2660,7 +2660,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BuySkill
+      value: SelectSkill
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -3223,7 +3223,7 @@ PrefabInstance:
     - target: {fileID: 5845709755558450582, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: skill
       value: 
-      objectReference: {fileID: 11400000, guid: a8c8c747b3e6c934382b7a29f36a5a8b, type: 2}
+      objectReference: {fileID: 11400000, guid: 219ad954f8e18df41b577f2e19367a99, type: 2}
     - target: {fileID: 6440007528671877682, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_Name
       value: Button18
@@ -3274,7 +3274,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BuySkill
+      value: SelectSkill
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -3499,7 +3499,7 @@ PrefabInstance:
     - target: {fileID: 5845709755558450582, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: skill
       value: 
-      objectReference: {fileID: 11400000, guid: ccbb326475a28ce42aa91ff993e0d6d0, type: 2}
+      objectReference: {fileID: 11400000, guid: 441628e868d6e5a4d87b1bc435e034f0, type: 2}
     - target: {fileID: 6440007528671877682, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_Name
       value: Button11
@@ -3550,7 +3550,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BuySkill
+      value: SelectSkill
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -3775,7 +3775,7 @@ PrefabInstance:
     - target: {fileID: 5845709755558450582, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: skill
       value: 
-      objectReference: {fileID: 11400000, guid: ccbb326475a28ce42aa91ff993e0d6d0, type: 2}
+      objectReference: {fileID: 11400000, guid: bddb1956208161a45aa8ac20073da64a, type: 2}
     - target: {fileID: 6440007528671877682, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_Name
       value: Button21
@@ -3826,7 +3826,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BuySkill
+      value: SelectSkill
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -4051,7 +4051,7 @@ PrefabInstance:
     - target: {fileID: 5845709755558450582, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: skill
       value: 
-      objectReference: {fileID: 11400000, guid: ccbb326475a28ce42aa91ff993e0d6d0, type: 2}
+      objectReference: {fileID: 11400000, guid: a9bd951e9639cfb4980a6371bd5870b1, type: 2}
     - target: {fileID: 6440007528671877682, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_Name
       value: Button23
@@ -4102,7 +4102,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BuySkill
+      value: SelectSkill
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -4327,7 +4327,7 @@ PrefabInstance:
     - target: {fileID: 5845709755558450582, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: skill
       value: 
-      objectReference: {fileID: 11400000, guid: ccbb326475a28ce42aa91ff993e0d6d0, type: 2}
+      objectReference: {fileID: 11400000, guid: 14e048139aceefb4c8b967e4a3ec7be8, type: 2}
     - target: {fileID: 6440007528671877682, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_Name
       value: Button30
@@ -4378,7 +4378,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BuySkill
+      value: SelectSkill
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -4603,7 +4603,7 @@ PrefabInstance:
     - target: {fileID: 5845709755558450582, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: skill
       value: 
-      objectReference: {fileID: 11400000, guid: ccbb326475a28ce42aa91ff993e0d6d0, type: 2}
+      objectReference: {fileID: 11400000, guid: cbd6777b0199cf94296f6679ee1121bd, type: 2}
     - target: {fileID: 6440007528671877682, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_Name
       value: Button31
@@ -4654,7 +4654,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BuySkill
+      value: SelectSkill
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -4914,7 +4914,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BuySkill
+      value: SelectSkill
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -5257,7 +5257,7 @@ PrefabInstance:
     - target: {fileID: 5845709755558450582, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: skill
       value: 
-      objectReference: {fileID: 11400000, guid: a8c8c747b3e6c934382b7a29f36a5a8b, type: 2}
+      objectReference: {fileID: 11400000, guid: d800a0bf6ea039744a070b4dd9d4de05, type: 2}
     - target: {fileID: 6440007528671877682, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_Name
       value: Button26
@@ -5308,7 +5308,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BuySkill
+      value: SelectSkill
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -5533,7 +5533,7 @@ PrefabInstance:
     - target: {fileID: 5845709755558450582, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: skill
       value: 
-      objectReference: {fileID: 11400000, guid: ccbb326475a28ce42aa91ff993e0d6d0, type: 2}
+      objectReference: {fileID: 11400000, guid: 89ec499481ad451449ba8bed038b7941, type: 2}
     - target: {fileID: 6440007528671877682, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_Name
       value: Button28
@@ -5584,7 +5584,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BuySkill
+      value: SelectSkill
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -6088,7 +6088,7 @@ PrefabInstance:
     - target: {fileID: 5845709755558450582, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: skill
       value: 
-      objectReference: {fileID: 11400000, guid: ccbb326475a28ce42aa91ff993e0d6d0, type: 2}
+      objectReference: {fileID: 11400000, guid: 5a441bd1b683f144aa69773d64fe4ccb, type: 2}
     - target: {fileID: 6440007528671877682, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_Name
       value: Button19
@@ -6139,7 +6139,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BuySkill
+      value: SelectSkill
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -6364,7 +6364,7 @@ PrefabInstance:
     - target: {fileID: 5845709755558450582, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: skill
       value: 
-      objectReference: {fileID: 11400000, guid: ccbb326475a28ce42aa91ff993e0d6d0, type: 2}
+      objectReference: {fileID: 11400000, guid: 708f50fd6f27dbd46bb3d71e12754fcb, type: 2}
     - target: {fileID: 6440007528671877682, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_Name
       value: Button12
@@ -6415,7 +6415,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BuySkill
+      value: SelectSkill
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -6673,7 +6673,7 @@ PrefabInstance:
     - target: {fileID: 5845709755558450582, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: skill
       value: 
-      objectReference: {fileID: 11400000, guid: ccbb326475a28ce42aa91ff993e0d6d0, type: 2}
+      objectReference: {fileID: 11400000, guid: 22b2c2c0d1e490748b8892e1321402e5, type: 2}
     - target: {fileID: 6440007528671877682, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_Name
       value: Button29
@@ -6724,7 +6724,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BuySkill
+      value: SelectSkill
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -6828,8 +6828,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -100, y: -85.32539}
-  m_SizeDelta: {x: 200, y: 170.6508}
+  m_AnchoredPosition: {x: -111.57019, y: -140.67}
+  m_SizeDelta: {x: 176.8596, y: 281.33}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1113825686
 MonoBehaviour:
@@ -6861,7 +6861,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -6878,12 +6878,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 24
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMin: 12
+  m_fontSizeMax: 24
   m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
@@ -7213,7 +7213,7 @@ PrefabInstance:
     - target: {fileID: 5845709755558450582, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: skill
       value: 
-      objectReference: {fileID: 11400000, guid: 223f5c49cf3c266449b44a49cfe2748c, type: 2}
+      objectReference: {fileID: 11400000, guid: 59105777272170048891d9d337607666, type: 2}
     - target: {fileID: 6440007528671877682, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_Name
       value: Button17
@@ -7264,7 +7264,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BuySkill
+      value: SelectSkill
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -7489,7 +7489,7 @@ PrefabInstance:
     - target: {fileID: 5845709755558450582, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: skill
       value: 
-      objectReference: {fileID: 11400000, guid: ccbb326475a28ce42aa91ff993e0d6d0, type: 2}
+      objectReference: {fileID: 11400000, guid: b8b2aa6bace090d4297e3c4393e27b02, type: 2}
     - target: {fileID: 6440007528671877682, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_Name
       value: Button13
@@ -7540,7 +7540,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BuySkill
+      value: SelectSkill
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -7765,7 +7765,7 @@ PrefabInstance:
     - target: {fileID: 5845709755558450582, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: skill
       value: 
-      objectReference: {fileID: 11400000, guid: 223f5c49cf3c266449b44a49cfe2748c, type: 2}
+      objectReference: {fileID: 11400000, guid: d91fbba40a6880345b560d3bda73bd85, type: 2}
     - target: {fileID: 6440007528671877682, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_Name
       value: Button25
@@ -7816,7 +7816,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BuySkill
+      value: SelectSkill
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -8041,7 +8041,7 @@ PrefabInstance:
     - target: {fileID: 5845709755558450582, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: skill
       value: 
-      objectReference: {fileID: 11400000, guid: ccbb326475a28ce42aa91ff993e0d6d0, type: 2}
+      objectReference: {fileID: 11400000, guid: 838ebc90106b68440bd58fac7702b63f, type: 2}
     - target: {fileID: 6440007528671877682, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_Name
       value: Button15
@@ -8092,7 +8092,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BuySkill
+      value: SelectSkill
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -8230,6 +8230,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 14e048139aceefb4c8b967e4a3ec7be8, type: 2}
   - {fileID: 11400000, guid: cbd6777b0199cf94296f6679ee1121bd, type: 2}
   - {fileID: 11400000, guid: 21273f00e1c5bc14f92afcfde940fd77, type: 2}
+  selectedSkill: {fileID: 11400000, guid: d6af98480913c9844a845d6dfd32e1bd, type: 2}
 --- !u!4 &1559454551
 Transform:
   m_ObjectHideFlags: 0
@@ -8651,7 +8652,7 @@ PrefabInstance:
     - target: {fileID: 5845709755558450582, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: skill
       value: 
-      objectReference: {fileID: 11400000, guid: ccbb326475a28ce42aa91ff993e0d6d0, type: 2}
+      objectReference: {fileID: 11400000, guid: 21273f00e1c5bc14f92afcfde940fd77, type: 2}
     - target: {fileID: 6440007528671877682, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_Name
       value: Button32
@@ -8702,7 +8703,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BuySkill
+      value: SelectSkill
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -8927,7 +8928,7 @@ PrefabInstance:
     - target: {fileID: 5845709755558450582, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: skill
       value: 
-      objectReference: {fileID: 11400000, guid: ccbb326475a28ce42aa91ff993e0d6d0, type: 2}
+      objectReference: {fileID: 11400000, guid: 51b50296b519dd541ab7d5850f5ea0a1, type: 2}
     - target: {fileID: 6440007528671877682, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_Name
       value: Button7
@@ -8978,7 +8979,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BuySkill
+      value: SelectSkill
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -9341,7 +9342,7 @@ PrefabInstance:
     - target: {fileID: 5845709755558450582, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: skill
       value: 
-      objectReference: {fileID: 11400000, guid: ccbb326475a28ce42aa91ff993e0d6d0, type: 2}
+      objectReference: {fileID: 11400000, guid: 9df09aac2ee2c1d4ba995eeae3991a30, type: 2}
     - target: {fileID: 6440007528671877682, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_Name
       value: Button6
@@ -9392,7 +9393,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BuySkill
+      value: SelectSkill
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -9617,7 +9618,7 @@ PrefabInstance:
     - target: {fileID: 5845709755558450582, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: skill
       value: 
-      objectReference: {fileID: 11400000, guid: a8c8c747b3e6c934382b7a29f36a5a8b, type: 2}
+      objectReference: {fileID: 11400000, guid: d9c7d8c8d16ae61478fba87e8b6fb8e0, type: 2}
     - target: {fileID: 6440007528671877682, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_Name
       value: Button10
@@ -9668,7 +9669,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BuySkill
+      value: SelectSkill
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -9774,7 +9775,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -100, y: -22.579}
+  m_AnchoredPosition: {x: -100, y: 79}
   m_SizeDelta: {x: 200, y: 45.7509}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2038882240
@@ -9820,7 +9821,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2038882241}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1559454550}
+        m_TargetAssemblyTypeName: PlayerTree, Assembly-CSharp
+        m_MethodName: BuySelectedSkill
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2038882241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9834,7 +9847,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.43902135, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -9998,7 +10011,7 @@ PrefabInstance:
     - target: {fileID: 5845709755558450582, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: skill
       value: 
-      objectReference: {fileID: 11400000, guid: ccbb326475a28ce42aa91ff993e0d6d0, type: 2}
+      objectReference: {fileID: 11400000, guid: 56a19ba3a8ad9c9418aeaaa0a880cdaf, type: 2}
     - target: {fileID: 6440007528671877682, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_Name
       value: Button5
@@ -10049,7 +10062,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BuySkill
+      value: SelectSkill
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -10274,7 +10287,7 @@ PrefabInstance:
     - target: {fileID: 5845709755558450582, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: skill
       value: 
-      objectReference: {fileID: 11400000, guid: ccbb326475a28ce42aa91ff993e0d6d0, type: 2}
+      objectReference: {fileID: 11400000, guid: 0a05597b122079e4cbe6db33da8cb408, type: 2}
     - target: {fileID: 6440007528671877682, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_Name
       value: Button14
@@ -10325,7 +10338,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BuySkill
+      value: SelectSkill
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -10806,7 +10819,7 @@ PrefabInstance:
     - target: {fileID: 5845709755558450582, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: skill
       value: 
-      objectReference: {fileID: 11400000, guid: ccbb326475a28ce42aa91ff993e0d6d0, type: 2}
+      objectReference: {fileID: 11400000, guid: a46f20f6d885dd840bd2511fdeb6f4da, type: 2}
     - target: {fileID: 6440007528671877682, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_Name
       value: Button4
@@ -10857,7 +10870,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BuySkill
+      value: SelectSkill
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -11238,7 +11251,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BuySkill
+      value: SelectSkill
       objectReference: {fileID: 0}
     - target: {fileID: 8173837556496488735, guid: 7f691864159cfdb4d99b233e63afe7d5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName

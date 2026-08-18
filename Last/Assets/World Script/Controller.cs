@@ -35,6 +35,8 @@ public class Controller : MonoBehaviour
     public float jumpHeight;
     public float gravity;
 
+    public GameObject gt;
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -68,6 +70,19 @@ public class Controller : MonoBehaviour
         Jump();
         HandleCrouch();
         Gravity();
+        Instruct();
+    }
+
+    void Instruct()
+    {
+        if (Input.GetKeyDown(KeyCode.Backspace))
+        {
+            gt.gameObject.SetActive(true);
+        }
+        if (Input.GetKeyUp(KeyCode.Backspace))
+        {
+            gt.gameObject.SetActive(false);
+        }
     }
 
     void Move()

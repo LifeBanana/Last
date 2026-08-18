@@ -15,15 +15,40 @@ public class SkillButton : MonoBehaviour
 
     private void Start()
     {
+        if (skill == null)
+        {
+            Debug.LogWarning( "SkillData is missing on SkillButton." );
+
+            return;
+        }
+
         title.text = skill.skillName;
 
-        costText.text = $"\nCost: {skill.pointCost}";
+        costText.text =  $"Cost: {skill.pointCost}";
 
-        button.onClick.AddListener(BuySkill);
+        if (button != null)
+        {
+            button.onClick.AddListener(SelectSkill);
+        }
     }
 
-    public void BuySkill()
+    public void SelectSkill()
     {
-        tree.UnlockSkill(skill);
+        if (tree == null)
+        {
+            Debug.LogWarning( "PlayerTree is missing on " + skill.skillName );
+
+            return;
+        }
+
+        tree.SelectSkill(skill);
+    }
+
+    private void OnDestroy()
+    {
+        if (button != null)
+        {
+            button.onClick.RemoveListener(SelectSkill);
+        }
     }
 }

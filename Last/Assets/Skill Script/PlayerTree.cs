@@ -9,9 +9,36 @@ public class PlayerTree : MonoBehaviour
 
     public SkillData[] allSkills;
 
+    public SkillData selectedSkill;
+
     void Start()
     {
         LoadSkills();
+    }
+
+    public void SelectSkill(SkillData skill)
+    {
+        if (skill == null)
+            return;
+
+        selectedSkill = skill;
+
+        Debug.Log( "Selected Skill: " + skill.skillName );
+    }
+
+
+    public void BuySelectedSkill()
+    {
+        if (selectedSkill == null)
+        {
+            Debug.LogWarning(
+                "No skill has been selected."
+            );
+
+            return;
+        }
+
+        UnlockSkill(selectedSkill);
     }
 
     public bool UnlockSkill(SkillData skill)
