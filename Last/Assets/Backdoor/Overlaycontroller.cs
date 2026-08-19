@@ -1,15 +1,12 @@
 using UnityEngine;
-using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
 public class Overlaycontroller : MonoBehaviour
 {
     public static Overlaycontroller Instance;
-
     private static Overlaycanvas currentCanvas;
     private static Overlaycanvas matchCanvas;
-
-    private static readonly List<Overlaycanvas> registeredCanvases = new List<Overlaycanvas>();
+    private static string currentOverlayScene = "";
 
     private void Awake()
     {
@@ -17,10 +14,21 @@ public class Overlaycontroller : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            SceneManager.sceneLoaded += OnSceneLoaded;
+            SceneManager.sceneUnloaded += OnSceneUnloaded;
         }
         else
         {
             Destroy(gameObject);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (Instance == this)
+        {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+            SceneManager.sceneUnloaded -= OnSceneUnloaded;
         }
     }
 
@@ -29,27 +37,24 @@ public class Overlaycontroller : MonoBehaviour
         if (canvas == null)
             return;
 
-        if (!registeredCanvases.Contains(canvas))
-            registeredCanvases.Add(canvas);
-
         if (canvas.canvasType == Overlaycanvas.CanvasType.Match)
         {
             matchCanvas = canvas;
 
-            if (currentCanvas == null)
+            if (string.IsNullOrEmpty(currentOverlayScene))
             {
-                currentCanvas = matchCanvas;
                 SetOnlyCanvasActive(matchCanvas);
+                currentCanvas = matchCanvas;
             }
             else
             {
                 canvas.SetCanvasActive(false);
             }
+
+            return;
         }
-        else
-        {
-            canvas.SetCanvasActive(false);
-        }
+
+        canvas.SetCanvasActive(false);
     }
 
     public static void UnregisterCanvas(Overlaycanvas canvas)
@@ -57,46 +62,71 @@ public class Overlaycontroller : MonoBehaviour
         if (canvas == null)
             return;
 
-        registeredCanvases.Remove(canvas);
-
         if (currentCanvas == canvas)
+        {
             currentCanvas = null;
+        }
 
         if (matchCanvas == canvas)
+        {
             matchCanvas = null;
+        }
     }
 
     public static void OpenOverlayScene(string sceneName)
     {
-        Debug.Log("Opening overlay scene: " + sceneName);
-
-        Scene scene = SceneManager.GetSceneByName(sceneName);
-
-        if (!scene.isLoaded)
+        if (Instance == null)
         {
-            SceneManager.LoadScene(  sceneName, LoadSceneMode.Additive );
-
             return;
         }
 
-        SelectCanvasFromScene(scene);
+        Overlaycanvas.CanvasType requestedType;
+
+        if (!TryGetCanvasType(sceneName, out requestedType))
+        {
+            Debug.LogError(  "No CanvasType exists for overlay scene: " +  sceneName  );
+            return;
+        }
+
+        Scene existingScene = SceneManager.GetSceneByName(sceneName);
+
+        if (existingScene.isLoaded)
+        {
+            SelectCanvasFromScene(existingScene, requestedType);
+            return;
+        }
+
+        CloseCurrentOverlay();
+
+        currentOverlayScene = sceneName;
+
+        if (matchCanvas != null)
+        {
+            matchCanvas.SetCanvasActive(false);
+        }
+
+        SceneManager.LoadSceneAsync( sceneName, LoadSceneMode.Additive );
     }
 
-    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
-    private static void InitializeSceneCallback()
+    private static void OnSceneLoaded( Scene scene, LoadSceneMode mode)
     {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        if (string.IsNullOrEmpty(currentOverlayScene))
+            return;
+
+        if (scene.name != currentOverlayScene)
+            return;
+
+        Overlaycanvas.CanvasType type;
+
+        if (!TryGetCanvasType(scene.name, out type))
+            return;
+
+        SelectCanvasFromScene(scene, type);
     }
 
-    private static void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    private static void SelectCanvasFromScene( Scene scene,  Overlaycanvas.CanvasType requestedType)
     {
-        SelectCanvasFromScene(scene);
-    }
-
-    private static void SelectCanvasFromScene(Scene scene)
-    {
-        Overlaycanvas[] canvases = Object.FindObjectsByType<Overlaycanvas>(  FindObjectsInactive.Include, FindObjectsSortMode.None );
+        Overlaycanvas[] canvases = Object.FindObjectsByType<Overlaycanvas>( FindObjectsInactive.Include, FindObjectsSortMode.None );
 
         Overlaycanvas foundCanvas = null;
 
@@ -108,7 +138,7 @@ public class Overlaycontroller : MonoBehaviour
             if (canvas.gameObject.scene != scene)
                 continue;
 
-            if (canvas.canvasType == Overlaycanvas.CanvasType.Match)
+            if (canvas.canvasType != requestedType)
                 continue;
 
             foundCanvas = canvas;
@@ -135,40 +165,106 @@ public class Overlaycontroller : MonoBehaviour
         SetOnlyCanvasActive(canvas);
     }
 
-    public static void ReturnToMatch()
-    {
-
-        if (matchCanvas == null)
-        {
-            currentCanvas = null;
-            return;
-        }
-
-        currentCanvas = matchCanvas;
-
-        SetOnlyCanvasActive(matchCanvas);
-    }
-
-    private static void SetOnlyCanvasActive(
-        Overlaycanvas canvasToActivate)
+    private static void SetOnlyCanvasActive( Overlaycanvas canvasToActivate)
     {
         if (canvasToActivate == null)
             return;
 
-        for (int i = registeredCanvases.Count - 1; i >= 0; i--)
-        {
-            Overlaycanvas canvas = registeredCanvases[i];
+        Overlaycanvas[] allCanvases = Object.FindObjectsByType<Overlaycanvas>( FindObjectsInactive.Include, FindObjectsSortMode.None );
 
+        foreach (Overlaycanvas canvas in allCanvases)
+        {
             if (canvas == null)
-            {
-                registeredCanvases.RemoveAt(i);
                 continue;
-            }
+
+            if (canvas == canvasToActivate)
+                continue;
 
             canvas.SetCanvasActive(false);
         }
 
         canvasToActivate.SetCanvasActive(true);
+    }
+
+    public static void ReturnToMatch()
+    {
+        Debug.Log("Returning to Match.");
+
+        string overlayToUnload = currentOverlayScene;
+
+        currentOverlayScene = "";
+
+        currentCanvas = null;
+
+        if (matchCanvas != null)
+        {
+            currentCanvas = matchCanvas;
+
+            SetOnlyCanvasActive(matchCanvas);
+        }
+
+        if (!string.IsNullOrEmpty(overlayToUnload))
+        {
+            Scene scene = SceneManager.GetSceneByName(overlayToUnload);
+
+            if (scene.isLoaded)
+            {
+                SceneManager.UnloadSceneAsync( overlayToUnload );
+            }
+        }
+    }
+
+    private static void CloseCurrentOverlay()
+    {
+        if (string.IsNullOrEmpty(currentOverlayScene))
+            return;
+
+        string sceneName = currentOverlayScene;
+
+        currentOverlayScene = "";
+
+        Scene scene = SceneManager.GetSceneByName(sceneName);
+
+        if (scene.isLoaded)
+        {
+            SceneManager.UnloadSceneAsync(sceneName);
+        }
+
+        currentCanvas = null;
+    }
+
+    private static void OnSceneUnloaded(Scene scene)
+    {
+        Debug.Log( "Scene unloaded: " +  scene.name );
+    }
+
+    private static bool TryGetCanvasType( string sceneName,  out Overlaycanvas.CanvasType type)
+    {
+        switch (sceneName)
+        {
+            case "Point":
+
+                type = Overlaycanvas.CanvasType.Point;
+                return true;
+
+            case "Skill":
+
+                type = Overlaycanvas.CanvasType.Skill;
+                return true;
+
+            case "Combine":
+
+                type = Overlaycanvas.CanvasType.Combine;
+                return true;
+
+            case "Match":
+
+                type = Overlaycanvas.CanvasType.Match;
+                return true;
+        }
+
+        type = Overlaycanvas.CanvasType.Match;
+        return false;
     }
 
     public static Overlaycanvas GetCurrentCanvas()
@@ -183,17 +279,11 @@ public class Overlaycontroller : MonoBehaviour
 
     public static bool IsOverlayOpen()
     {
-        return currentCanvas != null && currentCanvas.canvasType != Overlaycanvas.CanvasType.Match;
+        return !string.IsNullOrEmpty(currentOverlayScene);
     }
 
-    public static void DebugCanvases()
+    public static string GetCurrentOverlayScene()
     {
-        foreach (Overlaycanvas canvas in registeredCanvases)
-        {
-            if (canvas == null)
-                continue;
-
-            Debug.Log(canvas.canvasName + " " + canvas.canvasType + "  " + canvas.gameObject.scene.name +  " " + canvas.gameObject.activeSelf );
-        }
+        return currentOverlayScene;
     }
 }

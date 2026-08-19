@@ -22,8 +22,6 @@ public class Overlaycanvas : MonoBehaviour
             canvasName = canvasType.ToString();
         }
 
-        Debug.Log( "Canvas Awake: " + canvasName + " | Scene: " + gameObject.scene.name );
-
         Overlaycontroller.RegisterCanvas(this);
     }
 
@@ -40,10 +38,7 @@ public class Overlaycanvas : MonoBehaviour
     public void Close()
     {
         if (canvasType == CanvasType.Match)
-        {
-            SetCanvasActive(true);
             return;
-        }
 
         if (Overlaycontroller.GetCurrentCanvas() == this)
         {

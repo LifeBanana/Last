@@ -16,9 +16,21 @@ public class Health : MonoBehaviour
 
     public TMP_Text healthtext;
 
+    private bool dead;
+
     void InitializeHealth()
     {
-        string className = SaveManager.Instance.Data.className;
+        if (Statsmanager.Instance != null)
+        {
+            Profile profile = Statsmanager.Instance.Profile;
+
+            maxHealth = profile.health;
+            maxShield = profile.shields;
+
+            return;
+        }
+
+        string className = SaveManager.Instance.Data.className; ;
 
         switch (className)
         {
@@ -107,9 +119,51 @@ public class Health : MonoBehaviour
             Die();
     }
 
-    void Die()
+    public void Die()
     {
-        respawn.respawn();
+        if (dead)
+            return;
+
+        dead = true;
+
+        Debug.Log("Player died.");
+
+        if (respawn == null)
+            respawn = GetComponent<Respawn>();
+
+        if (respawn != null)
+        {
+            respawn.RespawnPlayer();
+        }
+        else
+        {
+            Debug.LogError("Health: Respawn component is missing.");
+        }
+    }
+
+    public void DieFromDeathBarrier()
+    {
+        if (dead)
+            return;
+
+        Debug.Log("Player went out of bounds.");
+
+        Die();
+    }
+
+    public void ResetHealth()
+    {
+        InitializeHealth();
+
+        health = maxHealth;
+        shield = maxShield;
+
+        dead = false;
+    }
+
+    public bool IsDead()
+    {
+        return dead;
     }
 
     public void RefreshHealth()
@@ -118,5 +172,8 @@ public class Health : MonoBehaviour
 
         health = maxHealth;
         shield = maxShield;
+
+        dead = false;
     }
+
 }

@@ -27,6 +27,8 @@ public class SideArm : MonoBehaviour
     public float normalFOV;
     public float adsSpeed;
 
+    public Crosshair crosshair;
+
     IEnumerator Start()
     {
         while (string.IsNullOrEmpty(SaveManager.Instance.Data.className))
@@ -187,6 +189,11 @@ public class SideArm : MonoBehaviour
         GameObject bullet =  Instantiate( bulletPrefab, firePoint.position, Quaternion.LookRotation(direction));
 
         bullet.GetComponent<Bullet>().SetDamage(damage);
+
+        if (crosshair != null)
+        {
+            crosshair.Fire();
+        }
 
         ApplyRecoil();
     }
