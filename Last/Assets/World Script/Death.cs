@@ -12,33 +12,33 @@ public class Death : MonoBehaviour
 
     private void Update()
     {
-        if (!useYBoundary)
-            return;
+        //if (!useYBoundary)
+        //    return;
 
-        if (!CompareTag("Player"))
-            return;
+        //if (!CompareTag("Player"))
+        //    return;
 
-        if (transform.position.y <= deathY)
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
             KillPlayer();
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (!useTrigger)
-            return;
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (!useTrigger)
+    //        return;
 
-        if (!other.CompareTag("Player"))
-            return;
+    //    if (!other.CompareTag("Player"))
+    //        return;
 
-        Health health = other.GetComponent<Health>();
+    //    Health health = other.GetComponent<Health>();
 
-        if (health != null)
-        {
-            health.DieFromDeathBarrier();
-        }
-    }
+    //    if (health != null)
+    //    {
+    //        health.DieFromDeathBarrier();
+    //    }
+    //}
 
     private void KillPlayer()
     {

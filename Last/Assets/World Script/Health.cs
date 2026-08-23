@@ -18,18 +18,8 @@ public class Health : MonoBehaviour
 
     private bool dead;
 
-    void InitializeHealth()
+    public void InitializeHealth()
     {
-        if (Statsmanager.Instance != null)
-        {
-            Profile profile = Statsmanager.Instance.Profile;
-
-            maxHealth = profile.health;
-            maxShield = profile.shields;
-
-            return;
-        }
-
         string className = SaveManager.Instance.Data.className; ;
 
         switch (className)
@@ -78,6 +68,16 @@ public class Health : MonoBehaviour
                 maxHealth = 100;
                 maxShield = 50;
                 break;
+        }
+
+        if (Statsmanager.Instance != null)
+        {
+            Profile profile = Statsmanager.Instance.Profile;
+
+            maxHealth += profile.health;
+            maxShield += profile.shields;
+
+            return;
         }
 
         health = maxHealth;

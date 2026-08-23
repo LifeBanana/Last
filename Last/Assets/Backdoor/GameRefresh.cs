@@ -31,5 +31,10 @@ public static class GameRefresh
 
         if (controller != null)
             controller.Initialize();
+
+        Health health = UnityEngine.Object.FindAnyObjectByType<Health>();
+
+        if (health != null)
+            health.InitializeHealth();
     }
 }

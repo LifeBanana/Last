@@ -27,11 +27,6 @@ public class SaveData
     public List<EquippedAttachment> equippedAttachments = new List<EquippedAttachment>();
     public List<string> unlockedAttachments = new List<string>();
 
-    public int playerLevel;
-
-    public int experience;
-
-
     public string className;
 
     public string weaponName;

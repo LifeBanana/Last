@@ -54,6 +54,11 @@ public class Hotkeys : MonoBehaviour
             if (manager != null)
                 manager.Initialize();
 
+            Health health = UnityEngine.Object.FindAnyObjectByType<Health>();
+
+            if (health != null)
+                health.InitializeHealth();
+
             GameRefresh.RefreshEverything();
         }
     }
