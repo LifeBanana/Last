@@ -176,19 +176,30 @@ public class SideArm : MonoBehaviour
         if (Time.time < nextFireTime)
             return;
 
-        nextFireTime = Time.time + (1f / fireRate);
+        nextFireTime = Time.time + 1f / fireRate;
 
         currentAmmo--;
 
-        Vector3 direction = playerCamera.transform.forward;
+        Vector3 targetPoint = GetCrosshairTarget();
 
-        direction += playerCamera.transform.right *  Random.Range(-spread, spread) * 0.01f;
+        Vector3 direction = targetPoint - firePoint.position;
 
-        direction += playerCamera.transform.up *    Random.Range(-spread, spread) * 0.01f;
+        direction.Normalize();
 
-        GameObject bullet =  Instantiate( bulletPrefab, firePoint.position, Quaternion.LookRotation(direction));
+        direction += playerCamera.transform.right * UnityEngine.Random.Range(-spread, spread) * 0.01f;
 
-        bullet.GetComponent<Bullet>().SetDamage(damage);
+        direction += playerCamera.transform.up * UnityEngine.Random.Range(-spread, spread) * 0.01f;
+
+        direction.Normalize();
+
+        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.LookRotation(direction));
+
+        Bullet bulletScript = bullet.GetComponent<Bullet>();
+
+        if (bulletScript != null)
+        {
+            bulletScript.SetDamage(damage);
+        }
 
         if (crosshair != null)
         {
@@ -216,5 +227,19 @@ public class SideArm : MonoBehaviour
         adsFOV = p.adsFOV;
         normalFOV = p.normalFOV;
         adsSpeed = p.adsSpeed * 1.1f;
+    }
+
+    Vector3 GetCrosshairTarget()
+    {
+        Ray ray = playerCamera.ViewportPointToRay( new Vector3(0.5f, 0.5f, 0f) );
+
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, 1000f))
+        {
+            return hit.point;
+        }
+
+        return ray.origin + ray.direction * 1000f;
     }
 }

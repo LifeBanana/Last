@@ -1609,7 +1609,7 @@ MonoBehaviour:
     recoil: 0
     reloadTime: 0
     damageFalloff: 0
-    rateOfFire: 0
+    rateOfFire: 1
     spread: 0
     adsTime: 0
     sprintToFire: 0
@@ -1622,8 +1622,8 @@ MonoBehaviour:
     recoil: 0
     reloadTime: 0
     range: 0
-    fireRate: 0
-    spread: 0
+    fireRate: 1
+    spread: 1
     adsTime: 0
     sprintToFire: 0
     health: 0
@@ -2107,8 +2107,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
-  fireRate: 0
-  spread: 0
+  fireRate: 1
+  spread: 1
   recoil: 0
   adstime: 0
   range: 0

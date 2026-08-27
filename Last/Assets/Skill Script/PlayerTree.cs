@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PlayerTree : MonoBehaviour
 {
-    public int availablePoints = 10;
+    public int availablePoints = 30;
 
     public List<SkillData> unlockedSkills = new List<SkillData>();
 

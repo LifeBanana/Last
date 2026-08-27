@@ -79,10 +79,6 @@ public class Controller : MonoBehaviour
         {
             gt.gameObject.SetActive(true);
         }
-        if (Input.GetKeyUp(KeyCode.Backspace))
-        {
-            gt.gameObject.SetActive(false);
-        }
     }
 
     void Move()

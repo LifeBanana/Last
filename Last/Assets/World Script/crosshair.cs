@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Crosshair : MonoBehaviour
 {
@@ -29,6 +28,7 @@ public class Crosshair : MonoBehaviour
         currentExpansion = baseSize;
         targetExpansion = baseSize;
 
+        SetCrosshairCentre();
         UpdateCrosshair();
     }
 
@@ -41,7 +41,7 @@ public class Crosshair : MonoBehaviour
 
         CalculateExpansion();
 
-        currentExpansion = Mathf.Lerp(  currentExpansion, targetExpansion, smoothSpeed * Time.deltaTime );
+        currentExpansion = Mathf.Lerp(  currentExpansion, targetExpansion,  smoothSpeed * Time.deltaTime );
 
         UpdateCrosshair();
     }
@@ -66,10 +66,9 @@ public class Crosshair : MonoBehaviour
         }
 
         float horizontal = Input.GetAxis("Horizontal");
-
         float vertical = Input.GetAxis("Vertical");
 
-        bool moving = Mathf.Abs(horizontal) > 0.1f ||   Mathf.Abs(vertical) > 0.1f;
+        bool moving = Mathf.Abs(horizontal) > 0.1f ||  Mathf.Abs(vertical) > 0.1f;
 
         if (moving)
         {
@@ -84,11 +83,23 @@ public class Crosshair : MonoBehaviour
 
     void UpdateCrosshair()
     {
+        if (center == null)
+            return;
 
-        if (center != null)
-        {
-            center.anchoredPosition = new Vector2(  -currentExpansion,  -2 );
-        }
+        SetCrosshairCentre();
+    }
+
+    void SetCrosshairCentre()
+    {
+        if (center == null)
+            return;
+
+        center.anchorMin = new Vector2(0.5f, 0.5f);
+        center.anchorMax = new Vector2(0.5f, 0.5f);
+
+        center.pivot = new Vector2(0.5f, 0.5f);
+
+        center.anchoredPosition = Vector2.zero;
     }
 
     public void Fire()

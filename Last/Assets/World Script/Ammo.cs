@@ -14,11 +14,11 @@ public class Ammo : MonoBehaviour
 
         if (weaponManager.primaryWeapon != null && weaponManager.primaryWeapon.gameObject.activeSelf)
         {
-            ammoText.text =  weaponManager.primaryWeapon.currentAmmo + " / " +  weaponManager.primaryWeapon.reserveAmmo;
+            ammoText.text = "Ammo: " + weaponManager.primaryWeapon.currentAmmo + " / " +  weaponManager.primaryWeapon.reserveAmmo;
         }
         else if (weaponManager.secondaryWeapon != null &&   weaponManager.secondaryWeapon.gameObject.activeSelf)
         {
-            ammoText.text = weaponManager.secondaryWeapon.currentAmmo + " / " +  weaponManager.secondaryWeapon.reserveAmmo;
+            ammoText.text = "Ammo: " + weaponManager.secondaryWeapon.currentAmmo + " / " +  weaponManager.secondaryWeapon.reserveAmmo;
         }
         else
         {
