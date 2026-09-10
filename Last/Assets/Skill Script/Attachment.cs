@@ -1,4 +1,5 @@
 using UnityEngine;
+//scriptable object for attachment to be created
 
 [CreateAssetMenu(menuName = "Skill Tree/Attachment")]
 public class Attachment : ScriptableObject

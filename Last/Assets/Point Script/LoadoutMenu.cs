@@ -15,6 +15,7 @@ public class LoadoutMenu : MonoBehaviour
 
     public StatsRow[] statRows;
 
+    //where the stats modifications process happens
     private void Start()
     {
         loadout.LoadLoadout();
@@ -171,7 +172,7 @@ public class LoadoutMenu : MonoBehaviour
 
         Refresh();
     }
-
+    //refresh the scene containing the tests for player notifications
     void Refresh()
     {
         int cost =  Calculator.CalculateCost(loadout.stats);
@@ -190,7 +191,7 @@ public class LoadoutMenu : MonoBehaviour
 
         SummaryText.text = GenerateSummary();
     }
-
+    //calls the function to make the weapons and save the data
     void ConfirmBuild()
     {
         loadout.BuildLoadout();
@@ -200,7 +201,7 @@ public class LoadoutMenu : MonoBehaviour
 
         Statsmanager.Instance.BuildProfile(loadout.stats);
     }
-
+    //detetimes the class and weapons for player
     string DetermineWeapon()
     {
         Stats s = loadout.stats;
@@ -234,7 +235,7 @@ public class LoadoutMenu : MonoBehaviour
 
         return "\n 1) Assault Rifle  2) Glock";
     }
-
+    //gives descriptions when stat threshold reached
     string GenerateSummary()
     {
         var s = loadout.stats;
@@ -300,7 +301,7 @@ public class LoadoutMenu : MonoBehaviour
 
         return summary;
     }
-
+    //checks to see the stat can increase
     bool CanIncreaseStat(StatsRow row)
     {
         Stats copy = new Stats();
@@ -336,7 +337,7 @@ public class LoadoutMenu : MonoBehaviour
 
         return Calculator.CalculateCost(copy) <= PlayerLoadout.MAX_POINTS;
     }
-
+    //sets the value for each stat
     void SyncRows()
     {
         foreach (StatsRow row in statRows)

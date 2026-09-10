@@ -1,5 +1,6 @@
 using UnityEngine;
 
+//scrapped use for camera for attachments on weapons would be nice to have but no
 public class previewCam : MonoBehaviour
 {
     public float moveSpeed = 2f;

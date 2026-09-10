@@ -2,6 +2,7 @@ using UnityEngine;
 
 public static class secondweapon
 {
+    //return the secondary weapon ID for spawning
     public static string GetSecondary(string className)
     {
         switch (className)

@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections;
-
+//same script as weapon.cs in the world script folder but for secondary weapons
 public class SideArm : MonoBehaviour
 {
     public Camera playerCamera;

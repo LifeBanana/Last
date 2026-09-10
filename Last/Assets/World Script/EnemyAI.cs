@@ -1,5 +1,5 @@
 using UnityEngine;
-
+//where the enemy moves and attacks the player Scrapped/Outdated: early versions of this scripts used nav mesh agent
 public class EnemyAI : MonoBehaviour
 {
     public enum AIState
@@ -55,7 +55,7 @@ public class EnemyAI : MonoBehaviour
             currentState = AIState.Patrol;
         }
     }
-
+    //switch statement to enemy state in scene
     private void Update()
     {
         if (player == null)
@@ -94,7 +94,7 @@ public class EnemyAI : MonoBehaviour
                 break;
         }
     }
-
+    //moving between points at a lower speeds
     private void Patrol()
     {
         if (patrolPoints == null ||
@@ -142,7 +142,7 @@ public class EnemyAI : MonoBehaviour
 
         MoveTowards(targetPosition);
     }
-
+    //moves faster towards player
     private void Chase()
     {
         Vector3 targetPosition =  player.position;
@@ -156,7 +156,7 @@ public class EnemyAI : MonoBehaviour
 
         LookAtTarget(player.position);
     }
-
+    //switching to attacking the player
     private void AttackState()
     {
 
@@ -164,7 +164,7 @@ public class EnemyAI : MonoBehaviour
 
         Attack();
     }
-
+    //moves to the player
     private void MoveTowards( Vector3 targetPosition)
     {
         Vector3 direction = targetPosition - transform.position;
@@ -178,7 +178,7 @@ public class EnemyAI : MonoBehaviour
 
         LookAtTarget(targetPosition);
     }
-
+    //rotates enemy game object to player
     private void LookAtTarget(  Vector3 targetPosition)
     {
         Vector3 direction =  targetPosition - transform.position;
@@ -190,7 +190,7 @@ public class EnemyAI : MonoBehaviour
 
         transform.rotation = Quaternion.Slerp(   transform.rotation,  targetRotation,  rotationSpeed *   Time.deltaTime );
     }
-
+    //deals damage to player health
     private void Attack()
     {
         if (Time.time < nextAttack)
@@ -206,7 +206,7 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-
+    //checks to find player in scene
     private void FindPlayer()
     {
         Controller controller = FindFirstObjectByType<Controller>();

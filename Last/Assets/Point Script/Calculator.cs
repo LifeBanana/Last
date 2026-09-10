@@ -2,6 +2,7 @@ using UnityEngine;
 
 public static class Calculator
 {
+    //where the costs for increasing and decreasing a specific stat happens
     public static int CalculateCost(Stats stats)
     {
         int cost = 0;
@@ -22,7 +23,7 @@ public static class Calculator
 
         return cost;
     }
-
+    //costs functions with base value and multiplier per level increase
     private static int Cost(int value, int multiplier)
     {
         return value * multiplier;

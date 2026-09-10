@@ -2,7 +2,7 @@ using UnityEngine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-
+//where the primary main weapons happens 
 public class Weapon : MonoBehaviour
 {
     public Camera playerCamera;
@@ -38,7 +38,7 @@ public class Weapon : MonoBehaviour
     public float adsSpeed;
 
     public Crosshair crosshair;
-
+    //waits for system to load in the new changes
     IEnumerator Start()
     {
         while (string.IsNullOrEmpty(SaveManager.Instance.Data.className))
@@ -47,7 +47,7 @@ public class Weapon : MonoBehaviour
         Initialize();
         RefreshProfile();
     }
-
+    //applying new stats changes for weapons
     public void Initialize()
     {
         if (isPrimary)
@@ -74,7 +74,7 @@ public class Weapon : MonoBehaviour
         normalFOV = p.normalFOV;
         adsSpeed = p.adsSpeed;
     }
-
+    //where the player input happens
     void Update()
     {
         if (!gameObject.activeInHierarchy)
@@ -91,7 +91,7 @@ public class Weapon : MonoBehaviour
             Shoot();
         }
     }
-
+    //switch statement to set ammo amount for specific class
     void SetupPrimaryAmmo()
     {
         string className = SaveManager.Instance.Data.className;
@@ -148,7 +148,7 @@ public class Weapon : MonoBehaviour
 
         Debug.Log("Mag = " + magSize + " Reserve = " + reserveAmmo);
     }
-
+    //player hold right mouse to zoom in on weapon
     void HandleADS()
     {
         aiming =   Input.GetMouseButton(1);
@@ -157,7 +157,7 @@ public class Weapon : MonoBehaviour
 
         playerCamera.fieldOfView =  Mathf.Lerp(  playerCamera.fieldOfView,  targetFOV,   adsSpeed *   Time.deltaTime);
     }
-
+    //player press r to reload
     void HandleReload()
     {
         if (Input.GetKeyDown(KeyCode.R))
@@ -165,7 +165,7 @@ public class Weapon : MonoBehaviour
             StartCoroutine(Reload());
         }
     }
-
+    //reloading of current ammo for weapon
     IEnumerator Reload()
     {
         if (currentAmmo >= magSize)
@@ -188,7 +188,7 @@ public class Weapon : MonoBehaviour
 
         reloading = false;
     }
-
+    //firing of the bullet in the player directions
     void Shoot()
     {
         if (currentAmmo <= 0)
@@ -229,12 +229,12 @@ public class Weapon : MonoBehaviour
 
         ApplyRecoil();
     }
-
+    //recoil to weapon
     void ApplyRecoil()
     {
         playerCamera.transform.localRotation *=    Quaternion.Euler(   -recoil,    UnityEngine.Random.Range(-0.5f, 0.5f),      0);
     }
-
+    //loads in the new changes from refrsh
     public void RefreshProfile()
     {
         Profile p = Statsmanager.Instance.Profile;
@@ -250,7 +250,7 @@ public class Weapon : MonoBehaviour
         normalFOV = p.normalFOV;
         adsSpeed = p.adsSpeed;
     }
-
+    //fires at the direction of crosshairs
     Vector3 GetCrosshairTarget()
     {
         Ray ray = playerCamera.ViewportPointToRay( new Vector3(0.5f, 0.5f, 0f)

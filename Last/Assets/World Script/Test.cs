@@ -1,5 +1,5 @@
 using UnityEngine;
-
+//Scrapped/Outdated: early versions for testing if player can be damaged
 public class Test : MonoBehaviour
 {
     void Update()

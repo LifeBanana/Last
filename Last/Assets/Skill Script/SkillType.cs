@@ -1,5 +1,5 @@
 using UnityEngine;
-
+//the stats/value amount for perk and //Scrapped/abandoned: early versions of what type of perk it would be
 public enum SkillType
 {
     Passive,

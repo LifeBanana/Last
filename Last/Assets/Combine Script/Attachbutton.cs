@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class Attachbutton : MonoBehaviour
 {
+    //where the attachment prefab data will be put into the button to be abled to interact with the weapons
     public TMP_Text attachmentNameText;
 
     Attachment attachment;
@@ -51,6 +52,7 @@ public class Attachbutton : MonoBehaviour
         });
     }
 
+    //calls attachment menu to equip
     void Equip()
     {
         Debug.Log("Attachbutton Equip()");

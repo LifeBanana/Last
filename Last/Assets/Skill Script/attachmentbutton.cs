@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-
+//scrapped/outdatted: use to allow the player to see attachment prefab
 public class attachmentbutton : MonoBehaviour
 {
     public Attachment attachment;

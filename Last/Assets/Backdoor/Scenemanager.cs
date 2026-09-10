@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class Scenemanager : MonoBehaviour
 {
+    //functions to call the scene switching
     public static Scenemanager Instance;
 
     private void Awake()

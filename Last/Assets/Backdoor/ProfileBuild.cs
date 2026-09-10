@@ -2,6 +2,7 @@ using UnityEngine;
 
 public static class ProfileBuild
 {
+    //where the stats for weapons, player is applied and called to build weapon for class
     public static Profile Build()
     {
         SaveData save = SaveManager.Instance.Data;
@@ -30,7 +31,7 @@ public static class ProfileBuild
 
         return profile;
     }
-
+    //where the perks for player and weapon are applied 
    public static void ApplySkills(Profile profile)
     {
         PlayerTree tree = Object.FindFirstObjectByType<PlayerTree>();
@@ -46,7 +47,7 @@ public static class ProfileBuild
             }
         }
     }
-
+    //where the attachments and modifications are applied to weapon
    public static void ApplyAttachments(Profile profile)
     {
         foreach (EquippedAttachment equipped in SaveManager.Instance.Data.equippedAttachments)

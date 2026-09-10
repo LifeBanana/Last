@@ -1,5 +1,5 @@
 using UnityEngine;
-
+//handles the stats for everything
 public class Statsmanager : MonoBehaviour
 {
     public static Statsmanager Instance;
@@ -28,7 +28,7 @@ public class Statsmanager : MonoBehaviour
     {
         Profile = WeaponBuild.Build(stats);
     }
-
+    //make the weapons from save
     void BuildProfileFromSave()
     {
         Stats stats = new Stats();
@@ -51,7 +51,7 @@ public class Statsmanager : MonoBehaviour
         Profile = WeaponBuild.Build(stats);
         Profile = ProfileBuild.Build();
     }
-
+    //loads in the new changes for stats frim major scripts
     public void RefreshProfile()
     {
         BuildProfileFromSave();

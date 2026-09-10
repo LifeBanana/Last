@@ -1,5 +1,5 @@
 using UnityEngine;
-
+//where the main weapons and side arm prefabs are spawned in the empty game object
 public class holder : MonoBehaviour
 {
     public Transform weaponSocket;

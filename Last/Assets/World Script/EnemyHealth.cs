@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+//the enemy health and where they take damage or be destroyed
 public class EnemyHealth : MonoBehaviour
 {
     public float maxHealth = 100f;
@@ -15,7 +15,7 @@ public class EnemyHealth : MonoBehaviour
     {
         currentHealth = maxHealth;
     }
-
+    //damages the enemy health and shows damage pop up 
     public void TakeDamage(float damage)
     {
         if (isDead)
@@ -35,7 +35,7 @@ public class EnemyHealth : MonoBehaviour
             Die();
         }
     }
-
+    //increase score before destruction
     private void Die()
     {
         if (isDead)

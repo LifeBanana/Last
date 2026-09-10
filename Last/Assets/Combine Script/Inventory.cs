@@ -1,5 +1,6 @@
 using UnityEngine;
 
+//scrapped/outdatted script; Original plan for attachments on weapons to be on inventory
 public class Inventory : MonoBehaviour
 {
     public static Inventory Instance;

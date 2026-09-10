@@ -4,7 +4,7 @@ using System.Collections.Generic;
 [Serializable]
 public class SaveData
 {
-
+    //the values to be stored
     public int damage;
     public int recoil;
     public int reload;
@@ -35,7 +35,7 @@ public class SaveData
 
     public string secondaryWeaponID;
 }
-
+//for storing what attachments type is on the weapon
 [System.Serializable]
 public class EquippedAttachment
 {

@@ -3,7 +3,7 @@ using TMPro;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-
+//player health and damage and death 
 public class Health : MonoBehaviour
 {
     float health;
@@ -17,7 +17,7 @@ public class Health : MonoBehaviour
     public TMP_Text healthtext;
 
     private bool dead;
-
+    //switch statement to get the player new base health and shields to correct class
     public void InitializeHealth()
     {
         string className = SaveManager.Instance.Data.className; ;
@@ -85,7 +85,7 @@ public class Health : MonoBehaviour
 
         Debug.Log($"Class: {className} | Health: {maxHealth} | Shield: {maxShield}");
     }
-
+    //waits for system to load the new changes
     IEnumerator Start()
     {
         while (string.IsNullOrEmpty(SaveManager.Instance.Data.className))
@@ -102,7 +102,7 @@ public class Health : MonoBehaviour
     {
         healthtext.text = "Health: " + health + " / " + maxHealth + "\n" + "Shields: " + shield + " / " + maxShield;
     }
-
+    //where the player health is damaged first shields is reduced then health
     public void TakeDamage(float damage)
     {
         if (shield > 0)
@@ -118,7 +118,7 @@ public class Health : MonoBehaviour
         if (health <= 0)
             Die();
     }
-
+    //respawing the player
     public void Die()
     {
         if (dead)
@@ -140,7 +140,7 @@ public class Health : MonoBehaviour
             Debug.LogError("Health: Respawn component is missing.");
         }
     }
-
+    //death from out of bounds
     public void DieFromDeathBarrier()
     {
         if (dead)
@@ -150,7 +150,7 @@ public class Health : MonoBehaviour
 
         Die();
     }
-
+    //reset healrh
     public void ResetHealth()
     {
         InitializeHealth();
@@ -160,12 +160,12 @@ public class Health : MonoBehaviour
 
         dead = false;
     }
-
+    //checks for death
     public bool IsDead()
     {
         return dead;
     }
-
+    //refresh new health
     public void RefreshHealth()
     {
         InitializeHealth();

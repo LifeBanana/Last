@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PreviewZoom : MonoBehaviour
 {
+    //where the player can zoom in and out on weapons in scene using mouse wheel
     public float zoomSpeed = 3f;
 
     public float minDistance = 0.5f;

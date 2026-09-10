@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
-
+//scriptable object to create the perks to be used in the tool
 [CreateAssetMenu(menuName = "Skill Tree/Skill")]
 public class SkillData : ScriptableObject
 {

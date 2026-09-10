@@ -1,5 +1,5 @@
 using UnityEngine;
-
+//scrapped/outdated: early versions for selecting socket and attachment
 public class AttchSelect : MonoBehaviour
 {
     public Socket socket;

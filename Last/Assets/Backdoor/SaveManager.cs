@@ -3,6 +3,7 @@ using System.IO;
 
 public class SaveManager : MonoBehaviour
 {
+    //save the data to be accessed in different across scenes and loaded
     public static SaveManager Instance;
 
     public SaveData Data = new SaveData();

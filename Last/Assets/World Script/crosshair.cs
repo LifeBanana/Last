@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Crosshair : MonoBehaviour
 {
+    //where the crosshairs for weapons to player knows where to aim
     public RectTransform center;
 
     public float baseSize = 8f;
@@ -51,7 +52,7 @@ public class Crosshair : MonoBehaviour
         weapon = FindFirstObjectByType<Weapon>();
         sideArm = FindFirstObjectByType<SideArm>();
     }
-
+    //moves the mouse 
     void CalculateExpansion()
     {
         targetExpansion = baseSize;
@@ -88,7 +89,7 @@ public class Crosshair : MonoBehaviour
 
         SetCrosshairCentre();
     }
-
+    //image at the center
     void SetCrosshairCentre()
     {
         if (center == null)

@@ -1,5 +1,5 @@
 using UnityEngine;
-
+//controls the pop up in the world scene and the damage from weapon at object
 public class Popupmanager : MonoBehaviour
 {
     public static Popupmanager Instance;

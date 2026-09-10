@@ -1,5 +1,5 @@
 using UnityEngine;
-
+//where the dummy game objects move around in the scene
 public class Target : MonoBehaviour
 {
     public float distance = 2f;

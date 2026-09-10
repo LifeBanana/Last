@@ -1,5 +1,5 @@
 using UnityEngine;
-
+//test scripts for weapon and applying weapons stats modifications
 public class Gun : MonoBehaviour
 {
     public float damage;

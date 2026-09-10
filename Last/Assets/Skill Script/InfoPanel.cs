@@ -1,6 +1,6 @@
 using TMPro;
 using UnityEngine;
-
+//where the information on perks are shown to the player
 public class InfoPanel : MonoBehaviour
 {
     public static InfoPanel Instance;

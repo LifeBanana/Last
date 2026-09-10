@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
+//the enemy wave spawner for continually spawns most amount of enemies at a given time
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject[] enemyPrefabs;
@@ -37,7 +37,7 @@ public class EnemySpawner : MonoBehaviour
 
         spawnRoutine = StartCoroutine(SpawnRoutine());
     }
-
+    //where the pawning happens
     private IEnumerator SpawnRoutine()
     {
         while (true)
@@ -52,7 +52,7 @@ public class EnemySpawner : MonoBehaviour
             }
         }
     }
-
+    //spawns enemy
     public void SpawnEnemy()
     {
         CleanupList();
@@ -91,7 +91,7 @@ public class EnemySpawner : MonoBehaviour
             activeEnemies.Count
         );
     }
-
+    //get prefabs
     private GameObject GetEnemyPrefab()
     {
         if (randomEnemy)
@@ -103,7 +103,7 @@ public class EnemySpawner : MonoBehaviour
 
         return enemyPrefabs[0];
     }
-
+    //get spawn points
     private Transform GetSpawnPoint()
     {
         if (randomSpawnPoint)
@@ -115,7 +115,7 @@ public class EnemySpawner : MonoBehaviour
 
         return spawnPoints[0];
     }
-
+    //checks how many enemies
     private void CleanupList()
     {
         for (int i = activeEnemies.Count - 1; i >= 0; i--)

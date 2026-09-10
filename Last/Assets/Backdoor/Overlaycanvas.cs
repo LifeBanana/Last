@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Overlaycanvas : MonoBehaviour
 {
+    //Where the correct canvas stays active the rest are hidden
     public enum CanvasType
     {
         Match,

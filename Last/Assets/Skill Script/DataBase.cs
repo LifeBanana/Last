@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class DataBase : MonoBehaviour
 {
+    //stores and holds the attachments to be used in other scripts
     public static DataBase Instance;
 
     public Attachment[] attachments;

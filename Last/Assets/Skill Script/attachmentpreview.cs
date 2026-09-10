@@ -1,5 +1,6 @@
 using UnityEngine;
 
+//scrapped/outdatted: use for the early version fo the skill tree attachment previewing the attachment
 public class attachmentpreview : MonoBehaviour
 {
     public static attachmentpreview Instance;

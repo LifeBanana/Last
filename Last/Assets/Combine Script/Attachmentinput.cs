@@ -1,5 +1,6 @@
 using UnityEngine;
 
+//scrapped/outdated:  Early Ideas for attachment that didn't pan out left here as a reminder but this was used for camera and slots
 public class Attachmentinput : MonoBehaviour
 {
     public Camera clickCamera;

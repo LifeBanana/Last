@@ -3,6 +3,7 @@ using UnityEngine;
 [System.Serializable]
 public class Profile
 {
+    //calls the stats for weapons and player and stores the values
     public float damage;
     public float recoil;
     public float reloadTime;

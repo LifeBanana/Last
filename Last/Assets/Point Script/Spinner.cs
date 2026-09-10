@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Spinner : MonoBehaviour
 {
+    //where the weapon can spins around and player can interact using left mouse button
     public float speed = 30f;
 
     public float rotationSpeed = 200f;

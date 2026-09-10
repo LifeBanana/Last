@@ -1,5 +1,5 @@
 using UnityEngine;
-
+//Changes idea: early versions of this script was a death barrier but wasn't useful
 public class Death : MonoBehaviour
 {
     [Header("Y Boundary")]
@@ -9,7 +9,7 @@ public class Death : MonoBehaviour
 
     [Header("Trigger")]
     public bool useTrigger = true;
-
+    //player press Tab for reset themselves and calls to respawn functions
     private void Update()
     {
         //if (!useYBoundary)

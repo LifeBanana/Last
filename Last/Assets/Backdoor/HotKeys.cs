@@ -5,8 +5,10 @@ public class Hotkeys : MonoBehaviour
 {
     public Inputmanager inputManager;
 
+    //Where the player/participants switches scenes
     void Update()
     {
+        //switches to the points stat weapon scene
         if (Input.GetKeyDown(KeyCode.L))
         {
             GameRefresh.RefreshEverything();
@@ -14,7 +16,7 @@ public class Hotkeys : MonoBehaviour
             Overlaycontroller.OpenOverlayScene("Point");
             inputManager.EnableGameplay(false);
         }
-
+        //switches to the perk skill tree attachment scene
         if (Input.GetKeyDown(KeyCode.K))
         {
             GameRefresh.RefreshEverything();
@@ -23,7 +25,7 @@ public class Hotkeys : MonoBehaviour
             inputManager.EnableGameplay(false);
         }
 
-
+        //switches to the attachment on weapons scene 
         if (Input.GetKeyDown(KeyCode.J))
         {
             GameRefresh.RefreshEverything();
@@ -31,7 +33,7 @@ public class Hotkeys : MonoBehaviour
             Overlaycontroller.OpenOverlayScene("Combine");
             inputManager.EnableGameplay(false);
         }
-
+        //returns to the FPS scene or testing area and updates the major scripts
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Scenemanager.Instance.CloseOverlay("Point");

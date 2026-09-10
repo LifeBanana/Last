@@ -2,6 +2,7 @@ using UnityEngine;
 
 public static class WeaponBuild
 {
+    //applying the stats modifications to weapons in the point stats weapons scene
     public static Profile Build(Stats stats)
     {
        Profile  gun = new Profile();

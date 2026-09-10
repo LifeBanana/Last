@@ -1,5 +1,5 @@
 using UnityEngine;
-
+//where the player moves their mouse on screen 
 public class Mouse : MonoBehaviour
 {
     public float mouseSensitivity = 150f;

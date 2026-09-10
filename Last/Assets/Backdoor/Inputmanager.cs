@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Inputmanager : MonoBehaviour
 {
+    //Locks and makes sure that mouse/cursor state are correct
     public Controller movement;
 
     public Mouse mouseLook;

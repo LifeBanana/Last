@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class PlayerTree : MonoBehaviour
 {
+    //where the player select perk and buys the selected perk in another button and has all the perk data
     public int availablePoints = 30;
 
     public List<SkillData> unlockedSkills = new List<SkillData>();
@@ -15,7 +16,7 @@ public class PlayerTree : MonoBehaviour
     {
         LoadSkills();
     }
-
+    //where the select of the perk happens
     public void SelectSkill(SkillData skill)
     {
         if (skill == null)
@@ -26,7 +27,7 @@ public class PlayerTree : MonoBehaviour
         Debug.Log( "Selected Skill: " + skill.skillName );
     }
 
-
+    //process to where buying of the perk happens
     public void BuySelectedSkill()
     {
         if (selectedSkill == null)
@@ -40,7 +41,7 @@ public class PlayerTree : MonoBehaviour
 
         UnlockSkill(selectedSkill);
     }
-
+    //checks to see if perk can be bought and calls the other functions
     public bool UnlockSkill(SkillData skill)
     {
         if (unlockedSkills.Contains(skill))
@@ -62,7 +63,7 @@ public class PlayerTree : MonoBehaviour
         Statsmanager.Instance.RefreshProfile();
         return true;
     }
-
+    //saves the perk data to save manager
     public void SaveSkills()
     {
         SaveData save = SaveManager.Instance.Data;
@@ -78,7 +79,7 @@ public class PlayerTree : MonoBehaviour
 
         SaveManager.Instance.SaveGame();
     }
-
+    //laods in the perk across scenes
     public void LoadSkills()
     {
         SaveData save = SaveManager.Instance.Data;

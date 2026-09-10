@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class SkillButton : MonoBehaviour
 {
+    //perk button to display the game object with costs, name, perk data
     public SkillData skill;
 
     public Button button;

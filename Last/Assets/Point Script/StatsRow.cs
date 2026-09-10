@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class StatsRow : MonoBehaviour
 {
+    //where the increase and decrease of stats process can happen
     public string statName;
 
     public TMP_Text valueText;
@@ -28,7 +29,7 @@ public class StatsRow : MonoBehaviour
 
         Refresh();
     }
-
+    //increase a stats value
     void Increase()
     {
         if (value >= maxValue)
@@ -41,7 +42,7 @@ public class StatsRow : MonoBehaviour
 
         Refresh();
     }
-
+    //decrease a stats value
     void Decrease()
     {
         if (value <= minValue)
@@ -51,7 +52,7 @@ public class StatsRow : MonoBehaviour
 
         Refresh();
     }
-
+    //refresh the values
     void Refresh()
     {
         valueText.text = value.ToString();

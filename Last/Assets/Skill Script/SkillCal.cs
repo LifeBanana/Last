@@ -2,6 +2,7 @@ using UnityEngine;
 
 public static class SkillCal
 {
+    //appling the stat modification to the player
     public static void ApplySkills(Profile player)
     {
         PlayerTree tree = Object.FindFirstObjectByType<PlayerTree>();

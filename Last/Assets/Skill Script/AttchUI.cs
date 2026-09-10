@@ -1,5 +1,5 @@
 using UnityEngine;
-
+//Scrapped/Outdated: early versions for attachment ui for skill tree
 public class AttchUI : MonoBehaviour
 {
     public GameObject attachmentPanel;

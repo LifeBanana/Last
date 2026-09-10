@@ -2,6 +2,7 @@ using UnityEngine;
 
 public static class Modifier
 {
+    //Where the stat modiifers for perks and attachments happen
     public static void Apply(Profile profile, StatModifier modifier)
     {
         switch (modifier.effectType)

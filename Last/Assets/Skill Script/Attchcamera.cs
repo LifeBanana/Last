@@ -1,6 +1,6 @@
 using TMPro;
 using UnityEngine;
-
+//Scrapped/Outdated: early versions for focusing the camera on attachments
 public class Attchcamera : MonoBehaviour
 {
     public static Attchcamera Instance;

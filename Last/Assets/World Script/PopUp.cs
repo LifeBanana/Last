@@ -1,6 +1,6 @@
 using TMPro;
 using UnityEngine;
-
+//where the pop up text is created
 public class PopUp : MonoBehaviour
 {
     public TMP_Text text;

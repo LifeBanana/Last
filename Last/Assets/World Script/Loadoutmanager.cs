@@ -20,7 +20,7 @@ public class Loadoutmanager : MonoBehaviour
 
     GameObject currentPrimary;
     GameObject currentSecondary;
-
+    //wait for system to loads in everything
     IEnumerator Start()
     {
         while (string.IsNullOrEmpty(SaveManager.Instance.Data.className))
@@ -28,7 +28,7 @@ public class Loadoutmanager : MonoBehaviour
 
         Initialize();
     }
-
+    //loads in new changes from weapon, clas, perk etc
     public void Initialize()
     {
         SetDefaults();
@@ -38,7 +38,7 @@ public class Loadoutmanager : MonoBehaviour
 
 
     }
-
+    //used for testing and have a way to get class, weapons quickly for testing 
     void SetDefaults()
     {
         SaveData save = SaveManager.Instance.Data;
@@ -52,13 +52,13 @@ public class Loadoutmanager : MonoBehaviour
         if (string.IsNullOrWhiteSpace(save.secondaryWeaponID))
             save.secondaryWeaponID = "Glock";
     }
-
+    //where the spawning happens
     void SpawnWeapons()
     {
         SpawnPrimary();
         SpawnSecondary();
     }
-
+    //spawn the primary weapon
     void SpawnPrimary()
     {
         if (currentPrimary != null)
@@ -93,7 +93,7 @@ public class Loadoutmanager : MonoBehaviour
 
         Debug.LogError("No primary weapon assigned for class: " + className);
     }
-
+    //spawns the side arm weapon
     void SpawnSecondary()
     {
         if (currentSecondary != null)
@@ -119,7 +119,7 @@ public class Loadoutmanager : MonoBehaviour
             gun.Initialize();
         }
     }
-
+    //applying the attachment to weapons in the PFS scne
     void ApplyAttachments(GameObject weapon, bool primary)
     {
         Attachmentmanager manager =  weapon.GetComponent<Attachmentmanager>();
@@ -139,7 +139,7 @@ public class Loadoutmanager : MonoBehaviour
             }
         }
     }
-
+    //displays the bought perks to player
     void DisplaySkills()
     {
         skillText.text = "Unlocked Skills\n\n";
@@ -162,7 +162,7 @@ public class Loadoutmanager : MonoBehaviour
             }
         }
     }
-
+    //displays the current class, weapons to player
     void DisplayLoadoutInfo()
     {
         classText.text = "Class: " +  SaveManager.Instance.Data.className;

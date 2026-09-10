@@ -20,13 +20,13 @@ public class PlayerLoadout : MonoBehaviour
     {
         LoadLoadout();
     }
-
+    //checks to make sure its valid
     public bool IsValidBuild()
     {
         return Calculator.CalculateCost(stats)
             <= MAX_POINTS;
     }
-
+    //process to make sure the correct weapons is displayed and saved
     public void BuildLoadout()
     {
         if (!IsValidBuild())
@@ -51,7 +51,7 @@ public class PlayerLoadout : MonoBehaviour
 
         Debug.Log("Generated Class: " + className);
     }
-
+    //save the changes in the amjor scripts and data for weapons to be used in other script
     public void SaveLoadout()
     {
         var save = SaveManager.Instance.Data;
@@ -100,7 +100,7 @@ public class PlayerLoadout : MonoBehaviour
 
         Statsmanager.Instance.RefreshProfile();
     }
-
+    //where other script calls the loadout for weapons
     public void LoadLoadout()
     {
         var save = SaveManager.Instance.Data;

@@ -1,5 +1,5 @@
 using UnityEngine;
-
+//rotates the camera on the z axis either left or right
 public class Lean : MonoBehaviour
 {
     public float leanAngle = 15f;

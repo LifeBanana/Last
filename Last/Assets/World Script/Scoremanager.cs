@@ -1,6 +1,6 @@
 using UnityEngine;
 using TMPro;
-
+//where the player earns points from killing enemies
 public class Scoremanager : MonoBehaviour
 {
     public static Scoremanager Instance;

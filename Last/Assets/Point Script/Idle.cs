@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Idle : MonoBehaviour
 {
+    //where the weapons moves up and down in scene
     public float bobHeight = 0.03f;
 
     public float bobSpeed = 2f;

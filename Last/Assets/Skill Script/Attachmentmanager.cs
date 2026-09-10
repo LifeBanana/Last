@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Attachmentmanager : MonoBehaviour
 {
+    //fields for weapons prefab
     public Transform muzzleSocket;
 
     public Transform sightSocket;
@@ -16,7 +17,7 @@ public class Attachmentmanager : MonoBehaviour
     public Transform sideRailSocket;
 
     public Socket[] sockets;
-
+    ////Scrapped/Outdated: early versions for the socket system
     Dictionary<AttachmentType, Transform> Socket;
 
     //void Awake()
@@ -31,7 +32,7 @@ public class Attachmentmanager : MonoBehaviour
     //    {AttachmentType.SideRail,sideRailSocket}
     //};
     //}
-
+    //equip the attachment to socket
     public void EquipAttachment(Attachment attachment)
     {
         Transform socket = GetSocketTransform(attachment.attachmentType);
@@ -60,7 +61,7 @@ public class Attachmentmanager : MonoBehaviour
         Debug.Log("Spawned " + attachment.attachmentName);
     }
 
-
+    //get the specific socket 
     public Socket GetSocket(AttachmentType type)
     {
         foreach (Socket socket in sockets)
@@ -71,7 +72,7 @@ public class Attachmentmanager : MonoBehaviour
 
         return null;
     }
-
+    //remove the attachments from socket
     public void RemoveAttachment(AttachmentType type)
     {
         Transform socket = GetSocket(type).transform;
@@ -79,7 +80,7 @@ public class Attachmentmanager : MonoBehaviour
         foreach (Transform child in socket)
             Destroy(child.gameObject);
     }
-
+    //gets the transform for prefab weapon
     public Transform GetSocketTransform(AttachmentType type)
     {
         switch (type)

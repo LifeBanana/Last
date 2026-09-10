@@ -1,6 +1,6 @@
 using System.Net.Sockets;
 using UnityEngine;
-
+//Scrapped/Outdated: early versions where sockets are highlighed
 public class Highlight : MonoBehaviour
 {
     public static Highlight Instance;

@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+//scrapped/outdated: This was used to store the image of attachment
 public class AttachSlot : MonoBehaviour
 {
     public Image icon;

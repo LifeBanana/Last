@@ -1,4 +1,5 @@
 using UnityEngine;
+//where the stats values are called/stored
 
 [System.Serializable]
 public class Stats

@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections;
-
+//where the weapons switching or hiding/activing them happens
 public class weaponmanager : MonoBehaviour
 {
     public Weapon primaryWeapon;
@@ -31,7 +31,7 @@ public class weaponmanager : MonoBehaviour
     {
         HandleInput();
     }
-
+    //manually switching the weapons with 1 or 2 but another options to switch for convience
     void HandleInput()
     {
         if (Input.GetKeyDown(primaryKey))
@@ -61,7 +61,7 @@ public class weaponmanager : MonoBehaviour
             ToggleWeapon();
         }
     }
-
+    //sets primary
     public void EquipPrimary()
     {
         usingPrimary = true;
@@ -72,7 +72,7 @@ public class weaponmanager : MonoBehaviour
 
         currentWeapon = primaryWeapon;
     }
-
+    //set secondary
     public void EquipSecondary()
     {
         usingPrimary = false;
@@ -83,7 +83,7 @@ public class weaponmanager : MonoBehaviour
 
         currentSideArm = secondaryWeapon;
     }
-
+    //toggles the weapons
     public void ToggleWeapon()
     {
         if (usingPrimary)
@@ -95,12 +95,12 @@ public class weaponmanager : MonoBehaviour
             StartCoroutine(SwitchRoutine(true));
         }
     }
-
+    //gets weapons
     public Weapon GetCurrentWeapon()
     {
         return currentWeapon;
     }
-
+    //where the switching happens
     IEnumerator SwitchRoutine(bool primary)
     {
         if (switching)
@@ -120,7 +120,7 @@ public class weaponmanager : MonoBehaviour
 
         switching = false;
     }
-
+    //refresh the models for specific class
     public void RefreshWeapons()
     {
         primaryWeapon = FindFirstObjectByType<Weapon>();
@@ -136,7 +136,7 @@ public class weaponmanager : MonoBehaviour
         currentSideArm = secondaryWeapon;
         usingPrimary = true;
     }
-
+    //sets weapons
     public void SetWeapons(Weapon primary, SideArm secondary)
     {
         primaryWeapon = primary;

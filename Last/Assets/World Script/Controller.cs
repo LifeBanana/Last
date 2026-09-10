@@ -2,7 +2,7 @@ using UnityEngine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-
+//where the player character controller happens
 [RequireComponent(typeof(CharacterController))]
 public class Controller : MonoBehaviour
 {
@@ -44,7 +44,7 @@ public class Controller : MonoBehaviour
         Initialize();
         RefreshProfile();
     }
-
+    //laods in the new changes stats for player
     public void Initialize()
     {
         Profile p = Statsmanager.Instance.Profile;
@@ -62,7 +62,7 @@ public class Controller : MonoBehaviour
         currentHealth = maxHealth;
         currentShield = maxShield;
     }
-
+    //updates everything for player
     void Update()
     {
         GroundCheck();
@@ -72,7 +72,7 @@ public class Controller : MonoBehaviour
         Gravity();
         Instruct();
     }
-
+    //opens the panel to show the controls and instrctuons
     void Instruct()
     {
         if (Input.GetKeyDown(KeyCode.Backspace))
@@ -80,7 +80,7 @@ public class Controller : MonoBehaviour
             gt.gameObject.SetActive(true);
         }
     }
-
+    //where the player inputs to move and sprint to move faster
     void Move()
     {
         float x = Input.GetAxis("Horizontal");
@@ -98,7 +98,7 @@ public class Controller : MonoBehaviour
 
         controller.Move(move * speed * Time.deltaTime);
     }
-
+    //makes sure the player is connected to the ground
     void GroundCheck()
     {
         grounded = Physics.CheckSphere(   groundCheck.position,   groundDistance,  groundMask);
@@ -106,7 +106,7 @@ public class Controller : MonoBehaviour
         if (grounded && velocity.y < 0)
             velocity.y = -2f;
     }
-
+    //where the player jumps
     void Jump()
     {
         if (Input.GetButtonDown("Jump") && grounded)
@@ -114,14 +114,14 @@ public class Controller : MonoBehaviour
             velocity.y =   Mathf.Sqrt(  jumpHeight *   -2f *  gravity);
         }
     }
-
+    //gravity applied
     void Gravity()
     {
         velocity.y += gravity * Time.deltaTime;
 
         controller.Move(    velocity *    Time.deltaTime);
     }
-
+    //where player crouch
     void HandleCrouch()
     {
         if (Input.GetKeyDown(KeyCode.LeftControl))
@@ -131,7 +131,7 @@ public class Controller : MonoBehaviour
             controller.height =   crouching    ? crouchHeight    : standingHeight;
         }
     }
-
+    //refresh new changes to player stats
     public void RefreshProfile()
     {
         Profile p = Statsmanager.Instance.Profile;

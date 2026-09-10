@@ -5,6 +5,7 @@ using System.Collections.Generic;
 
 public static class GameRefresh
 {
+    //Used to save and load changes on major scripts across Scenes
     public static void RefreshEverything()
     {
         Statsmanager.Instance.RefreshProfile();

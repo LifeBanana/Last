@@ -2,6 +2,7 @@ using UnityEngine;
 
 public static class ClassGenerator
 {
+    //where the class swiching and creation happens the highest total stats related to each class
     public static string GetClass(Stats stats)
     {
         float assault = stats.damage * 2f + stats.rateOfFire * 2f + stats.recoil + stats.reloadTime + stats.adsTime;

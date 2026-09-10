@@ -24,7 +24,7 @@ public class Respawn : MonoBehaviour
     {
         playerScripts = GetComponents<MonoBehaviour>();
     }
-
+    //function for other script to respawn the player
     public void RespawnPlayer()
     {
         if (respawning)
@@ -38,7 +38,7 @@ public class Respawn : MonoBehaviour
 
         StartCoroutine(RespawnRoutine());
     }
-
+    //process to respawning the player
     private IEnumerator RespawnRoutine()
     {
         respawning = true;
@@ -65,7 +65,7 @@ public class Respawn : MonoBehaviour
 
         Debug.Log("Player respawned.");
     }
-
+    //moves the player to a respawn position
     private void TeleportPlayer(Transform spawn)
     {
         if (controller != null)
@@ -81,7 +81,7 @@ public class Respawn : MonoBehaviour
             controller.enabled = true;
         }
     }
-
+    //disabl scritps and stops player from moving
     private void DisablePlayer()
     {
         foreach (MonoBehaviour script in playerScripts)
@@ -104,7 +104,7 @@ public class Respawn : MonoBehaviour
         if (controller != null)
             controller.enabled = false;
     }
-
+    //enables the player and any its scripts is active
     private void EnablePlayer()
     {
         foreach (MonoBehaviour script in playerScripts)
@@ -121,7 +121,7 @@ public class Respawn : MonoBehaviour
         if (controller != null)
             controller.enabled = true;
     }
-
+    //checks to see if respawning is true
     public bool IsRespawning()
     {
         return respawning;

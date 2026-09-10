@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class SkillHUD : MonoBehaviour
 {
+    //information for the player for attachment panel, and total skill point
     public PlayerTree tree;
 
     public SkillCombo[] combos;
@@ -24,7 +25,7 @@ public class SkillHUD : MonoBehaviour
 
         RefreshCombos();
     }
-
+    //checks for locked perks has been met Scrapped/Abandoned: early versions of lcoked perks
     void RefreshUnlockedSkills()
     {
         unlockedSkillsText.text = "";
@@ -37,7 +38,7 @@ public class SkillHUD : MonoBehaviour
         if (tree.unlockedSkills.Count == 0)
             unlockedSkillsText.text = "None";
     }
-
+    //checks for combo has been met
     void RefreshCombos()
     {
         comboText.text = "";

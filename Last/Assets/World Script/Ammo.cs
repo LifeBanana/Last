@@ -1,6 +1,6 @@
 using TMPro;
 using UnityEngine;
-
+//displays the ammo for class weapons and updates itself when firing
 public class Ammo : MonoBehaviour
 {
     public weaponmanager weaponManager;

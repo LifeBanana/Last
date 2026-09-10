@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
-
+//Scrapped/Outdated: early versions for displaying information to the player on perks
 public class SkillHover : MonoBehaviour,  IPointerEnterHandler, IPointerExitHandler
 {
     public SkillData skill;

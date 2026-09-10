@@ -1,5 +1,5 @@
 using UnityEngine;
-
+//the bullet to damage the enemy and dummy game object using triggers then finally destroy itself
 public class Bullet : MonoBehaviour
 {
     public float speed = 100f;
@@ -17,7 +17,7 @@ public class Bullet : MonoBehaviour
 
         Debug.DrawRay(transform.position, transform.forward * 2f, Color.red);
     }
-
+    //sepcifc damage from weapons and perk and attachment
     public void SetDamage(float value)
     {
         damage = value;

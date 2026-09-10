@@ -25,7 +25,7 @@ public class Previewmanager : MonoBehaviour
         CurrentWeapons();
         //ShowWeapon(SaveManager.Instance.Data.className);
     }
-
+    //spawns the primary weapons using save manager
     public void CurrentWeapons()
     {
         if (SaveManager.Instance == null)
@@ -44,7 +44,7 @@ public class Previewmanager : MonoBehaviour
 
         SpawnPrimary(SaveManager.Instance.Data.primaryWeaponID);
     }
-
+    //displays the current weapons for class
     public void ShowWeapon(string className)
     {
         if (currentPrimary != null)
@@ -90,7 +90,7 @@ public class Previewmanager : MonoBehaviour
             ShowWeapon("Assault");
         }
     }
-
+    //apply the attachments to weapons in the point stat weapon scene
     void ApplyAttachments(GameObject weapon, bool primary)
     {
         Attachmentmanager manager = weapon.GetComponent<Attachmentmanager>();
@@ -140,7 +140,7 @@ public class Previewmanager : MonoBehaviour
     {
         get { return currentSecondary; }
     }
-
+    //spawns the primary weapons
     public void SpawnPrimary(string weaponID)
     {
         if (currentPrimary != null)
@@ -163,7 +163,7 @@ public class Previewmanager : MonoBehaviour
 
         Debug.LogWarning("Primary weapon not found: " + weaponID);
     }
-
+    //refresh the preview
     public void RefreshPreview()
     {
         if (SaveManager.Instance == null)
@@ -171,7 +171,7 @@ public class Previewmanager : MonoBehaviour
 
         ShowWeapon(SaveManager.Instance.Data.className);
     }
-
+    //gets the attachmentmanager
     public Attachmentmanager CurrentAttachmentManager
     {
         get

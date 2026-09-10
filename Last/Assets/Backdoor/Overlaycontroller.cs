@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class Overlaycontroller : MonoBehaviour
 {
+    //Where the process of switching scene happens
     public static Overlaycontroller Instance;
     private static Overlaycanvas currentCanvas;
     private static Overlaycanvas matchCanvas;
@@ -164,7 +165,7 @@ public class Overlaycontroller : MonoBehaviour
 
         SetOnlyCanvasActive(canvas);
     }
-
+    //select the corrent canvas
     private static void SetOnlyCanvasActive( Overlaycanvas canvasToActivate)
     {
         if (canvasToActivate == null)
@@ -185,7 +186,7 @@ public class Overlaycontroller : MonoBehaviour
 
         canvasToActivate.SetCanvasActive(true);
     }
-
+    //return to PFS scene
     public static void ReturnToMatch()
     {
         Debug.Log("Returning to Match.");
@@ -213,7 +214,7 @@ public class Overlaycontroller : MonoBehaviour
             }
         }
     }
-
+    //closes the cuurent scene and any previous scnen
     private static void CloseCurrentOverlay()
     {
         if (string.IsNullOrEmpty(currentOverlayScene))
@@ -232,12 +233,12 @@ public class Overlaycontroller : MonoBehaviour
 
         currentCanvas = null;
     }
-
+    //debug for scene switching
     private static void OnSceneUnloaded(Scene scene)
     {
         Debug.Log( "Scene unloaded: " +  scene.name );
     }
-
+    //controls which canvas is active
     private static bool TryGetCanvasType( string sceneName,  out Overlaycanvas.CanvasType type)
     {
         switch (sceneName)
@@ -266,7 +267,7 @@ public class Overlaycontroller : MonoBehaviour
         type = Overlaycanvas.CanvasType.Match;
         return false;
     }
-
+    //checks to see if nothing is empty or not correct data type needed
     public static Overlaycanvas GetCurrentCanvas()
     {
         return currentCanvas;

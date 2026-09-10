@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Attachmentkey : MonoBehaviour
 {
+    //where the panel for each type of attachments in which the player press 1 to 6
     void Update()
     {
         if (Previewmanager.Instance == null)

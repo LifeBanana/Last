@@ -1,5 +1,5 @@
 using UnityEngine;
-
+//what type attachment are there
 public enum AttachmentType
 {
     Sights,

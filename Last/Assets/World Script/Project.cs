@@ -1,5 +1,5 @@
 using UnityEngine;
-
+//Scrapped/Outdated: early versions for enemy own bullet at player
 public class Project: MonoBehaviour
 {
     public float damage = 10f;

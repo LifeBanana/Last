@@ -1,5 +1,5 @@
 using UnityEngine;
-
+//the dummy to test the weapons which the game object never takes damage if infinite is true
 public class Dummy : MonoBehaviour
 {
     public bool infiniteHealth = true;

@@ -5,6 +5,7 @@ using TMPro;
 
 public class Attachmentmenu : MonoBehaviour
 {
+    //where the attachments on weapon happens
     public static Attachmentmenu Instance;
 
     public GameObject panel;
@@ -65,7 +66,7 @@ public class Attachmentmenu : MonoBehaviour
 
         Attchcamera.Instance.ResetView();
     }
-
+    //where attachbutton will populate on each panel to the correct attachment type
     void Populate()
     {
         foreach (Transform child in content)
@@ -122,6 +123,7 @@ public class Attachmentmenu : MonoBehaviour
         Close();
     }
 
+    //save the attachment on the weapon across scene
     void SaveAttachment(Attachment attachment)
     {
         SaveData save = SaveManager.Instance.Data;
@@ -142,7 +144,7 @@ public class Attachmentmenu : MonoBehaviour
 
         SaveManager.Instance.SaveGame();
     }
-
+    //equip the attachment to weapon
     public void EquipAttachment(Attachment attachment)
     {
         Debug.Log("Button pressed");

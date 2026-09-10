@@ -1,5 +1,6 @@
 using UnityEngine;
 
+//where the applying of stats for player happens
 public class PlayerMove : MonoBehaviour
 {
     public float walkSpeed;

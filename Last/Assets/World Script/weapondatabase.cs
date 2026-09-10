@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class WeaponDatabase : MonoBehaviour
 {
+    //stores all weapons from primary to secondary to be used in other scripts
     public static WeaponDatabase Instance;
 
     public WeaponData[] weapons;
@@ -10,7 +11,7 @@ public class WeaponDatabase : MonoBehaviour
     {
         Instance = this;
     }
-
+    //gets weapon from ID
     public GameObject GetWeapon(string id)
     {
         Debug.Log("Looking for weapon: " + id);
@@ -45,6 +46,7 @@ public class PrimaryWeapon
 
 public static class Primary
 {
+    //ID for primary weapons for specific class to get called
     public static string GetPrimary(string className)
     {
         switch (className)
